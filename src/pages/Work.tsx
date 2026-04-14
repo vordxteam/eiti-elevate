@@ -157,22 +157,23 @@ const WorkPage = () => (
     </section>
 
     {/* Final CTA */}
-    <section className="section-padding bg-tertiary-container">
-      <div className="container-narrow text-center">
-        <h2 className="text-3xl lg:text-5xl font-headline font-extrabold text-on-tertiary-container mb-8 tracking-tighter">
+    <section className="section-padding bg-primary rounded-[2rem] mx-8 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-50"></div>
+      <div className="relative z-10 container-narrow text-center">
+        <h2 className="text-3xl lg:text-5xl font-headline font-extrabold text-on-primary mb-8 tracking-tighter">
           Beyond Training. This is <span className="text-tertiary">Transformation</span>.
         </h2>
-        <p className="text-on-tertiary-container/80 text-lg lg:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+        <p className="text-on-primary/80 text-lg lg:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
           These projects aren't just work—they are the blueprints for a stronger economy and a more skilled workforce. Join us in building what's next.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <Link
             to="#"
-            className="primary-button px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-lg"
+            className="bg-on-primary text-primary px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-lg"
           >
             Partner With Us
           </Link>
-          <button className="text-on-tertiary-container border-2 border-white/20 px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-sm">
+          <button className="text-on-primary border-2 border-on-primary px-10 py-4 rounded-xl font-bold text-lg hover:bg-on-primary/10 transition-all">
             View More Impact
           </button>
         </div>

@@ -1,3 +1,7 @@
+import heroImage from "@/assets/hero-image.jpg";
+import projectPark from "@/assets/project-park.jpg";
+import projectBuffalo from "@/assets/project-buffalo.jpg";
+
 const ImpactPage = () => (
   <div>
       {/* Hero Section */}
@@ -20,10 +24,10 @@ const ImpactPage = () => (
                 <img
                   alt="Professional training environment"
                   className="w-full h-full object-cover rounded-xl"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM0RRXx7rAZPrD5p0e1uY_Gt8cCGIbv3LPgeIiOBqyZg_-JXQymsizFBlRbhpENmEmrmFmC2v6XYEsJSmHtH2fA8EPnJ2VBbCayAjmFEPqqiR7IdDsgRUvePwP3tzz-Yy_kfGuXer9AZZw6po0On4FJHfmwCLaiU_vM28VJpZLJiwHH7uEJfrea5nwenGlIzbyJSKYIW2prowWKT3zcrVN4InWd4i8E5dArfeXfx9veTfJ1_txVApUPGeYAEtB1jEb0GA9FkUDvYny/"
+                  src={heroImage}
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-surface-container-lowest p-8 rounded-xl editorial-shadow max-w-[240px]">
+              <div className="absolute -bottom-8 -left-10 sm:-bottom-6 sm:-left-6 bg-surface-container-lowest p-8 rounded-xl editorial-shadow max-w-[240px]">
                 <p className="text-primary headline-lg font-headline font-black">12k+</p>
                 <p className="text-sm font-semibold text-on-surface-variant">Careers Launched since 2018</p>
               </div>
@@ -73,43 +77,58 @@ const ImpactPage = () => (
 
       {/* Who We Serve & Opportunity Gap */}
       <section className="section-padding bg-surface">
-        <div className="container-narrow">
-          <div className="flex flex-col md:flex-row gap-20 items-start">
-            <div className="md:w-1/3 sticky top-32">
-              <h2 className="text-4xl font-headline font-extrabold text-primary mb-6">Bridging the <br />Opportunity Gap</h2>
-              <p className="text-on-surface-variant leading-relaxed mb-8">
-                The "Gap" isn't a lack of talent—it's a lack of access. We serve communities that have historically been sidelined from high-growth industrial sectors.
-              </p>
-              <div className="p-6 bg-tertiary-container text-on-tertiary-container rounded-xl">
-                <p className="font-bold text-lg mb-2 italic">"Talent is universal; opportunity is not."</p>
-              </div>
-            </div>
-            <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {/* Bento Grid of Needs */}
-              <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-primary">
-                <span className="material-symbols-outlined text-primary mb-4">groups</span>
-                <h4 className="font-headline font-bold text-lg mb-2">Underemployed Adults</h4>
-                <p className="text-sm text-on-surface-variant">Individuals working multiple part-time roles without benefits or stability.</p>
-              </div>
-              <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-tertiary">
-                <span className="material-symbols-outlined text-tertiary mb-4">school</span>
-                <h4 className="font-headline font-bold text-lg mb-2">First-Gen Professionals</h4>
-                <p className="text-sm text-on-surface-variant">Students breaking through family cycles of low-wage manual labor.</p>
-              </div>
-              <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-primary">
-                <span className="material-symbols-outlined text-primary mb-4">precision_manufacturing</span>
-                <h4 className="font-headline font-bold text-lg mb-2">Displaced Workers</h4>
-                <p className="text-sm text-on-surface-variant">Transitioning veteran labor from legacy industries to renewable tech.</p>
-              </div>
-              <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-tertiary">
-                <span className="material-symbols-outlined text-tertiary mb-4">location_city</span>
-                <h4 className="font-headline font-bold text-lg mb-2">Urban Youth</h4>
-                <p className="text-sm text-on-surface-variant">Providing a direct pipeline from high school to high-paying trade careers.</p>
-              </div>
-            </div>
-          </div>
+  {/* Added px-4 to ensure it doesn't touch screen edges on mobile */}
+  <div className="w-full px-4 md:px-0 md:container-narrow mx-auto">
+    <div className="flex flex-col md:flex-row gap-10 md:gap-20 items-start">
+      
+      {/* Sidebar: Sticky is disabled on mobile (static) and enabled on md+ */}
+      <div className="w-full md:w-1/3 static md:sticky md:top-32">
+        <h2 className="text-3xl md:text-4xl font-headline font-extrabold text-primary mb-4 md:mb-6 leading-tight">
+          Bridging the <br className="hidden md:block" /> Opportunity Gap
+        </h2>
+        <p className="text-on-surface-variant leading-relaxed mb-6 md:mb-8">
+          The "Gap" isn't a lack of talent—it's a lack of access. We serve communities that have historically been sidelined from high-growth industrial sectors.
+        </p>
+        <div className="p-6 bg-tertiary-container text-on-tertiary-container rounded-xl">
+          <p className="font-bold text-lg italic">
+            "Talent is universal; opportunity is not."
+          </p>
         </div>
-      </section>
+      </div>
+
+      {/* Grid: Ensures full width on mobile */}
+      <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        {/* Card 1 */}
+        <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-primary">
+          <span className="material-symbols-outlined text-primary mb-4">groups</span>
+          <h4 className="font-headline font-bold text-lg mb-2">Underemployed Adults</h4>
+          <p className="text-sm text-on-surface-variant">Individuals working multiple part-time roles without benefits or stability.</p>
+        </div>
+        
+        {/* Card 2 */}
+        <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-tertiary">
+          <span className="material-symbols-outlined text-tertiary mb-4">school</span>
+          <h4 className="font-headline font-bold text-lg mb-2">First-Gen Professionals</h4>
+          <p className="text-sm text-on-surface-variant">Students breaking through family cycles of low-wage manual labor.</p>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-primary">
+          <span className="material-symbols-outlined text-primary mb-4">precision_manufacturing</span>
+          <h4 className="font-headline font-bold text-lg mb-2">Displaced Workers</h4>
+          <p className="text-sm text-on-surface-variant">Transitioning veteran labor from legacy industries to renewable tech.</p>
+        </div>
+
+        {/* Card 4 */}
+        <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-tertiary">
+          <span className="material-symbols-outlined text-tertiary mb-4">location_city</span>
+          <h4 className="font-headline font-bold text-lg mb-2">Urban Youth</h4>
+          <p className="text-sm text-on-surface-variant">Providing a direct pipeline from high school to high-paying trade careers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Student Stories */}
       <section className="section-padding bg-primary text-on-primary">
@@ -126,7 +145,7 @@ const ImpactPage = () => (
           <div className="grid md:grid-cols-2 gap-12">
             <div className="flex flex-col md:flex-row gap-8 items-center bg-primary-container p-8 rounded-xl">
               <div className="w-full md:w-48 aspect-square rounded-xl overflow-hidden shrink-0">
-                <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcJvJZZuMxW8lbQ6ogaZkoOBH-MEkYtQ7PSrXA1P-0DH0hX0a3ee879RP7lACdLF0jzNIUfw02_inoeQdd9SQsdVe2V8dNcmduz9lDCLXEiHeNn9rH8csW5x5mHp2hyrNHvLWyelefxVGmmc3sbHzDhsxGtFB7LqBhFjdnMt_q8GYZBpZOR387c8kQFVhi09dcADeW8W0yAvMq8HrMD7zuaidMRxrorTm-4avbVnixG0Z514SBiKWtRwm4x0fAQHe5Hf5kqlw-U_Fw" alt="Marcus T." />
+                <img className="w-full h-full object-cover" src={projectPark} alt="Marcus T." />
               </div>
               <div>
                 <span className="text-tertiary-fixed-dim font-bold text-xs tracking-widest uppercase">Fiber Optics Graduate</span>
@@ -140,7 +159,7 @@ const ImpactPage = () => (
             </div>
             <div className="flex flex-col md:flex-row gap-8 items-center bg-primary-container p-8 rounded-xl">
               <div className="w-full md:w-48 aspect-square rounded-xl overflow-hidden shrink-0">
-                <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjaT_gaKvhiVLUuhRpIHe89brZGN6-r2FNeYikfpoWCNTvn3jkzFNMnjyU9qKaTOkfQNR1z6fyEzDEN0CqSMtj13VL9HX2lwf-S2hE2Hdzk8uRhUiToo5gFiPzZQbsygxOu3rvn_HkowYUsvypbeZ7eUgezQqYjbiRKSTFg1nVfaUvjwxels4OSicZ8Fajl4SQp0G-tDUgCcpRRcFV507YZDP5TeglAyEFpNe5nI24t1y2J5O1RvWSXghg0DJbjsUEHZmEDdkE-m__" alt="Sarah L." />
+                <img className="w-full h-full object-cover" src={projectBuffalo} alt="Sarah L." />
               </div>
               <div>
                 <span className="text-tertiary-fixed-dim font-bold text-xs tracking-widest uppercase">Renewable Energy Specialist</span>
@@ -173,19 +192,18 @@ const ImpactPage = () => (
         </div>
       </section>
 
-      {/* Partner CTA */}
-      <section className="section-padding bg-tertiary rounded-[2rem] mx-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-tertiary to-tertiary-container opacity-50"></div>
+      <section className="section-padding bg-primary rounded-[2rem] mx-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-50"></div>
         <div className="relative z-10 container-narrow text-center">
-          <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-on-tertiary mb-8 leading-tight">Ready to co-author <br />the next success story?</h2>
-          <p className="text-tertiary-fixed text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+          <h2 className="sm:text-4xl text-xl md:text-5xl font-headline font-extrabold text-on-primary mb-8 leading-tight">Ready to co-author <br />the next success story?</h2>
+          <p className="text-on-primary/80 text-sm sm:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
             Join our network of corporate partners, hiring managers, and donors to scale our impact to new regions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-on-tertiary text-tertiary px-10 py-4 rounded-xl font-headline font-extrabold text-lg hover:bg-tertiary-fixed transition-colors">
+            <button className="bg-on-primary text-primary px-3 sm:px-10 py-4 rounded-xl font-headline font-extrabold text-lg hover:bg-on-primary/90 transition-colors">
               Partner With Us
             </button>
-            <button className="border-2 border-on-tertiary text-on-tertiary px-10 py-4 rounded-xl font-headline font-extrabold text-lg hover:bg-white/10 transition-colors">
+            <button className="border-2 border-on-primary text-on-primary px-3 sm:px-10 py-4 rounded-xl font-headline font-extrabold text-lg hover:bg-on-primary/10 transition-colors">
               Download Impact Report
             </button>
           </div>

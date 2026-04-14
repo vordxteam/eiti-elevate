@@ -1,3 +1,7 @@
+import heroImage from "@/assets/hero-image.jpg";
+import projectPark from "@/assets/project-park.jpg";
+import projectBuffalo from "@/assets/project-buffalo.jpg";
+
 const AboutPage = () => {
   const leaders = [
     { name: "Marcus Thorne", role: "Chief Executive Officer", initials: "MT" },
@@ -32,7 +36,7 @@ const AboutPage = () => {
                 <img
                   alt="EITI Training"
                   className="w-full h-full object-cover rounded-xl"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxoQwndcp95t2NrvEiZylrmUjL5M1eRK3sAEMkAl9UesOSR-5BtAFWNn80x8CugHgUj2baaxvw5ySPEpF6v6rPPrfMNun6-ivH4JH3nvBZFgIO6opLeq8yfamdlqrLHi0zzD7UW8EYy6jxoHmsgFIzVhgdAisOREZH8hDgbbYGX9KgXkj0EawPP3NtMVYX0EMsVI8lSamEFmfR6Mvzzf9ERCu3tF8vAnorCQrtVy09357eYIojRLLp0YrBINoXUE1OGTrRacQub6q3/"
+                  src={heroImage}
                 />
               </div>
               <div className="absolute -bottom-8 -left-8 bg-surface-container-lowest p-8 rounded-xl editorial-shadow max-w-xs">
@@ -74,7 +78,7 @@ const AboutPage = () => {
             </div>
             <div className="relative space-y-8">
               <div className="aspect-video rounded-xl overflow-hidden">
-                <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQVhrFVOqW1f6OLkqK88oBE14l19vaImX9x8vDZtyVN7KN6QO92ubddRNQ3AcME-DrvDXCx9sKsEDWVvZ9w3jLdN1i-LquZ12HRMsTpG_Agr4_ummN7yw3fZgRlOwTDkL041eAX6IK_ACWyDVveFo6tVR_ap4uI4bjECG8saBbvoTKJ86TteCKbOOkp1cpiIHiLZwZAp-eEpPi_ozMDkgpUcv6XvUPYCbSNa_KGBhz6v2ImAfLb-XYOvZOFet1oZx5TKJ2uzQxWI-S/" alt="Diverse group collaborating" />
+                <img className="w-full h-full object-cover" src={projectPark} alt="Diverse group collaborating" />
               </div>
               <div className="bg-primary p-12 rounded-xl text-on-primary relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-10">
@@ -123,18 +127,6 @@ const AboutPage = () => {
               );
             })}
           </div>
-          <div className="mt-20 p-8 bg-surface-container-low rounded-xl flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-6">
-              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-3xl">school</span>
-              </div>
-              <div>
-                <h4 className="font-headline font-bold text-xl">Join our faculty</h4>
-                <p className="text-on-surface-variant text-sm">We are always looking for industry experts to share their craft.</p>
-              </div>
-            </div>
-            <button className="px-8 py-3 bg-white border border-outline-variant text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all">View Careers</button>
-          </div>
         </div>
       </section>
 
@@ -181,18 +173,18 @@ const AboutPage = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="pt-12">
                 <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-xl mb-4">
-                  <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNCd1W8XCXkUmAAl7GAC8Q8Vzsgk0eiYi9UEH6qcM3GgY9A0psTZest5Yr-fDsuTrGCRp0Q0sIEPJlNryFAygqv16ugF7dbbSZp22MZC0pDdl1tlds-7regln4105436vW7GIst07QmxGCGD7AHVP6qz50mHqWs4aemZmnTuU50QavaSn7Vz24YNsDOAWDjgvPKZAOMVTL_5JShzyrUSt5KWVR6SNBVCvzkboQRvSiXVag0zISqPFOFVzjMrkvTMOTZYMf9KgjiH3/" alt="Technical vocational student" />
+                  <img className="w-full h-full object-cover" src={projectBuffalo} alt="Technical vocational student" />
                 </div>
                 <div className="aspect-square rounded-xl overflow-hidden shadow-xl">
-                  <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlhVKIU4Ak9yxSU91cLdlDiAt7n7cXWJcJHnhHlhFJ19xr4i2wMEnkTWa0TtK0MqzhAL-pKkYG7Ivl0pCjvTAkHmWzkzeKdDwQ_1gMsJSPmxwTdZ9Tcdz_xOTLPzeV6rjfLSblmm_cSUU-hX_X_WVWIJR8Haw6wbz9B2xEu4Lj1tBOzY43z8lUpGort3CEf3apWUlg-M3oOCJmUkZFpYnlC_xsUL5INDmb7nFGrIvGsdysAlh6DuJTLy4KErGrHg9a6HvJjmzywKt_/" alt="Modern industrial facade" />
+                  <img className="w-full h-full object-cover" src={heroImage} alt="Modern industrial facade" />
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="aspect-square rounded-xl overflow-hidden shadow-xl mb-4">
-                  <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmjsLjH-w6qDaaP1TG4Osg0PmZOAhkZOSMR1v6Pe8quMEC_jDu9Uf2dfc96jOtroOZd8RZ3isDO7AOfwJ9rA41Gu9Wgpw42asUMnc6icP9iDleTLNrgg_9NTnySojxDmVFZwXxGtrsQCTYwT9li9Ij7THAub8sXwY-prvxfGhqK84f4soWDqDHRqgZD-ZFKT_yYuc4mc5RkMZkjbvKuAvnZSgDbNSNPVcT3mW4kfzNI_f8AghE6ga_D8omSZ-JO7KhDTh5D-5_6S7M/" alt="Student and mentor collaborating" />
+                  <img className="w-full h-full object-cover" src={projectPark} alt="Student and mentor collaborating" />
                 </div>
                 <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-xl">
-                  <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Usy9FpHQYrf686tjB6zDBEnMD9wdi8gHN8I0jUTZslCXMdsSDCj0h6x30PqSk0Pm_K9tu-8t0yGU2PMWnxulhXJcTIpZDeU04-HZHUhdToxG1TxL1Upm1kqt-zJMTXD4Awg5y_8-nXUtEpztA0I7RWsar5YqmDsxSGvyoBoJPXrz4-SVKRrxPF-zG7OvlFyi3Bzwdu3MZm7b_NM6eGvPd_nxGITQqxE5kz5LJprYaEPbaBTaOizsFf5nFGrIvGsdysAlh6DuJTLy4KErGrHg9a6HvJjmzywKt_/" alt="Blueprint on tablet" />
+                  <img className="w-full h-full object-cover" src={projectBuffalo} alt="Blueprint on tablet" />
                 </div>
               </div>
             </div>

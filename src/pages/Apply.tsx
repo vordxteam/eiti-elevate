@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
+import heroImage from "@/assets/hero-image.jpg";
+import projectPark from "@/assets/project-park.jpg";
 
 const programs = [
   {
@@ -75,7 +77,7 @@ const ApplyPage = () => {
                 <img
                   alt="Professional training environment"
                   className="w-full h-full object-cover rounded-xl"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkHbCdFR3Yrr7S54tFfY7mMaGJfo9Bl1WXaXZU0w2Aqgo-335W5WZK5M6yqZQcgQJX1bXqg3O89NGU-TY9fcDcDR1K4pyn5nWZ8RB0rx6ddufASw1dXQ3gDnCAicW-hnF9USrMjHQX0umauN1dyHId4IOplal0vBMYJ3SYskViQPG8xTQ1FO4iu5zMcawkVOC1KisYK3Fwjy320v1PSJ7wFNVDB6qKbN0dmVieG4bRD_HOEd4ztuIaKYHB6Fq--B-7nG7YBq1m_mJd/"
+                  src={heroImage}
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 rounded-xl editorial-shadow max-w-xs">

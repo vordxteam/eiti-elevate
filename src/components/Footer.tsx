@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer className="w-full py-16 px-8 mt-20 bg-surface-container-low">
+  <footer className="w-full py-16 px-8 mt-20 bg-surface shadow-lg border-t border-outline-variant">
     <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
       <div className="col-span-1 md:col-span-1">
         <div className="text-xl font-bold text-primary mb-6 font-headline tracking-tighter">EITI</div>
@@ -29,15 +29,7 @@ const Footer = () => (
             <span className="material-symbols-outlined text-sm">campaign</span>
           </a>
         </div>
-      </div>
-      <div>
-        <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Resources</h4>
-        <ul className="space-y-4 text-sm text-on-surface-variant">
-          <li><a className="hover:text-primary underline-offset-4 hover:underline" href="#">Partner Portal</a></li>
-          <li><a className="hover:text-primary underline-offset-4 hover:underline" href="#">Careers</a></li>
-          <li><a className="hover:text-primary underline-offset-4 hover:underline" href="#">Student Login</a></li>
-        </ul>
-      </div>
+        </div>
       <div>
         <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Contact</h4>
         <ul className="space-y-4 text-sm text-on-surface-variant">
@@ -52,6 +44,16 @@ const Footer = () => (
           <li><a className="hover:text-primary underline-offset-4 hover:underline" href="#">Privacy Policy</a></li>
           <li><a className="hover:text-primary underline-offset-4 hover:underline" href="#">Terms of Service</a></li>
         </ul>
+      </div>
+      <div>
+        <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Partners</h4>
+        <div className="grid grid-cols-2 gap-6 items-center">
+          {["GLOBAL LOGISTICS", "CITY POWER & LIGHT", "TECH VENTURES", "URBAN RENEWAL"].map((partner) => (
+            <div key={partner} className="flex justify-center grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer group">
+              <span className="text-sm font-bold text-outline group-hover:text-primary transition-colors duration-300">{partner}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
     <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-outline-variant">
