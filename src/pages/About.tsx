@@ -1,190 +1,174 @@
 import heroImage from "@/assets/hero-image.jpg";
 import projectPark from "@/assets/project-park.jpg";
 import projectBuffalo from "@/assets/project-buffalo.jpg";
+import CTA from "@/components/ui/CTA";
 
 const AboutPage = () => {
-  const leaders = [
-    { name: "Marcus Thorne", role: "Chief Executive Officer", initials: "MT" },
-    { name: "Dr. Sarah Jenkins", role: "Dean of Instruction", initials: "SJ" },
-    { name: "David Vance", role: "Lead Robotics Instructor", initials: "DV" },
-    { name: "Elena Rodriguez", role: "Director of Admissions", initials: "ER" },
-    { name: "James Okafor", role: "Head of Electrical Programs", initials: "JO" },
-    { name: "Priya Nair", role: "Solar & Renewables Lead", initials: "PN" },
-    { name: "Carlos Mendes", role: "Carpentry & Construction Chair", initials: "CM" },
-    { name: "Tanya Williams", role: "Culinary Arts Director", initials: "TW" },
+  const team = [
+    { name: "Anthony Jackson", role: "President", initials: "AJ", color: "#1CA6A3" },
+    { name: "William Aaron", role: "Chief Operating Officer", initials: "WA", color: "#74B4E0" },
+    { name: "Tailar Jackson", role: "Executive Assistant", initials: "TJ", color: "#5FB673" },
+    { name: "Abram Jones", role: "Residential Electrical Instructor", initials: "AJ", color: "#1CA6A3" },
+    { name: "Fred Burr Jr.", role: "Framing and Structural Carpentry Instructor", initials: "FB", color: "#74B4E0" },
+    { name: "Brandon Knight", role: "Renewable Energy Instructor", initials: "BK", color: "#5FB673" },
   ];
 
   return (
     <div>
-      {/* Who We Are (Hero) */}
-      <section className="section-padding pt-32 bg-surface">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
-            <div className="md:col-span-7">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider mb-6">
-                ESTABLISHED AUTHORITY
-              </span>
-              <h1 className="headline-lg font-headline text-primary leading-[1.1] tracking-tight mb-8">
-                Architecting the <span className="text-tertiary italic">Future</span> of Industry.
-              </h1>
-              <p className="text-lg text-on-surface-variant max-w-xl leading-relaxed">
-                The Emerging Industries Training Institute is not just a school. We are a catalyst for workforce transformation in the sectors that define our era.
+      {/* Hero Section - Who Are We */}
+      <section className="relative h-full flex items-center overflow-hidden bg-surface pt-32">
+        <div className="container-narrow grid w-full items-center gap-12 relative z-10 md:grid-cols-12 px-4 sm:px-6">
+          <div className="md:col-span-7">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#333333] leading-[1.1] tracking-tight mb-8">
+              Who <span className="text-[#1CA6A3]">We Are</span>
+            </h1>
+            <p className="text-lg md:text-xl text-[#555] max-w-xl mb-8 leading-relaxed">
+              For over 15 years, EITI has equipped Detroit residents with the skills and pathways needed to enter and succeed in the workforce.
+            </p>
+            <div className="flex items-center gap-4">
+              <div className="bg-white p-6 rounded-xl editorial-shadow max-w-[200px]">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="material-symbols-outlined text-[#5FB673] text-2xl">calendar_month</span>
+                  <span className="text-[#1CA6A3] font-bold text-2xl tracking-tight">15+</span>
+                </div>
+                <p className="text-xs text-[#555] font-medium">Years of workforce training excellence</p>
+              </div>
+            </div>
+          </div>
+          <div className="md:col-span-5 relative">
+            <div className="rounded-2xl overflow-hidden editorial-shadow bg-white p-2">
+              <img
+                alt="EITI Training"
+                className="w-full aspect-[4/5] object-cover rounded-xl"
+                src={heroImage}
+              />
+            </div>
+            <div className="absolute bottom-3 -left-5 md:-left-7 max-w-[240px] rounded-xl bg-[#1CA6A3] p-6 editorial-shadow">
+              <p className="text-3xl font-headline font-black text-white">2,200+</p>
+              <p className="text-sm font-semibold text-white/90">Careers Launched</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-16 sm:py-24 bg-[#F2F9F9]">
+        <div className="container-narrow px-4 sm:px-6 mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Mission Card */}
+            <div className="group bg-white rounded-2xl p-8 sm:p-10 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 border-l-4 border-[#1CA6A3]">
+              <div className="w-14 h-14 rounded-xl bg-[#1CA6A3]/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-[#1CA6A3]">target</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-headline font-bold text-[#333333] mb-4">
+                Our Mission
+              </h2>
+              <p className="text-[#555] text-base sm:text-lg leading-relaxed">
+                Emerging Industries Training Institute (EITI) advances economic mobility by training Detroit residents for real careers. Through hands-on, employer-aligned programs, we equip individuals with the skills and credentials needed to secure sustainable employment and build long-term stability.
               </p>
             </div>
-            <div className="md:col-span-5 relative">
-              <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl transform rotate-2 bg-surface-container-lowest p-2">
-                <img
-                  alt="EITI Training"
-                  className="w-full h-full object-cover rounded-xl"
-                  src={heroImage}
+
+            {/* Vision Card */}
+            <div className="group bg-white rounded-2xl p-8 sm:p-10 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 border-l-4 border-[#74B4E0]">
+              <div className="w-14 h-14 rounded-xl bg-[#74B4E0]/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-[#74B4E0]">visibility</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-headline font-bold text-[#333333] mb-4">
+                Our Vision
+              </h2>
+              <p className="text-[#555] text-base sm:text-lg leading-relaxed">
+                To build a stronger, more inclusive workforce by connecting every individual to real opportunity, long-term careers, and lasting economic stability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Team */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="container-narrow px-4 sm:px-6 mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#333333] leading-tight mb-6">
+              Our <span className="text-[#1CA6A3]">Team</span>
+            </h2>
+            <p className="text-lg text-[#555] max-w-2xl mx-auto leading-relaxed">
+              Dedicated professionals committed to transforming lives through workforce training and career development.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {team.map((member, i) => (
+              <div
+                key={member.name}
+                className="group bg-[#F2F9F9] rounded-2xl p-6 sm:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <div
+                  className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-5 editorial-shadow"
+                  style={{ backgroundColor: member.color }}
+                >
+                  <span className="text-2xl font-headline font-black text-white">
+                    {member.initials}
+                  </span>
+                </div>
+                <h3 className="text-lg font-headline font-bold text-[#333333] mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-sm text-[#555] font-medium">
+                  {member.role}
+                </p>
+                <div
+                  className="mt-4 h-1 w-12 rounded-full mx-auto"
+                  style={{ backgroundColor: member.color }}
                 />
               </div>
-              <div className="absolute -bottom-8 -left-8 bg-surface-container-lowest p-8 rounded-xl editorial-shadow max-w-xs">
-                <span className="headline-lg font-headline font-black text-primary block mb-2">20+</span>
-                <p className="text-sm font-semibold text-on-surface-variant">
-                  Years of pioneering vocational excellence and industrial trust.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Who We Are & Story */}
-      <section className="section-padding bg-surface-container-low">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-2 gap-20">
-            <div className="space-y-12">
+      {/* Values/Why We Matter */}
+      <section className="py-16 sm:py-24 bg-[#F2F9F9]">
+        <div className="container-narrow px-4 sm:px-6 mx-auto">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-sm">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <span className="text-tertiary font-bold tracking-widest text-xs uppercase mb-4 block">Who We Are</span>
-                <h2 className="font-headline text-4xl font-bold text-primary mb-6 leading-tight">Bridging the Gap Between Ambition and Application.</h2>
-                <p className="text-on-surface-variant text-lg leading-relaxed mb-4">
-                  Founded on the principle that modern industries require modern education, EITI was established to solve the widening skills gap in the industrial heartland. We don't teach from outdated textbooks; we train using the actual technologies shaping today's factories, labs, and infrastructure.
+                <h2 className="text-3xl sm:text-4xl font-headline font-bold text-[#333333] leading-tight mb-6">
+                  Building <span className="text-[#1CA6A3]">Careers</span>,<br />
+                  Transforming <span className="text-[#74B4E0]">Communities</span>
+                </h2>
+                <p className="text-lg text-[#555] mb-8 leading-relaxed">
+                  EITI is more than a training institute. We are a bridge between potential and opportunity, connecting Detroit residents to meaningful careers that provide stability, growth, and pride.
                 </p>
-                <p className="text-on-surface-variant text-lg leading-relaxed">
-                  Our curriculum is built in direct collaboration with industry leaders, ensuring every hour spent in our classrooms translates directly to value in the workplace.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-8">
-                <div className="p-6 bg-surface-container-lowest rounded-xl">
-                  <h3 className="font-headline text-xl font-bold text-primary mb-2">Our Mission</h3>
-                  <p className="text-sm text-on-surface-variant">To empower individuals with precision skills that drive sustainable industrial growth.</p>
-                </div>
-                <div className="p-6 bg-surface-container-lowest rounded-xl">
-                  <h3 className="font-headline text-xl font-bold text-primary mb-2">Our Vision</h3>
-                  <p className="text-sm text-on-surface-variant">To become the global standard for rapid-response industrial training and career mobility.</p>
-                </div>
-              </div>
-            </div>
-            <div className="relative space-y-8">
-              <div className="aspect-video rounded-xl overflow-hidden">
-                <img className="w-full h-full object-cover" src={projectPark} alt="Diverse group collaborating" />
-              </div>
-              <div className="bg-primary p-12 rounded-xl text-on-primary relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-10">
-                  <span className="material-symbols-outlined text-[120px]">history_edu</span>
-                </div>
-                <h3 className="font-headline text-2xl font-bold mb-4">Our History</h3>
-                <div className="space-y-4 text-primary-fixed">
-                  <p className="text-sm border-l-2 border-tertiary-fixed pl-4">
-                    <strong className="text-white block mb-1 font-headline">2018 — The Foundation</strong>
-                    Founded as a specialized industrial training center in Detroit with two programs.
-                  </p>
-                  <p className="text-sm border-l-2 border-tertiary-fixed pl-4">
-                    <strong className="text-white block mb-1 font-headline">2021 — Four Programs</strong>
-                    Expanded to four full programs: Electrical, Solar, Carpentry, and Culinary Arts.
-                  </p>
-                  <p className="text-sm border-l-2 border-tertiary-fixed pl-4">
-                    <strong className="text-white block mb-1 font-headline">2024 — Scaling Impact</strong>
-                    Over 1,200 graduates placed across Detroit's fastest-growing industrial sectors.
-                  </p>
+                <div className="space-y-4">
+                  {[
+                    { icon: "handshake", text: "Employer-aligned training programs" },
+                    { icon: "construction", text: "Hands-on, practical skill development" },
+                    { icon: "trending_up", text: "Proven pathway to economic mobility" },
+                    { icon: "groups", text: "Community-focused workforce solutions" }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="material-symbols-outlined text-[#1CA6A3]">{item.icon}</span>
+                      <span className="text-[#333] font-medium">{item.text}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership & Instructors */}
-      <section className="section-padding bg-surface">
-        <div className="container-narrow">
-          <div className="text-center mb-20">
-            <h2 className="font-headline text-4xl font-bold text-primary mb-4">The Minds Behind EITI</h2>
-            <p className="text-on-surface-variant max-w-2xl mx-auto">Our leadership brings decades of collective experience from the fields of mechanical engineering, logistics, and educational technology.</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
-            {leaders.map((leader, i) => {
-              const colors = ["bg-primary", "bg-secondary", "bg-tertiary", "bg-primary-container", "bg-secondary-container", "bg-tertiary-container", "bg-primary", "bg-secondary"];
-              const textColors = ["text-on-primary", "text-on-secondary", "text-on-tertiary", "text-on-primary-container", "text-on-secondary-container", "text-on-tertiary-container", "text-on-primary", "text-on-secondary"];
-              return (
-                <div key={leader.name} className="group">
-                  <div className={`aspect-square rounded-xl mb-4 flex items-center justify-center ${colors[i]} editorial-shadow`}>
-                    <span className={`text-3xl font-headline font-black ${textColors[i]}`}>{leader.initials}</span>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
+                    <img className="w-full h-full object-cover" src={projectPark} alt="EITI training session" />
                   </div>
-                  <h3 className="font-headline font-bold text-lg text-on-surface">{leader.name}</h3>
-                  <p className="text-sm text-tertiary font-medium">{leader.role}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Why It Matters */}
-      <section className="section-padding bg-surface">
-        <div className="container-narrow">
-          <div className="grid lg:grid-cols-2 gap-24 items-center">
-            <div>
-              <span className="text-tertiary font-bold tracking-widest text-xs uppercase mb-4 block">The "Why"</span>
-              <h2 className="font-headline text-5xl font-extrabold text-primary mb-4 tracking-tighter">Beyond the Certificate.</h2>
-              <p className="text-on-surface-variant mb-8 leading-relaxed">
-                Over <span className="font-bold text-primary">500,000 skilled trade jobs</span> go unfilled every year in America. EITI exists to close that gap — one graduate at a time.
-              </p>
-              <div className="space-y-8">
-                <div className="flex gap-6">
-                  <span className="material-symbols-outlined text-tertiary text-3xl shrink-0" data-weight="fill">verified</span>
-                  <div>
-                    <h4 className="font-headline font-bold text-xl mb-2">Economic Resilience</h4>
-                    <p className="text-on-surface-variant leading-relaxed">
-                      Industrial skills are the backbone of a stable economy. By training the next generation of technicians, we are securing the economic future of our communities.
-                    </p>
+                  <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
+                    <img className="w-full h-full object-cover" src={projectBuffalo} alt="Hands-on project work" />
                   </div>
                 </div>
-                <div className="flex gap-6">
-                  <span className="material-symbols-outlined text-tertiary text-3xl shrink-0" data-weight="fill">trending_up</span>
-                  <div>
-                    <h4 className="font-headline font-bold text-xl mb-2">Upward Mobility</h4>
-                    <p className="text-on-surface-variant leading-relaxed">
-                      EITI graduates don't just find jobs; they find careers with high wage potential and long-term security in growing industries.
-                    </p>
+                <div className="pt-8 space-y-4">
+                  <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
+                    <img className="w-full h-full object-cover" src={heroImage} alt="Student success" />
                   </div>
-                </div>
-                <div className="flex gap-6">
-                  <span className="material-symbols-outlined text-tertiary text-3xl shrink-0" data-weight="fill">precision_manufacturing</span>
-                  <div>
-                    <h4 className="font-headline font-bold text-xl mb-2">Human Innovation</h4>
-                    <p className="text-on-surface-variant leading-relaxed">
-                      Technology is only as good as the people who operate it. We focus on the intersection of human problem-solving and machine efficiency.
-                    </p>
+                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
+                    <img className="w-full h-full object-cover" src={projectBuffalo} alt="Community impact" />
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="pt-12">
-                <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-xl mb-4">
-                  <img className="w-full h-full object-cover" src={projectBuffalo} alt="Technical vocational student" />
-                </div>
-                <div className="aspect-square rounded-xl overflow-hidden shadow-xl">
-                  <img className="w-full h-full object-cover" src={heroImage} alt="Modern industrial facade" />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="aspect-square rounded-xl overflow-hidden shadow-xl mb-4">
-                  <img className="w-full h-full object-cover" src={projectPark} alt="Student and mentor collaborating" />
-                </div>
-                <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-xl">
-                  <img className="w-full h-full object-cover" src={projectBuffalo} alt="Blueprint on tablet" />
                 </div>
               </div>
             </div>

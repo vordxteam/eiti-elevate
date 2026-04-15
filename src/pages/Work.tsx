@@ -1,184 +1,183 @@
 import { Link } from "react-router-dom";
 import projectPark from "@/assets/project-park.jpg";
 import projectBuffalo from "@/assets/project-buffalo.jpg";
+import CTA from "@/components/ui/CTA";
+
+const projects = [
+  {
+    id: "virginia-park",
+    title: "Virginia Park Neighborhood Beautification",
+    partner: "Ally",
+    description: "EITI partnered with Ally to support residential improvements and community revitalization efforts.",
+    image: projectPark,
+    category: "Community Revitalization",
+    ctaLink: "https://drive.google.com/drive/folders/1rWfL25PrmaCXsB9vO2Hd0CMoxLRoUrjQ?usp=drive_link",
+    color: "#1CA6A3"
+  },
+  {
+    id: "buffalo-soldiers",
+    title: "Pole Barn Construction for Buffalo Soldiers Heritage Association",
+    partner: "Carhartt",
+    description: "A collaborative build project with Carhartt and the Buffalo Soldiers Heritage Association, providing hands-on construction experience.",
+    image: projectBuffalo,
+    category: "Historic Preservation",
+    ctaLink: "https://drive.google.com/drive/folders/1ArQ2X7Lks2GmOcKvoahGRoLTUlGFJVwL?usp=drive_link",
+    color: "#74B4E0"
+  }
+];
 
 const WorkPage = () => (
   <div>
     {/* Hero Section */}
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-surface pt-32">
-      <div className="container-narrow grid md:grid-cols-12 gap-12 items-center relative z-10 w-full">
+    <section className="relative h-full flex items-center overflow-hidden bg-surface pt-32">
+      <div className="container-narrow grid w-full items-center gap-12 relative z-10 md:grid-cols-12 px-4 sm:px-6">
         <div className="md:col-span-7">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider mb-6">
-            COMMUNITY IMPACT
-          </span>
-          <h1 className="text-4xl md:text-6xl font-headline font-extrabold text-primary leading-[1.1] tracking-tight mb-8">
-            Building Legacies, One <span className="text-tertiary">Project</span> at a Time.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#333333] leading-[1.1] tracking-tight mb-8">
+            Real Projects. <span className="text-[#1CA6A3]">Real Experience.</span>
           </h1>
-          <p className="text-lg md:text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed">
-            At EITI, our training extends beyond the classroom. We partner with communities and industry leaders to deliver tangible results that revitalize neighborhoods and empower our students through hands-on mastery.
+          <p className="text-lg md:text-xl text-[#555] max-w-xl mb-10 leading-relaxed">
+            EITI students gain hands-on experience by working on real projects that serve communities and partners across Detroit.
           </p>
           <div className="flex items-center gap-4">
-            <div className="bg-surface-container-lowest p-6 rounded-xl editorial-shadow max-w-[200px]">
+            <div className="bg-white p-6 rounded-xl editorial-shadow max-w-[200px]">
               <div className="flex items-center gap-3 mb-2">
-                <span className="material-symbols-outlined text-tertiary text-2xl">verified</span>
-                <span className="text-primary font-bold text-2xl tracking-tight">120+</span>
+                <span className="material-symbols-outlined text-[#5FB673] text-2xl">verified</span>
+                <span className="text-[#1CA6A3] font-bold text-2xl tracking-tight">120+</span>
               </div>
-              <p className="text-xs text-on-surface-variant font-medium">Completed community infrastructure projects across the region.</p>
+              <p className="text-xs text-[#555] font-medium">Completed community infrastructure projects across the region.</p>
             </div>
           </div>
         </div>
         <div className="md:col-span-5 relative">
-          <div className="rounded-2xl overflow-hidden editorial-shadow bg-surface-container-lowest p-2">
+          <div className="rounded-2xl overflow-hidden editorial-shadow bg-white p-2">
             <img
               alt="EITI students working on community project"
               className="w-full aspect-[4/5] object-cover rounded-xl"
               src={projectPark}
             />
           </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Project Grid */}
-    <section className="section-padding bg-surface-container-low">
-      <div className="container-narrow">
-        <div className="mb-16">
-          <h2 className="text-4xl font-headline font-bold text-primary tracking-tight mb-4">Case Studies & Portfolios</h2>
-          <p className="text-on-surface-variant font-body max-w-xl">A curated selection of our most impactful workforce development initiatives and physical restoration projects.</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
-          {/* Virginia Park Beautification */}
-          <Link to="/work/virginia-park" className="group bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow hover:shadow-xl transition-all duration-500 flex flex-col">
-            <div className="h-64 overflow-hidden relative">
-              <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src={projectPark} alt="Virginia Park Beautification Project" />
-              <div className="absolute top-4 left-4">
-                <span className="bg-white/90 backdrop-blur px-3 py-1 rounded-lg text-xs font-bold text-primary tracking-wide uppercase">Urban Renewal</span>
-              </div>
-            </div>
-            <div className="p-8 flex-grow">
-              <h3 className="text-2xl font-extrabold text-primary mb-3 leading-tight tracking-tight">Virginia Park Beautification</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed mb-6">
-                A comprehensive multi-phase project focused on sustainable landscaping, park structure restoration, and community green-space creation.
-              </p>
-              <div className="flex items-center gap-6 pt-4 border-t border-outline-variant/10">
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest text-outline font-bold">Timeline</p>
-                  <p className="text-sm font-semibold text-primary">6 Months</p>
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest text-outline font-bold">Students</p>
-                  <p className="text-sm font-semibold text-primary">24 Trainees</p>
-                </div>
-              </div>
-            </div>
-          </Link>
-
-          {/* Buffalo Soldiers Project */}
-          <Link to="/work/buffalo-soldiers" className="group bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow hover:shadow-xl transition-all duration-500 flex flex-col">
-            <div className="h-64 overflow-hidden relative">
-              <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src={projectBuffalo} alt="Buffalo Soldiers Monument Project" />
-              <div className="absolute top-4 left-4">
-                <span className="bg-white/90 backdrop-blur px-3 py-1 rounded-lg text-xs font-bold text-primary tracking-wide uppercase">Historic Preservation</span>
-              </div>
-            </div>
-            <div className="p-8 flex-grow">
-              <h3 className="text-2xl font-extrabold text-primary mb-3 leading-tight tracking-tight">Buffalo Soldiers Project</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed mb-6">
-                Restoration of heritage sites honoring the Buffalo Soldiers, integrating technical craftsmanship with deep historical reverence.
-              </p>
-              <div className="flex items-center gap-6 pt-4 border-t border-outline-variant/10">
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest text-outline font-bold">Focus</p>
-                  <p className="text-sm font-semibold text-primary">Masonry</p>
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest text-outline font-bold">Impact</p>
-                  <p className="text-sm font-semibold text-primary">Heritage Site</p>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        <div className="flex gap-4 justify-center">
-          <button className="px-6 py-2 rounded-xl bg-surface-container-lowest text-primary font-semibold text-sm shadow-sm">All Projects</button>
-          <button className="px-6 py-2 rounded-xl text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-colors">Beautification</button>
-        </div>
-      </div>
-    </section>
-
-    {/* Data Visualization */}
-    <section className="section-padding bg-surface">
-      <div className="container-narrow">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="order-2 lg:order-1">
-            <div className="relative p-12 bg-surface-container-low rounded-2xl">
-              <div className="flex items-end gap-1 mb-8">
-                <div className="w-full bg-primary/20 h-32 rounded-t-lg relative">
-                  <div className="absolute bottom-0 w-full bg-primary h-1/4 rounded-t-lg"></div>
-                </div>
-                <div className="w-full bg-primary/20 h-48 rounded-t-lg relative">
-                  <div className="absolute bottom-0 w-full bg-primary h-2/4 rounded-t-lg"></div>
-                </div>
-                <div className="w-full bg-primary/20 h-64 rounded-t-lg relative">
-                  <div className="absolute bottom-0 w-full bg-primary h-3/4 rounded-t-lg"></div>
-                </div>
-                <div className="w-full bg-primary/20 h-80 rounded-t-lg relative">
-                  <div className="absolute bottom-0 w-full bg-tertiary h-full rounded-t-lg"></div>
-                </div>
-              </div>
-              <div className="flex justify-between text-xs font-bold text-outline tracking-widest uppercase">
-                <span>2021</span>
-                <span>2022</span>
-                <span>2023</span>
-                <span>Current</span>
-              </div>
-            </div>
-          </div>
-          <div className="order-1 lg:order-2">
-            <h2 className="text-4xl font-headline font-bold text-primary tracking-tight mb-6">Proven Growth & Social Return</h2>
-            <p className="text-on-surface-variant mb-10 leading-relaxed">
-              Our work provides a measurable return on investment for the community. By training locally, we ensure that industry capital stays within the neighborhoods that need it most.
-            </p>
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <div className="headline-lg font-black text-primary mb-1">94%</div>
-                <div className="text-sm font-semibold text-on-surface-variant">Post-Project Employment</div>
-              </div>
-              <div>
-                <div className="headline-lg font-black text-tertiary mb-1">$4.2M</div>
-                <div className="text-sm font-semibold text-on-surface-variant">Community Value Created</div>
-              </div>
-            </div>
+          <div className="absolute bottom-3 -left-5 md:-left-7 max-w-[240px] rounded-xl bg-[#1CA6A3] p-6 editorial-shadow">
+            <p className="text-3xl font-headline font-black text-white">2</p>
+            <p className="text-sm font-semibold text-white/90">Featured Case Studies</p>
           </div>
         </div>
       </div>
     </section>
 
-    {/* Final CTA */}
-    <section className="section-padding bg-primary rounded-[2rem] mx-8 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-50"></div>
-      <div className="relative z-10 container-narrow text-center">
-        <h2 className="text-3xl lg:text-5xl font-headline font-extrabold text-on-primary mb-8 tracking-tighter">
-          Beyond Training. This is <span className="text-tertiary">Transformation</span>.
-        </h2>
-        <p className="text-on-primary/80 text-lg lg:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-          These projects aren't just work—they are the blueprints for a stronger economy and a more skilled workforce. Join us in building what's next.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <Link
-            to="#"
-            className="bg-on-primary text-primary px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-lg"
-          >
-            Partner With Us
-          </Link>
-          <button className="text-on-primary border-2 border-on-primary px-10 py-4 rounded-xl font-bold text-lg hover:bg-on-primary/10 transition-all">
-            View More Impact
-          </button>
+    {/* Projects Section */}
+    <section className="py-16 sm:py-24 bg-[#F2F9F9]">
+      <div className="container-narrow px-4 sm:px-6 mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <p className="text-xs font-bold text-[#5FB673] uppercase tracking-[0.25em] mb-4">
+            Featured Work
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#333333] leading-tight">
+            Our <span className="text-[#1CA6A3]">Projects</span>
+          </h2>
+        </div>
+
+        {/* Project Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 flex flex-col"
+            >
+              {/* Image Header */}
+              <div className="relative h-56 sm:h-64 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4">
+                  <span 
+                    className="px-3 py-1.5 rounded-lg text-xs font-bold text-white tracking-wide uppercase"
+                    style={{ backgroundColor: project.color }}
+                  >
+                    {project.category}
+                  </span>
+                </div>
+
+                {/* Partner Badge */}
+                <div className="absolute top-4 right-4">
+                  <span className="bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg text-xs font-semibold text-[#333]">
+                    Partner: {project.partner}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                <h3 className="text-xl sm:text-2xl font-headline font-bold text-[#333333] mb-4 leading-tight">
+                  {project.title}
+                </h3>
+                <p className="text-[#555] text-sm sm:text-base leading-relaxed mb-6 flex-grow">
+                  {project.description}
+                </p>
+
+                {/* CTA Button */}
+                <a
+                  href={project.ctaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-white transition-all duration-300 hover:shadow-lg group/btn"
+                  style={{ backgroundColor: project.color }}
+                >
+                  View Case Study
+                  <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover/btn:translate-x-1">
+                    arrow_forward
+                  </span>
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
+
+    {/* Impact Stats Section */}
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="container-narrow px-4 sm:px-6 mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#333333] leading-tight mb-6">
+            Projects That <span className="text-[#1CA6A3]">Make a Difference</span>
+          </h2>
+          <p className="text-lg text-[#555] max-w-2xl mx-auto leading-relaxed">
+            Our community projects provide real-world training while delivering tangible benefits to Detroit neighborhoods.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {[
+            { value: "60+", label: "Projects Completed", icon: "construction", color: "#1CA6A3" },
+            { value: "200+", label: "Students Trained", icon: "school", color: "#74B4E0" },
+            { value: "15+", label: "Community Partners", icon: "handshake", color: "#5FB673" }
+          ].map((stat, i) => (
+            <div key={i} className="bg-[#F2F9F9] rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300">
+              <div 
+                className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
+                style={{ backgroundColor: `${stat.color}15` }}
+              >
+                <span className="material-symbols-outlined text-2xl" style={{ color: stat.color }}>
+                  {stat.icon}
+                </span>
+              </div>
+              <p className="text-4xl font-headline font-black mb-2" style={{ color: stat.color }}>
+                {stat.value}
+              </p>
+              <p className="text-base font-semibold text-[#333]">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+   
   </div>
 );
 

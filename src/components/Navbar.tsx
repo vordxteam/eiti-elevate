@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Impact", to: "/impact" },
   { label: "Work", to: "/work" },
   { label: "About", to: "/about" },
+  { label: "Apply Now", to: "/apply" },
 ];
 
 const Navbar = () => {
@@ -17,8 +18,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
       <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-        <Link to="/" className="text-2xl font-black text-primary tracking-tighter font-headline">
-          EITI
+        <Link to="/" >
+          <img src="/images/logo.jpg" alt="logo" className="h-[70px] w-[150px]" />
         </Link>
 
         {/* Desktop links */}
@@ -29,8 +30,8 @@ const Navbar = () => {
               to={link.to}
               className={`font-headline tracking-tight font-bold text-sm transition-colors ${
                 location.pathname === link.to
-                  ? "text-primary border-b-2 border-primary pb-1"
-                  : "text-on-surface-variant hover:text-primary"
+                  ? "text-[#1CA6A3] border-b-2 border-[#1CA6A3] pb-1"
+                  : "text-[#ED9C6] hover:text-primary"
               }`}
               aria-current={location.pathname === link.to ? "page" : undefined}
             >
@@ -41,9 +42,9 @@ const Navbar = () => {
 
         <Link
           to="/apply"
-          className="hidden md:inline-flex bg-tertiary-container text-on-tertiary-container px-6 py-2.5 rounded-xl font-bold text-sm inner-glow hover:opacity-80 transition-all duration-300 active:scale-95"
+          className="hidden md:inline-flex bg-[#1CA6A3] text-white px-6 py-2.5 rounded-xl font-bold text-sm inner-glow hover:opacity-80 transition-all duration-300 active:scale-95"
         >
-          Apply Now
+          Apply Today
         </Link>
 
         {/* Mobile toggle */}

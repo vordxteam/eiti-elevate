@@ -1,71 +1,93 @@
-const Footer = () => (
-  <footer className="w-full py-16 px-8 mt-20 bg-surface shadow-lg border-t border-outline-variant">
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
-      <div className="col-span-1 md:col-span-1">
-        <div className="text-xl font-bold text-primary mb-6 font-headline tracking-tighter">EITI</div>
-        <p className="text-on-surface-variant text-sm leading-relaxed mb-6">
-          Pioneering the next generation of industrial leadership through rigorous training and industry partnership.
-        </p>
-        <div className="flex gap-4">
-          <a
-            className="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
-            href="#"
-            aria-label="Share"
-          >
-            <span className="material-symbols-outlined text-sm">public</span>
-          </a>
-          <a
-            className="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
-            href="#"
-            aria-label="Hub"
-          >
-            <span className="material-symbols-outlined text-sm">hub</span>
-          </a>
-          <a
-            className="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
-            href="#"
-            aria-label="Campaign"
-          >
-            <span className="material-symbols-outlined text-sm">campaign</span>
-          </a>
+const Footer = () => {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="bg-[#1e2a2a] text-white font-sans">
+
+      {/* Top border */}
+      <div className="bg-[#1CA6A3] h-[3px]" />
+
+      {/* Main content */}
+      <div className="max-w-7xl mx-auto px-10 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-10 border-b border-white/10">
+
+          {/* Brand */}
+          <div>
+            <h2 className="text-[28px] font-bold text-[#1CA6A3] tracking-widest heading-font">
+              EITI
+            </h2>
+            <p className="text-lg text-[#a0b4b3] mt-2">
+              Emerging Industries Training Institute
+            </p>
+            <p className="text-lg text-[#6a8484] mb-5 mt-2">
+              Detroit, Michigan
+            </p>
+            <p className="text-base text-[#7a9898] leading-relaxed max-w-xs border-l-2 border-[#1CA6A3] pl-4">
+              Workforce training and employment pathways for emerging industries.
+            </p>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-[20px] tracking-[0.14em] text-[#1CA6A3] font-semibold mb-5 pb-2 border-b border-[#74B4E0]/25">
+              Contact Us
+            </h4>
+            <ul className="space-y-3 text-base text-[#9ab0b0]">
+              <li>
+                5555 Conner Street, Suite 1646 <br />
+                Detroit, MI 48213
+              </li>
+              <li>
+                <a href="mailto:info@eitinstitute.org" className="hover:text-[#1CA6A3] transition">
+                  info@eitinstitute.org
+                </a>
+              </li>
+              <li>
+                <a href="https://trainandemploy.org" className="hover:text-[#1CA6A3] transition">
+                  trainandemploy.org
+                </a>
+              </li>
+              <li>313.469.0581</li>
+            </ul>
+          </div>
+
+          {/* Hours */}
+          <div>
+            <h4 className="text-[20px]  tracking-[0.14em] text-[#1CA6A3] font-semibold mb-5 pb-2 border-b border-[#74B4E0]/25">
+              Office Hours
+            </h4>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2 text-lg text-[#9ab0b0]">
+                <span className="w-1.5 h-1.5 bg-[#5FB673] rounded-full" />
+                Monday – Friday
+              </li>
+              <li className="text-base text-[#c8d8d8] font-medium pl-4">
+                9:00 am – 4:00 pm
+              </li>
+            </ul>
+          </div>
+
         </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="max-w-7xl mx-auto px-10 py-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-[#5a7272]">
+        
+        {/* Left side (phone) */}
+        <div className="flex items-center text-[14px] gap-2">
+          <span className="w-1.5 h-1.5 bg-[#5FB673] rounded-full" />
+          Office: 313.469.0581
         </div>
-      <div>
-        <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Contact</h4>
-        <ul className="space-y-4 text-sm text-on-surface-variant">
-          <li><a className="hover:text-primary underline-offset-4 hover:underline" href="#">Contact Us</a></li>
-          <li className="text-on-surface-variant">info@eiti.edu</li>
-          <li className="text-on-surface-variant">1-800-EITI-TRAIN</li>
-        </ul>
-      </div>
-      <div>
-        <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Legal</h4>
-        <ul className="space-y-4 text-sm text-on-surface-variant">
-          <li><a className="hover:text-primary underline-offset-4 hover:underline" href="#">Privacy Policy</a></li>
-          <li><a className="hover:text-primary underline-offset-4 hover:underline" href="#">Terms of Service</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Partners</h4>
-        <div className="grid grid-cols-2 gap-6 items-center">
-          {["GLOBAL LOGISTICS", "CITY POWER & LIGHT", "TECH VENTURES", "URBAN RENEWAL"].map((partner) => (
-            <div key={partner} className="flex justify-center grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer group">
-              <span className="text-sm font-bold text-outline group-hover:text-primary transition-colors duration-300">{partner}</span>
-            </div>
-          ))}
+
+        {/* Right side (copyright) */}
+        <div className="text-right text-[15px]">
+          © {year} Emerging Industries Training Institute. All rights reserved.
         </div>
+
       </div>
-    </div>
-    <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-outline-variant">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-center text-on-surface-variant text-xs">© 2024 Emerging Industries Training Institute. All rights reserved.</p>
-        <div className="flex gap-6">
-          <span className="text-xs text-outline">Accredited Institution</span>
-          <span className="text-xs text-outline">ISO 9001 Certified</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-);
+
+    </footer>
+  );
+};
 
 export default Footer;

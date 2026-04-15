@@ -1,214 +1,210 @@
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
-import projectPark from "@/assets/project-park.jpg";
-import projectBuffalo from "@/assets/project-buffalo.jpg";
+import Slider from "@/components/Slider";
+import CTA from "@/components/ui/CTA";
+
+const companyCards = [
+  { src: "/images/company1.jpg", alt: "Company 1", width: 188, height: 100 },
+  { src: "/images/company2.jpg", alt: "Company 2", width: 188, height: 100 },
+  { src: "/images/company3.jpg", alt: "Company 3", width: 188, height: 100 },
+  { src: "/images/company4.jpg", alt: "Company 4", width: 188, height: 100 },
+  { src: "/images/company5.png", alt: "Company 5", width: 188, height: 100 },
+  { src: "/images/company6.jpg", alt: "Company 6", width: 188, height: 100 },
+];
+
+const stats = [
+  {
+    value: "15+",
+    label: "Years",
+    description: "Training Detroit's workforce and connecting talent to opportunity.",
+    icon: "calendar_month",
+    color: "#1CA6A3"
+  },
+  {
+    value: "93%",
+    label: "Job Placement Rate",
+    description: "Graduates move from training into real jobs. Fast.",
+    icon: "work",
+    color: "#74B4E0"
+  },
+  {
+    value: "95%",
+    label: "Retention Rate",
+    description: "We don't just place people. We prepare them to last.",
+    icon: "person_check",
+    color: "#5FB673"
+  },
+  {
+    value: "2,200+",
+    label: "Careers Launched",
+    description: "Thousands of Detroit residents now earning and building real futures.",
+    icon: "rocket_launch",
+    color: "#1CA6A3"
+  }
+];
 
 const ImpactPage = () => (
   <div>
-      {/* Hero Section */}
-      <section className="section-padding pt-32 bg-surface">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
-            <div className="md:col-span-7">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider mb-6">
-                INSTITUTIONAL IMPACT
-              </span>
-              <h1 className="headline-lg font-headline text-primary leading-[1.1] tracking-tight mb-8">
-                The Architect of <span className="text-tertiary">Economic Resilience</span>.
-              </h1>
-              <p className="text-lg text-on-surface-variant max-w-xl leading-relaxed">
-                Beyond training, we are building a foundation for generational wealth. EITI bridges the gap between untapped human potential and the industries defining the 21st century.
+    {/* Hero Section */}
+    <section className="relative h-full flex items-center overflow-hidden bg-surface pt-32">
+      <div className="container-narrow grid w-full items-center gap-12 relative z-10 md:grid-cols-12 px-4 sm:px-6">
+        <div className="md:col-span-7">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#333333] leading-[1.1] tracking-tight mb-8">
+            Driving Opportunity Through <span className="text-[#1CA6A3]">Training</span>
+          </h1>
+          <p className="text-lg md:text-xl text-[#555] max-w-xl mb-10 leading-relaxed">
+            For over 15 years, EITI has been transforming lives through hands-on workforce training, connecting Detroit residents to meaningful careers in high-demand industries.
+          </p>
+        </div>
+        <div className="md:col-span-5 relative">
+          <div className="rounded-2xl overflow-hidden editorial-shadow bg-white p-2">
+            <img
+              alt="EITI Training Impact"
+              className="w-full aspect-[4/5] object-cover rounded-xl"
+              src={heroImage}
+            />
+          </div>
+          <div className="absolute bottom-3 -left-5 md:-left-7 max-w-[240px] rounded-xl bg-[#1CA6A3] p-6 editorial-shadow">
+            <p className="text-3xl font-headline font-black text-white">15+</p>
+            <p className="text-sm font-semibold text-white/90">Years of Impact</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Impact Stats Cards */}
+    <section className="py-16 sm:py-24 bg-[#F2F9F9]">
+      <div className="container-narrow px-4 sm:px-6 mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 border-t-4"
+              style={{ borderColor: stat.color }}
+            >
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
+                style={{ backgroundColor: `${stat.color}15` }}
+              >
+                <span
+                  className="material-symbols-outlined text-2xl"
+                  style={{ color: stat.color }}
+                >
+                  {stat.icon}
+                </span>
+              </div>
+              <p
+                className="text-4xl sm:text-5xl font-headline font-black mb-2"
+                style={{ color: stat.color }}
+              >
+                {stat.value}
+              </p>
+              <h3 className="text-lg font-bold text-[#333333] mb-3">
+                {stat.label}
+              </h3>
+              <p className="text-sm text-[#555] leading-relaxed">
+                {stat.description}
               </p>
             </div>
-            <div className="md:col-span-5 relative">
-              <div className="aspect-[4/5] rounded-xl overflow-hidden editorial-shadow bg-surface-container-lowest p-2">
-                <img
-                  alt="Professional training environment"
-                  className="w-full h-full object-cover rounded-xl"
-                  src={heroImage}
-                />
-              </div>
-              <div className="absolute -bottom-8 -left-10 sm:-bottom-6 sm:-left-6 bg-surface-container-lowest p-8 rounded-xl editorial-shadow max-w-[240px]">
-                <p className="text-primary headline-lg font-headline font-black">12k+</p>
-                <p className="text-sm font-semibold text-on-surface-variant">Careers Launched since 2018</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Impact Stats */}
-      <section className="section-padding bg-surface-container-low">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-3 gap-16">
-            <div className="space-y-4">
-              <h3 className="text-on-surface-variant font-headline font-bold text-sm tracking-widest uppercase">Graduate Placement</h3>
-              <div className="flex items-baseline gap-2">
-                <span className="text-6xl font-headline font-extrabold text-primary">94%</span>
-                <span className="material-symbols-outlined text-tertiary" data-weight="fill">trending_up</span>
-              </div>
-              <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
-                <div className="h-full bg-primary" style={{ width: "94%" }}></div>
-              </div>
-              <p className="text-on-surface-variant text-sm leading-relaxed">Placement rate within 6 months of program completion across all sectors.</p>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-on-surface-variant font-headline font-bold text-sm tracking-widest uppercase">Wage Increase</h3>
-              <div className="flex items-baseline gap-2">
-                <span className="text-6xl font-headline font-extrabold text-primary">2.4x</span>
-              </div>
-              <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
-                <div className="h-full bg-tertiary" style={{ width: "70%" }}></div>
-              </div>
-              <p className="text-on-surface-variant text-sm leading-relaxed">Average increase in annual earnings compared to pre-enrollment status.</p>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-on-surface-variant font-headline font-bold text-sm tracking-widest uppercase">Local Contribution</h3>
-              <div className="flex items-baseline gap-2">
-                <span className="text-6xl font-headline font-extrabold text-primary">$42M</span>
-              </div>
-              <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
-                <div className="h-full bg-primary" style={{ width: "85%" }}></div>
-              </div>
-              <p className="text-on-surface-variant text-sm leading-relaxed">Estimated annual economic impact generated by our alumni in regional hubs.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Serve & Opportunity Gap */}
-      <section className="section-padding bg-surface">
-  {/* Added px-4 to ensure it doesn't touch screen edges on mobile */}
-  <div className="w-full px-4 md:px-0 md:container-narrow mx-auto">
-    <div className="flex flex-col md:flex-row gap-10 md:gap-20 items-start">
-      
-      {/* Sidebar: Sticky is disabled on mobile (static) and enabled on md+ */}
-      <div className="w-full md:w-1/3 static md:sticky md:top-32">
-        <h2 className="text-3xl md:text-4xl font-headline font-extrabold text-primary mb-4 md:mb-6 leading-tight">
-          Bridging the <br className="hidden md:block" /> Opportunity Gap
-        </h2>
-        <p className="text-on-surface-variant leading-relaxed mb-6 md:mb-8">
-          The "Gap" isn't a lack of talent—it's a lack of access. We serve communities that have historically been sidelined from high-growth industrial sectors.
-        </p>
-        <div className="p-6 bg-tertiary-container text-on-tertiary-container rounded-xl">
-          <p className="font-bold text-lg italic">
-            "Talent is universal; opportunity is not."
-          </p>
+          ))}
         </div>
       </div>
+    </section>
 
-      {/* Grid: Ensures full width on mobile */}
-      <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-        {/* Card 1 */}
-        <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-primary">
-          <span className="material-symbols-outlined text-primary mb-4">groups</span>
-          <h4 className="font-headline font-bold text-lg mb-2">Underemployed Adults</h4>
-          <p className="text-sm text-on-surface-variant">Individuals working multiple part-time roles without benefits or stability.</p>
-        </div>
+    {/* Who We Serve */}
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="container-narrow px-4 sm:px-6 mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
         
-        {/* Card 2 */}
-        <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-tertiary">
-          <span className="material-symbols-outlined text-tertiary mb-4">school</span>
-          <h4 className="font-headline font-bold text-lg mb-2">First-Gen Professionals</h4>
-          <p className="text-sm text-on-surface-variant">Students breaking through family cycles of low-wage manual labor.</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#333333] leading-tight mb-6">
+            Who We <span className="text-[#1CA6A3]">Serve</span>
+          </h2>
+          <p className="text-lg text-[#555] max-w-2xl mx-auto leading-relaxed">
+            EITI serves Detroit residents who are ready to build a better future through skill development and career training. We focus on individuals seeking opportunity, stability, and a clear path into the workforce.
+          </p>
         </div>
 
-        {/* Card 3 */}
-        <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-primary">
-          <span className="material-symbols-outlined text-primary mb-4">precision_manufacturing</span>
-          <h4 className="font-headline font-bold text-lg mb-2">Displaced Workers</h4>
-          <p className="text-sm text-on-surface-variant">Transitioning veteran labor from legacy industries to renewable tech.</p>
-        </div>
-
-        {/* Card 4 */}
-        <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-tertiary">
-          <span className="material-symbols-outlined text-tertiary mb-4">location_city</span>
-          <h4 className="font-headline font-bold text-lg mb-2">Urban Youth</h4>
-          <p className="text-sm text-on-surface-variant">Providing a direct pipeline from high school to high-paying trade careers.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { icon: "groups", title: "Job Seekers", desc: "Individuals looking for stable employment opportunities" },
+            { icon: "school", title: "Career Changers", desc: "Professionals seeking to transition into skilled trades" },
+            { icon: "location_city", title: "Urban Residents", desc: "Detroit community members ready to upskill" },
+            { icon: "diversity_3", title: "Young Adults", desc: "Youth beginning their professional journey" }
+          ].map((item, i) => (
+            <div key={i} className="bg-[#F2F9F9] rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
+              <div className="w-14 h-14 rounded-full bg-[#1CA6A3]/10 flex items-center justify-center mx-auto mb-4">
+                <span className="material-symbols-outlined text-2xl text-[#1CA6A3]">{item.icon}</span>
+              </div>
+              <h3 className="text-lg font-bold text-[#333333] mb-2">{item.title}</h3>
+              <p className="text-sm text-[#555]">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-      {/* Student Stories */}
-      <section className="section-padding bg-primary text-on-primary">
-        <div className="container-narrow">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+    {/* Opportunity Gap */}
+    <section className="py-16 sm:py-24 bg-[#F2F9F9]">
+      <div className="container-narrow px-4 sm:px-6 mx-auto">
+        <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-sm">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-headline font-extrabold tracking-tight">Catalysts of Change</h2>
-              <p className="text-on-primary-container mt-4 max-w-xl">Real stories from individuals who redefined their future through the EITI curriculum.</p>
-            </div>
-            <a className="flex items-center gap-2 group text-on-primary font-bold" href="#">
-              View All Stories <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </a>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="flex flex-col md:flex-row gap-8 items-center bg-primary-container p-8 rounded-xl">
-              <div className="w-full md:w-48 aspect-square rounded-xl overflow-hidden shrink-0">
-                <img className="w-full h-full object-cover" src={projectPark} alt="Marcus T." />
-              </div>
-              <div>
-                <span className="text-tertiary-fixed-dim font-bold text-xs tracking-widest uppercase">Fiber Optics Graduate</span>
-                <h4 className="text-2xl font-headline font-bold mt-2 mb-4">Marcus T.</h4>
-                <p className="text-on-primary-container text-sm leading-relaxed mb-6">"Before EITI, I was juggling three gig jobs just to make rent. Now, I'm a lead technician with a retirement plan and a clear path to management."</p>
-                <div className="flex items-center gap-4 text-xs font-medium">
-                  <span className="bg-white/10 px-3 py-1 rounded-full">New Salary: $68k</span>
-                  <span className="bg-white/10 px-3 py-1 rounded-full">Previous: $22k</span>
+              <h2 className="text-3xl sm:text-4xl font-headline font-bold text-[#333333] leading-tight mb-6">
+                The Gap Is <span className="text-[#74B4E0]">Real</span>.<br />So Is the <span className="text-[#1CA6A3]">Solution</span>.
+              </h2>
+              <p className="text-lg text-[#555] leading-relaxed mb-8">
+                Too many capable individuals lack access to training, resources, and pathways into sustainable careers. EITI exists to close that gap by providing hands-on education, employer-aligned training, and direct connections to opportunity.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 px-4 py-2 bg-[#1CA6A3]/10 rounded-lg">
+                  <span className="material-symbols-outlined text-[#1CA6A3]">handshake</span>
+                  <span className="text-sm font-medium text-[#333]">Employer Partnerships</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 bg-[#74B4E0]/10 rounded-lg">
+                  <span className="material-symbols-outlined text-[#74B4E0]">construction</span>
+                  <span className="text-sm font-medium text-[#333]">Hands-On Training</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 bg-[#5FB673]/10 rounded-lg">
+                  <span className="material-symbols-outlined text-[#5FB673]">trending_up</span>
+                  <span className="text-sm font-medium text-[#333]">Career Growth</span>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-8 items-center bg-primary-container p-8 rounded-xl">
-              <div className="w-full md:w-48 aspect-square rounded-xl overflow-hidden shrink-0">
-                <img className="w-full h-full object-cover" src={projectBuffalo} alt="Sarah L." />
-              </div>
-              <div>
-                <span className="text-tertiary-fixed-dim font-bold text-xs tracking-widest uppercase">Renewable Energy Specialist</span>
-                <h4 className="text-2xl font-headline font-bold mt-2 mb-4">Sarah L.</h4>
-                <p className="text-on-primary-container text-sm leading-relaxed mb-6">"Transitioning from retail to solar installation felt impossible until I found EITI. The hands-on training gave me the confidence to lead site assessments."</p>
-                <div className="flex items-center gap-4 text-xs font-medium">
-                  <span className="bg-white/10 px-3 py-1 rounded-full">New Salary: $74k</span>
-                  <span className="bg-white/10 px-3 py-1 rounded-full">Previous: $31k</span>
+            <div className="relative">
+              <div className="aspect-square rounded-2xl bg-gradient-to-br from-[#1CA6A3]/20 to-[#74B4E0]/20 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <span className="material-symbols-outlined text-6xl sm:text-8xl text-[#1CA6A3]">diversity_2</span>
+                  <p className="text-2xl sm:text-3xl font-headline font-bold text-[#333333] mt-6 mb-2">Building Bridges</p>
+                  <p className="text-[#555]">Between talent and opportunity</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Partners & Collaborations */}
-      <section className="section-padding bg-surface">
-        <div className="container-narrow">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-headline font-extrabold text-primary mb-4">Our Collaborative Ecosystem</h2>
-            <p className="text-on-surface-variant max-w-2xl mx-auto">Impact is amplified through partnership. We work with industry giants and local governments to ensure our curriculum meets real-world demand.</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center opacity-60">
-            {["GLOBAL LOGISTICS", "CITY POWER & LIGHT", "TECH VENTURES", "URBAN RENEWAL"].map((name) => (
-              <div key={name} className="flex justify-center grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer group">
-                <span className="text-xl font-headline font-black text-outline group-hover:text-primary transition-colors duration-300">{name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-primary rounded-[2rem] mx-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-50"></div>
-        <div className="relative z-10 container-narrow text-center">
-          <h2 className="sm:text-4xl text-xl md:text-5xl font-headline font-extrabold text-on-primary mb-8 leading-tight">Ready to co-author <br />the next success story?</h2>
-          <p className="text-on-primary/80 text-sm sm:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-            Join our network of corporate partners, hiring managers, and donors to scale our impact to new regions.
+    {/* Partners Section */}
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="container-narrow px-4 sm:px-6 mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-headline font-bold text-[#333333] leading-tight mb-4">
+            Our <span className="text-[#1CA6A3]">Partners</span>
+          </h2>
+          <p className="text-lg text-[#555] max-w-2xl mx-auto">
+            Working together to expand access and impact.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-on-primary text-primary px-3 sm:px-10 py-4 rounded-xl font-headline font-extrabold text-lg hover:bg-on-primary/90 transition-colors">
-              Partner With Us
-            </button>
-            <button className="border-2 border-on-primary text-on-primary px-3 sm:px-10 py-4 rounded-xl font-headline font-extrabold text-lg hover:bg-on-primary/10 transition-colors">
-              Download Impact Report
-            </button>
-          </div>
         </div>
-      </section>
+        <Slider images={companyCards} speed={30} />
+      </div>
+    </section>
+
+        <CTA
+          heading="Partner With Us"
+          description="Help us expand access to training, create jobs, and strengthen Detroit's workforce."
+          buttonLabel="Apply Now"
+          buttonLink="/apply"
+        />
   </div>
 );
 
