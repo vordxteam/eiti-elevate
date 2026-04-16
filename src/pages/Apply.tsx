@@ -117,7 +117,7 @@ const ApplyPage = () => {
                 <img
                   alt="EITI Training"
                   className="w-full aspect-[4/5] object-cover rounded-xl"
-                  src={heroImage}
+                  src="/images/apply-hero.png"
                 />
               </div>
               <div className="absolute bottom-3 -left-4 md:-left-6 max-w-[200px] rounded-xl bg-[#1CA6A3] p-5 editorial-shadow">

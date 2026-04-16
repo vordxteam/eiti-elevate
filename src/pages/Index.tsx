@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Zap, Sun, Hammer, ChefHat, ArrowRight, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 import projectPark from "@/assets/project-park.jpg";
 import projectBuffalo from "@/assets/project-buffalo.jpg";
 import FluidReveal from "@/components/FluidReveal";
 import Slider from "@/components/Slider";
 import CTA from "@/components/ui/CTA";
-import WorkPreview from "@/components/WorkPreview";
+import WorkPreview from "@/components/home/WorkPreview";
+import ImpactSection from "@/components/home/Impact";
+import ProjectsSection from "@/components/home/ProjectSection";
 
 const tracks = [
   {
@@ -14,6 +18,8 @@ const tracks = [
     description:
       "Learn the fundamentals of residential wiring, circuitry, and safety while preparing for careers in the electrical trades.",
     image: projectPark,
+    icon: Zap,
+    accent: "#1CA6A3",
   },
   {
     title: "Renewable Energy – Solar Technician Training",
@@ -21,6 +27,8 @@ const tracks = [
     description:
       "Train for careers in renewable energy through hands-on experience with solar installation and energy systems.",
     image: projectBuffalo,
+    icon: Sun,
+    accent: "#74B4E0",
   },
   {
     title: "Framing & Structural Carpentry Training",
@@ -28,6 +36,8 @@ const tracks = [
     description:
       "Build real-world construction skills including framing, layout, and blueprint reading for residential and commercial projects.",
     image: heroImage,
+    icon: Hammer,
+    accent: "#5FB673",
   },
   {
     title: "Culinary Training",
@@ -35,6 +45,8 @@ const tracks = [
     description:
       "Develop professional kitchen skills and prepare for careers in food service, hospitality, and entrepreneurship.",
     image: projectPark,
+    icon: ChefHat,
+    accent: "#1CA6A3",
   },
 ];
 
@@ -84,292 +96,398 @@ const workImages = [
   { src: heroImage, alt: "Hands-on electrical training" },
 ];
 
+// ─── Premium 3D Tilt Card Component ───
+interface TiltCardProps {
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  accent: string;
+}
+
+const TiltCard = ({ number, title, subtitle, description, accent }: TiltCardProps) => {
+  const [transform, setTransform] = useState("perspective(1000px) rotateX(0deg) rotateY(0deg)");
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+    setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`);
+  };
+
+  const handleMouseLeave = () => {
+    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
+    setIsHovered(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  return (
+    <div
+      className="relative group cursor-pointer"
+      style={{ transformStyle: "preserve-3d" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+    >
+      <div
+        className="relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 sm:p-10 transition-all duration-200 ease-out"
+        style={{
+          transform: transform,
+          transformStyle: "preserve-3d",
+          boxShadow: isHovered
+            ? `0 25px 50px -12px ${accent}40, 0 0 0 1px ${accent}30`
+            : "0 10px 40px -10px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.5)",
+        }}
+      >
+        {/* Number Badge */}
+        <div
+          className="absolute -top-4 -left-4 w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-white text-lg"
+          style={{
+            background: `linear-gradient(135deg, ${accent}, ${accent}dd)`,
+            boxShadow: `0 10px 30px -10px ${accent}`,
+            transform: "translateZ(30px)",
+          }}
+        >
+          {number}
+        </div>
+
+        {/* Subtitle */}
+        <p
+          className="text-xs font-bold uppercase tracking-[0.2em] mb-3"
+          style={{ color: accent, transform: "translateZ(20px)" }}
+        >
+          {subtitle}
+        </p>
+
+        {/* Title */}
+        <h3
+          className="text-2xl sm:text-3xl font-headline font-bold mb-4 leading-tight"
+          style={{ color: "#0D1F22", transform: "translateZ(25px)" }}
+        >
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p
+          className="text-sm sm:text-base leading-relaxed"
+          style={{ color: "#64748b", transform: "translateZ(15px)" }}
+        >
+          {description}
+        </p>
+
+        {/* Animated Accent Line */}
+        <div
+          className="absolute bottom-0 left-0 h-1 rounded-full transition-all duration-500 ease-out"
+          style={{
+            background: `linear-gradient(90deg, ${accent}, ${accent}80)`,
+            width: isHovered ? "100%" : "0%",
+            transform: "translateZ(10px)",
+          }}
+        />
+
+        {/* Floating particles on hover */}
+        {isHovered && (
+          <>
+            <div
+              className="absolute w-2 h-2 rounded-full animate-ping"
+              style={{
+                background: accent,
+                top: "20%",
+                right: "10%",
+                animationDuration: "2s",
+                transform: "translateZ(40px)",
+              }}
+            />
+            <div
+              className="absolute w-1.5 h-1.5 rounded-full animate-ping"
+              style={{
+                background: accent,
+                bottom: "30%",
+                right: "20%",
+                animationDuration: "2.5s",
+                animationDelay: "0.3s",
+                transform: "translateZ(35px)",
+              }}
+            />
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// ─── What We Do Section ───
+const WhatWeDoSection = () => {
+  const cards = [
+    {
+      number: "01",
+      title: "Career-Focused Training",
+      subtitle: "More than training",
+      description:
+        "We're not just training. We're preparing people to work, earn, and build long-term careers.",
+      accent: "#1CA6A3",
+    },
+    {
+      number: "02",
+      title: "Skills That Open Doors",
+      subtitle: "Hands-on learning",
+      description:
+        "Emerging Industries Training Institute (EITI) equips Detroit residents with hands-on training, industry-recognized skills, and direct pathways into high-demand careers.",
+      accent: "#74B4E0",
+    },
+    {
+      number: "03",
+      title: "Built With Employers in Mind",
+      subtitle: "Job-ready skills",
+      description:
+        "Our programs are built with employers in mind. That means what you learn here translates directly to the job site, the kitchen, or the field.",
+      accent: "#5FB673",
+    },
+  ];
+
+  return (
+    <section className="relative mt-10 py-24 sm:py-32 overflow-hidden" style={{ backgroundColor: "#F8FAFC" }}>
+      {/* Background Effects */}
+      <div
+        className="absolute inset-0 opacity-30"
+        style={{
+          backgroundImage: `radial-gradient(circle at 20% 80%, #1CA6A3 0%, transparent 50%),
+                           radial-gradient(circle at 80% 20%, #74B4E0 0%, transparent 50%),
+                           radial-gradient(circle at 50% 50%, #5FB673 0%, transparent 40%)`,
+        }}
+      />
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16 sm:mb-20">
+          <p
+            className="text-xs font-bold uppercase tracking-[0.3em] mb-4"
+            style={{ color: "#1CA6A3" }}
+          >
+            Our Approach
+          </p>
+          <h2
+            className="text-4xl text-[#333333] sm:text-5xl md:text-6xl font-headline font-bold mb-6"
+          
+          >
+            What We Do
+          </h2>
+          <div className="flex justify-center">
+            <div
+              className="h-1 w-24 rounded-full"
+              style={{
+                background: "linear-gradient(90deg, #1CA6A3, #74B4E0, #5FB673)",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+          {cards.map((card, index) => (
+            <TiltCard key={index} {...card} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const HomePage = () => (
   <div>
     {/* ─── Hero Section ─── */}
-    <section className="relative min-h-[921px] max-w-[1280px] m-auto flex items-center overflow-hidden bg-surface">
-      <FluidReveal>
-        <div className="container-narrow grid md:grid-cols-12 gap-12 items-center relative z-10 w-full px-4 sm:px-6">
-          <div className="md:col-span-7">
-            <h1 className="headline-lg font-headline text-[#1CA6A3] leading-[1.1] tracking-tight mb-8">
-              Build Skills.{" "}
-              <span className="text-[#74B4E0]">Get Trained. </span>Get Hired.
-            </h1>
-            <p className="text-lg md:text-xl text-[#333333] max-w-xl mb-10 leading-relaxed">
-              EITI prepares Detroit residents for real careers through hands-on
-              training and direct pathways to employment.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/programs"
-                className="primary-button sm:px-5 sm:py-4 px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all"
-              >
-                Explore Programs
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </Link>
-            </div>
-          </div>
-          <div className="md:col-span-5 relative">
-            <div className="rounded-2xl overflow-hidden editorial-shadow bg-surface-container-lowest p-2">
-              <img
-                alt="EITI Training"
-                className="w-full aspect-[4/5] object-cover rounded-xl"
-                src={heroImage}
-              />
-            </div>
-            <div className="absolute -bottom-px -left-2 md:-bottom-6 md:-left-6 bg-[#74B4E0] text-on-primary p-6 rounded-xl editorial-shadow max-w-[200px]">
-              <div className="headline-lg font-headline font-black mb-1">94%</div>
-              <div className="text-xs font-medium opacity-80 uppercase tracking-widest leading-tight">
-                Job Placement Rate Post-Certification
-              </div>
-            </div>
-          </div>
-        </div>
-      </FluidReveal>
-    </section>
+  <section
+  className="relative -mt-2.5 pt-0 flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat h-[calc(100vh-75px)]"
+  style={{
+    backgroundImage: "url(/images/home-hero-final.jpg)",
+  }}
+>
+      {/* Dark gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/75 to-teal-500/30" />
 
-    {/* ─── What We Do ─── */}
-    <section className="py-16 px-4 sm:py-20 sm:px-12 bg-gradient-to-r from-[#74B4E0] to-[#5FB673] max-w-[1280px] mx-auto rounded-sm">
-      <div className="container-narrow">
-        <div className="flex flex-col md:flex-row gap-10 w-full sm:gap-16 items-start">
-          <div className="md:w-1/3">
-            <h2 className="text-[32px] sm:text-[40px] font-medium text-[#333333] leading-10 tracking-normal mb-4">
-              What We Do
-            </h2>
-            <h3 className="sm:text-xl mt-6 sm:mt-10 max-w-[400px] font-headline font-bold text-white leading-8 sm:leading-10">
-              We're not just training. We're preparing people to work, earn, and
-              build long-term careers
-            </h3>
-          </div>
-          <div className="md:w-2/3">
-            <p className="sm:text-xl text-lg text-on-surface-variant leading-relaxed mb-8">
-              Emerging Industries Training Institute (EITI) equips Detroit
-              residents with hands-on training, industry-recognized skills, and
-              direct pathways into high-demand careers.
-            </p>
-            <div className="w-full flex flex-col items-start text-left">
-              <p className="text-lg text-on-surface-variant pl-0">
-                Our programs are built with employers in mind. That means what
-                you learn here translates directly to the job site, the kitchen,
-                or the field.
-              </p>
-            </div>
-          </div>
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 text-center py-20 sm:py-40">
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-headline font-bold leading-[1.1] tracking-tight mb-6"
+          style={{
+            color: "#1CA6A3",
+            textShadow:
+              "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(28,166,163,0.2)",
+          }}
+        >
+          Build Skills.{" "}
+          <span
+            style={{
+              color: "#74B4E0",
+              textShadow:
+                "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
+            }}
+          >
+            Get Trained.{" "}
+          </span>
+          Get Hired.
+        </h1>
+
+        <p
+          className="text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed"
+          style={{
+            color: "rgba(255,255,255,0.95)",
+            textShadow: "0 1px 10px rgba(0,0,0,0.4)",
+          }}
+        >
+          EITI prepares Detroit residents for real careers through hands-on
+          training and direct pathways to employment.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            to="/programs"
+            className="inline-flex items-center justify-center gap-2 bg-[#1CA6A3] hover:bg-[#179490] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-lg"
+          >
+            Explore Programs
+            <span className="material-symbols-outlined">arrow_forward</span>
+          </Link>
         </div>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#0d1f22] to-transparent pointer-events-none" />
     </section>
 
-    {/* ─── Impact Stats ─── (replaces old Impact section) */}
-    <section className="py-16 sm:py-24 bg-white overflow-hidden">
-      <div className="container-narrow px-4 sm:px-6 mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <p className="text-2xl font-bold text-[#1CA6A3] leading-10 mb-3">
-            Our Impact
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#333333] leading-tight">
-            Real Training.{" "}
-            <span
-              style={{
-                background: "linear-gradient(90deg, #1CA6A3, #74B4E0)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Real Outcomes.
+    {/* ─── What We Do ─── Premium 3D Cards */}
+    <WhatWeDoSection />
+    <ImpactSection />
+    <ProjectsSection />
+
+    {/* ─── Programs Snapshot ─── Premium Cards with Lucide Icons */}
+    <section className="py-20 sm:py-28 bg-gradient-to-b from-[#F8FAFA] to-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1CA6A3]/10 mb-6">
+            <Sparkles size={16} className="text-[#1CA6A3]" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CA6A3]">
+              Career Pathways
             </span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#0D1F22] mb-4">
+            Programs Snapshot
           </h2>
+          <div className="flex justify-center">
+            <div className="h-1 w-24 rounded-full bg-gradient-to-r from-[#1CA6A3] via-[#74B4E0] to-[#5FB673]" />
+          </div>
         </div>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {stats.map((stat, i) => (
-            <div
-              key={i}
-              className="relative group rounded-2xl overflow-hidden bg-[#F7FAFA] border border-[#E0F0F0] p-6 sm:p-8 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
-            >
-              {/* Accent glow on hover */}
+        {/* Premium Program Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {tracks.map((track, index) => {
+            const IconComponent = track.icon;
+            return (
               <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: `radial-gradient(circle at 50% 0%, ${stat.accent}18 0%, transparent 70%)`,
-                }}
-              />
-
-              {/* Icon */}
-              <div
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
-                style={{ backgroundColor: `${stat.accent}18` }}
+                key={index}
+                className="group relative rounded-3xl overflow-hidden bg-white border border-[#E0F0F0] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(28,166,163,0.15)] flex flex-col h-full"
               >
-                <span
-                  className="material-symbols-outlined text-2xl sm:text-3xl"
-                  style={{ color: stat.accent }}
-                >
-                  {stat.icon}
-                </span>
-              </div>
-
-              {/* Number */}
-              <div
-                className="text-4xl sm:text-5xl font-headline font-black mb-1 tracking-tight"
-                style={{ color: stat.accent }}
-              >
-                {stat.value}
-              </div>
-
-              {/* Progress bar */}
-              <div className="w-full bg-[#E0F0F0] h-1 rounded-full my-3">
+                {/* Top Accent Bar */}
                 <div
-                  className={`h-full rounded-full transition-all duration-700 ${stat.bar}`}
-                  style={{ backgroundColor: stat.accent }}
+                  className="absolute top-0 left-0 right-0 h-1.5 z-10"
+                  style={{ background: `linear-gradient(90deg, ${track.accent}, ${track.accent}80)` }}
                 />
-              </div>
 
-              {/* Label */}
-              <div className="text-xs sm:text-sm font-semibold text-[#555] uppercase tracking-wider leading-tight">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+                {/* Content Area - flex-1 pushes button to bottom */}
+                <div className="flex-1 p-8 pb-4">
+                  {/* Icon Container */}
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
+                    style={{ backgroundColor: `${track.accent}15` }}
+                  >
+                    <IconComponent
+                      size={28}
+                      strokeWidth={1.5}
+                      style={{ color: track.accent }}
+                      className="transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
 
-    {/* ─── Work Preview ─── (NEW section) */}
-    <section className="py-16 sm:py-24 bg-[#F2F9F9] overflow-hidden">
-      <div className="container-narrow px-4 sm:px-6 mx-auto">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: text */}
-          <div>
-            <p className="text-xs font-bold text-[#5FB673] uppercase tracking-[0.25em] mb-4">
-              Projects & Community Work
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#333333] leading-tight mb-6">
-              Training That Builds{" "}
-              <span className="text-[#1CA6A3]">Real Projects</span>
-            </h2>
-            <p className="text-base sm:text-lg text-[#555] leading-relaxed mb-10 max-w-lg">
-              Our students don't just learn in classrooms. They work on real
-              projects that impact communities across Detroit — from restoring
-              historic monuments to revitalizing green spaces.
-            </p>
-            <Link
-              to="/work"
-              className="inline-flex items-center gap-3 bg-[#1CA6A3] hover:bg-[#179490] text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group"
-            >
-              View Our Featured Projects
-              <span className="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">
-                arrow_forward
-              </span>
-            </Link>
-          </div>
+                  {/* Category Badge */}
+                  <div
+                    className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3"
+                    style={{
+                      backgroundColor: `${track.accent}15`,
+                      color: track.accent,
+                    }}
+                  >
+                    {track.category}
+                  </div>
 
-          {/* Right: image mosaic */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 h-[420px] sm:h-[500px]">
-            {/* Tall left image */}
-            <div className="row-span-2 relative rounded-2xl overflow-hidden group">
-              <img
-                src={projectPark}
-                alt="Students working on Virginia Park beautification"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1CA6A3]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-                <span className="text-white text-sm font-semibold">Virginia Park</span>
-              </div>
-            </div>
+                  {/* Title */}
+                  <h3 className="text-xl font-headline font-bold text-[#0D1F22] mb-3 leading-tight group-hover:text-[#1CA6A3] transition-colors duration-300">
+                    {track.title}
+                  </h3>
 
-            {/* Top right */}
-            <div className="relative rounded-2xl overflow-hidden group">
-              <img
-                src={projectBuffalo}
-                alt="Buffalo Soldiers monument restoration"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#74B4E0]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-                <span className="text-white text-sm font-semibold">Buffalo Soldiers</span>
-              </div>
-            </div>
+                  {/* Description */}
+                  <p className="text-sm text-[#64748b] leading-relaxed">
+                    {track.description}
+                  </p>
+                </div>
 
-            {/* Bottom right */}
-            <div className="relative rounded-2xl overflow-hidden group">
-              <img
-                src={heroImage}
-                alt="Hands-on EITI training session"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#5FB673]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-                <span className="text-white text-sm font-semibold">Live Training</span>
-              </div>
-
-              {/* Floating badge */}
-              <div className="absolute top-3 right-3 bg-white/90 backdrop-blur rounded-lg px-3 py-1.5 shadow-md">
-                <span className="text-[10px] font-bold text-[#1CA6A3] uppercase tracking-wide">
-                  Hands-On
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* ─── Programs Snapshot ─── */}
-    <section className="section-padding bg-surface">
-      <div className="w-full px-4 sm:px-6 md:container-narrow md:mx-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 md:mb-16 gap-6">
-          <div className="w-full">
-            <h2 className="text-3xl sm:text-4xl font-headline font-bold text-[#333333] mb-4 text-left">
-              Programs Snapshot
-            </h2>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-          {tracks.map((track, index) => (
-            <div
-              key={index}
-              className="group relative w-full rounded-xl overflow-hidden bg-white/80 backdrop-blur-md border border-white/20
-                transition-all duration-500 ease-out
-                hover:-translate-y-1 hover:scale-[1] hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
-            >
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
-                  bg-gradient-to-br from-[#1CA6A3]/20 via-transparent to-[#74B4E0]/20 blur-xl"
-              />
-              <div className="absolute inset-0 overflow-hidden">
-                <div
-                  className="absolute -left-[120%] top-0 h-full w-[60%]
-                    bg-gradient-to-r from-transparent via-white/40 to-transparent
-                    skew-x-12 group-hover:left-[120%] transition-all duration-1000 ease-out"
-                />
-              </div>
-              <div className="relative p-6 flex flex-col h-full">
-                <h4 className="text-xl font-bold text-[#333] mb-2 transition-colors duration-300 group-hover:text-[#1CA6A3]">
-                  {track.title}
-                </h4>
-                <p className="text-sm text-gray-500 mb-6 leading-relaxed">
-                  {track.description}
-                </p>
-                <Link to="/programs">
-                  <button
-                    className="mt-auto bg-[#1CA6A3] rounded-md py-3 px-4 text-white font-bold text-sm flex items-center gap-2
-                      transition-all duration-300"
+                {/* Bottom Action Area - always at bottom */}
+                <div className="relative px-8 pb-8 pt-2 mt-auto">
+                  <Link
+                    to="/programs"
+                    className="inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 group-hover:gap-3"
+                    style={{ color: track.accent }}
                   >
                     Learn More
-                    <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
-                      arrow_forward
-                    </span>
-                  </button>
-                </Link>
+                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+
+                  {/* Animated underline */}
+                  <div
+                    className="absolute bottom-8 left-8 h-0.5 rounded-full transition-all duration-500 w-0 group-hover:w-20"
+                    style={{ backgroundColor: track.accent }}
+                  />
+                </div>
+
+                {/* Hover Glow Effect */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: `radial-gradient(circle at 50% 0%, ${track.accent}10 0%, transparent 70%)`,
+                  }}
+                />
               </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* View All Programs CTA */}
+        <div className="text-center mt-16">
+          <Link
+            to="/programs"
+            className="inline-flex items-center gap-3 bg-[#0D1F22] hover:bg-[#1a3a3f] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
+          >
+            View All Programs
+            <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>
-
-
 
     <WorkPreview />
 
@@ -392,8 +510,6 @@ const HomePage = () => (
       buttonLabel="Apply Now"
       buttonLink="/apply"
     />
-
-
   </div>
 );
 

@@ -1,3 +1,5 @@
+
+
 import { Link } from "react-router-dom";
 
 interface CTAProps {
@@ -14,41 +16,43 @@ export default function CTA({
   buttonLink,
 }: CTAProps) {
   return (
-    <section className="py-[120px] px-8 max-w-[1280px] mx-auto rounded-md my-10 sm:my-[80px] bg-gradient-to-br from-[#74B4E0]  to-[#1CA6A3] text-white">
-  
-  <div className="px-6">
+    <section
+      className="py-[120px] px-8 max-w-[1280px] mx-auto rounded-md my-10 sm:my-[80px] text-white
+      bg-[url('/images/cta-bg.png')] bg-cover bg-center bg-no-repeat"
+    >
+      <div className="px-6">
 
-    {/* Layout */}
-    <div className="flex flex-col items-center text-center gap-10">
+        {/* Layout */}
+        <div className="flex flex-col items-center text-center gap-10">
 
-      {/* Text Content */}
-      <div className="max-w-2xl">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-          {heading}
-        </h2>
+          {/* Text Content */}
+          <div className="max-w-2xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+              {heading}
+            </h2>
 
-        <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
-          {description}
-        </p>
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
+              {description}
+            </p>
+          </div>
+
+          {/* Button */}
+          <div>
+            <Link to={buttonLink}>
+              <button className="bg-[#1CA6A3] hover:bg-[#158a87] 
+                text-white font-semibold px-4 sm:px-8 py-3 rounded-xl 
+                transition-all duration-300 
+                hover:scale-105 hover:shadow-lg hover:shadow-[#1CA6A3]/40
+                active:scale-95"
+              >
+                {buttonLabel}
+              </button>
+            </Link>
+          </div>
+
+        </div>
+
       </div>
-
-      {/* Button */}
-      <div>
-        <Link to={buttonLink}>
-          <button className="bg-[#1CA6A3] hover:bg-[#158a87] 
-            text-white font-semibold px-4 sm:px-8 py-3 rounded-xl 
-            transition-all duration-300 
-            hover:scale-105 hover:shadow-lg hover:shadow-[#1CA6A3]/40
-            active:scale-95"
-          >
-            {buttonLabel}
-          </button>
-        </Link>
-      </div>
-
-    </div>
-
-  </div>
-</section>
+    </section>
   );
 }

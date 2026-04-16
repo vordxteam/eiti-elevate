@@ -131,3 +131,7 @@
 .animate-slide {
   animation: slide linear infinite;
 }
+
+html {
+  scroll-behavior: smooth;
+}

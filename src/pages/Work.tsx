@@ -94,9 +94,9 @@ const WorkPage = () => (
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-1 sm:left-4">
                   <span 
-                    className="px-3 py-1.5 rounded-lg text-xs font-bold text-white tracking-wide uppercase"
+                    className="sm:px-3 px-2 py-1.5 rounded-lg text-xs font-bold text-white tracking-wide uppercase"
                     style={{ backgroundColor: project.color }}
                   >
                     {project.category}
@@ -104,7 +104,7 @@ const WorkPage = () => (
                 </div>
 
                 {/* Partner Badge */}
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-4 right-1 sm:right-4">
                   <span className="bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg text-xs font-semibold text-[#333]">
                     Partner: {project.partner}
                   </span>
