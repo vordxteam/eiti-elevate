@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-image.jpg";
 import Slider from "@/components/Slider";
 import CTA from "@/components/ui/CTA";
+import PageHero from "@/components/PageHero";
 
 const companyCards = [
   { src: "/images/company1.jpg", alt: "Company 1", width: 188, height: 100 },
@@ -45,138 +44,251 @@ const stats = [
 
 const ImpactPage = () => (
   <div>
-    {/* Hero Section */}
-    <section className="relative h-full flex items-center overflow-hidden bg-surface pt-32">
-      <div className="container-narrow grid w-full items-center gap-12 relative z-10 md:grid-cols-12 px-4 sm:px-6">
-        <div className="md:col-span-7">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#333333] leading-[1.1] tracking-tight mb-8">
-            Driving Opportunity Through <span className="text-[#1CA6A3]">Training</span>
-          </h1>
-          <p className="text-lg md:text-xl text-[#555] max-w-xl mb-10 leading-relaxed">
-            For over 15 years, EITI has been transforming lives through hands-on workforce training, connecting Detroit residents to meaningful careers in high-demand industries.
-          </p>
-        </div>
-        <div className="md:col-span-5 relative">
-          <div className="rounded-2xl overflow-hidden editorial-shadow bg-white p-2">
-            <img
-              alt="EITI Training Impact"
-              className="w-full aspect-[4/5] object-cover rounded-xl"
-              src={heroImage}
-            />
-          </div>
-          <div className="absolute bottom-3 -left-5 md:-left-7 max-w-[240px] rounded-xl bg-[#1CA6A3] p-6 editorial-shadow">
-            <p className="text-3xl font-headline font-black text-white">15+</p>
-            <p className="text-sm font-semibold text-white/90">Years of Impact</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      heading={
+        <>
+          Driving Opportunity Through{" "}
+          <span
+            style={{
+              color: "#74B4E0",
+              textShadow: "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
+            }}
+          >
+            Training
+          </span>
+        </>
+      }
+      description="For over 15 years, EITI has been transforming lives through hands-on workforce training, connecting Detroit residents to meaningful careers in high-demand industries."
+      buttonLabel="Partner With Us"
+      buttonLink="/apply"
+      backgroundImage="/images/impact-hero.jpg"
+    />
 
-    {/* Impact Stats Cards */}
-    <section className="py-16 sm:py-24 bg-[#F2F9F9]">
-      <div className="container-narrow px-4 sm:px-6 mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
+    {/* ── Impact Stats ── */}
+    <section className="relative mt-20 py-20 overflow-hidden" style={{ backgroundColor: "#EEF8F8" }}>
+      {/* Grid bg pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(28,166,163,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(28,166,163,0.07) 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
+      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: "#1CA6A3", opacity: 0.08 }} />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: "#74B4E0", opacity: 0.08 }} />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
+            style={{ backgroundColor: "rgba(28,166,163,0.1)", border: "1px solid rgba(28,166,163,0.2)" }}
+          >
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#1CA6A3]">By The Numbers</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#0D1F22] mb-8">
+            Our <span style={{ color: "#1CA6A3" }}>Impact</span>
+          </h2>
+          <div className="h-1 w-20 rounded-full mx-auto bg-gradient-to-r from-[#1CA6A3] via-[#74B4E0] to-[#5FB673]" />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {stats.map((stat, i) => (
             <div
-              key={index}
-              className="group bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 border-t-4"
-              style={{ borderColor: stat.color }}
+              key={i}
+              className="group relative bg-white/70 backdrop-blur-sm rounded-2xl p-6 sm:p-8 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-xl overflow-hidden"
+              style={{
+                border: `1px solid ${stat.color}25`,
+                boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
+              }}
             >
+              {/* Top accent line */}
               <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
-                style={{ backgroundColor: `${stat.color}15` }}
-              >
-                <span
-                  className="material-symbols-outlined text-2xl"
-                  style={{ color: stat.color }}
-                >
-                  {stat.icon}
-                </span>
-              </div>
-              <p
-                className="text-4xl sm:text-5xl font-headline font-black mb-2"
-                style={{ color: stat.color }}
+                className="absolute top-0 left-8 right-8 h-[2px] rounded-full"
+                style={{ background: `linear-gradient(90deg, transparent, ${stat.color}, transparent)` }}
+              />
+              {/* Ghost value behind content */}
+              <div
+                className="absolute inset-0 flex items-center justify-center font-headline font-black leading-none select-none pointer-events-none overflow-hidden"
+                style={{ fontSize: "clamp(90px, 16vw, 130px)", color: stat.color, opacity: 0.04 }}
               >
                 {stat.value}
-              </p>
-              <h3 className="text-lg font-bold text-[#333333] mb-3">
-                {stat.label}
-              </h3>
-              <p className="text-sm text-[#555] leading-relaxed">
-                {stat.description}
-              </p>
+              </div>
+              {/* Bottom hover bar */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-[3px] rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ backgroundColor: stat.color }}
+              />
+
+              <div className="relative">
+                <div
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                  style={{
+                    background: `linear-gradient(135deg, ${stat.color}25, ${stat.color}10)`,
+                    border: `1px solid ${stat.color}20`,
+                  }}
+                >
+                  <span className="material-symbols-outlined" style={{ color: stat.color, fontSize: "22px" }}>{stat.icon}</span>
+                </div>
+                <p
+                  className="font-headline font-black mb-2 leading-none"
+                  style={{ color: stat.color, fontSize: "clamp(40px, 6vw, 56px)" }}
+                >
+                  {stat.value}
+                </p>
+                <h3 className="text-sm font-bold text-[#0D1F22] mb-2">{stat.label}</h3>
+                <p className="text-xs leading-relaxed text-[#666]">{stat.description}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    {/* Who We Serve */}
-    <section className="py-16 sm:py-24 bg-white">
-      <div className="container-narrow px-4 sm:px-6 mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-        
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#333333] leading-tight mb-6">
-            Who We <span className="text-[#1CA6A3]">Serve</span>
+    {/* ── Who We Serve ── */}
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
+            style={{ backgroundColor: "rgba(28,166,163,0.1)", border: "1px solid rgba(28,166,163,0.2)" }}
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#1CA6A3]">Our Community</p>
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#0D1F22] mb-6">
+            Who We <span style={{ color: "#1CA6A3" }}>Serve</span>
           </h2>
-          <p className="text-lg text-[#555] max-w-2xl mx-auto leading-relaxed">
-            EITI serves Detroit residents who are ready to build a better future through skill development and career training. We focus on individuals seeking opportunity, stability, and a clear path into the workforce.
+          <p className="text-lg text-[#666] leading-relaxed">
+            EITI serves Detroit residents who are ready to build a better future. We focus on individuals seeking opportunity, stability, and a clear path into the workforce.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
-            { icon: "groups", title: "Job Seekers", desc: "Individuals looking for stable employment opportunities" },
-            { icon: "school", title: "Career Changers", desc: "Professionals seeking to transition into skilled trades" },
-            { icon: "location_city", title: "Urban Residents", desc: "Detroit community members ready to upskill" },
-            { icon: "diversity_3", title: "Young Adults", desc: "Youth beginning their professional journey" }
+            { icon: "groups", title: "Job Seekers", desc: "Individuals looking for stable employment in high-demand industries.", color: "#1CA6A3" },
+            { icon: "school", title: "Career Changers", desc: "Professionals seeking to transition into skilled trades and new paths.", color: "#74B4E0" },
+            { icon: "location_city", title: "Urban Residents", desc: "Detroit community members ready to upskill and unlock new opportunity.", color: "#5FB673" },
+            { icon: "diversity_3", title: "Young Adults", desc: "Youth ready to begin their professional journey and build lasting careers.", color: "#1CA6A3" },
           ].map((item, i) => (
-            <div key={i} className="bg-[#F2F9F9] rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-14 h-14 rounded-full bg-[#1CA6A3]/10 flex items-center justify-center mx-auto mb-4">
-                <span className="material-symbols-outlined text-2xl text-[#1CA6A3]">{item.icon}</span>
+            <div
+              key={i}
+              className="group relative rounded-3xl p-8 overflow-hidden bg-white transition-all duration-500 hover:-translate-y-2"
+              style={{
+                boxShadow: "0 2px 20px rgba(0,0,0,0.06)",
+                border: `1px solid ${item.color}20`,
+              }}
+            >
+              <div
+                className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none"
+                style={{ backgroundColor: item.color }}
+              />
+              <div
+                className="relative w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
+                style={{ backgroundColor: `${item.color}15` }}
+              >
+                <span className="material-symbols-outlined text-3xl" style={{ color: item.color }}>
+                  {item.icon}
+                </span>
               </div>
-              <h3 className="text-lg font-bold text-[#333333] mb-2">{item.title}</h3>
-              <p className="text-sm text-[#555]">{item.desc}</p>
+              <h3 className="relative text-xl font-headline font-bold text-[#0D1F22] mb-3">{item.title}</h3>
+              <p className="relative text-sm text-[#666] leading-relaxed">{item.desc}</p>
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-b-3xl"
+                style={{ background: `linear-gradient(90deg, ${item.color}, ${item.color}80)` }}
+              />
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    {/* Opportunity Gap */}
-    <section className="py-16 sm:py-24 bg-[#F2F9F9]">
-      <div className="container-narrow px-4 sm:px-6 mx-auto">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-sm">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-headline font-bold text-[#333333] leading-tight mb-6">
-                The Gap Is <span className="text-[#74B4E0]">Real</span>.<br />So Is the <span className="text-[#1CA6A3]">Solution</span>.
+    {/* ── The Gap / The Solution ── */}
+    <section className="py-10 sm:py-16 bg-[#F2F9F9]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 rounded-3xl overflow-hidden shadow-2xl">
+
+          {/* Left — The Challenge */}
+          <div className="relative px-8 sm:px-12 lg:px-16 py-10" style={{ backgroundColor: "#0D1F22" }}>
+            <div
+              className="absolute top-0 left-0 w-72 h-72 rounded-full blur-3xl opacity-10 pointer-events-none"
+              style={{ backgroundColor: "#1CA6A3", transform: "translate(-50%, -50%)" }}
+            />
+            <div className="relative max-w-lg">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#74B4E0] mb-6">The Challenge</p>
+              <h2 className="text-4xl sm:text-5xl font-headline font-bold text-white mb-6 leading-[1.1]">
+                The Gap Is{" "}
+                <span style={{ color: "#74B4E0" }}>Real.</span>
               </h2>
-              <p className="text-lg text-[#555] leading-relaxed mb-8">
-                Too many capable individuals lack access to training, resources, and pathways into sustainable careers. EITI exists to close that gap by providing hands-on education, employer-aligned training, and direct connections to opportunity.
+              <p className="text-lg mb-10 leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
+                Too many capable individuals in Detroit lack access to training, resources, and pathways into sustainable careers. Economic barriers and limited industry-aligned education keep talent on the sidelines.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 px-4 py-2 bg-[#1CA6A3]/10 rounded-lg">
-                  <span className="material-symbols-outlined text-[#1CA6A3]">handshake</span>
-                  <span className="text-sm font-medium text-[#333]">Employer Partnerships</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-[#74B4E0]/10 rounded-lg">
-                  <span className="material-symbols-outlined text-[#74B4E0]">construction</span>
-                  <span className="text-sm font-medium text-[#333]">Hands-On Training</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-[#5FB673]/10 rounded-lg">
-                  <span className="material-symbols-outlined text-[#5FB673]">trending_up</span>
-                  <span className="text-sm font-medium text-[#333]">Career Growth</span>
-                </div>
+              <div className="space-y-6">
+                {[
+                  { label: "Access Gap", desc: "Many capable people lack training pathways", pct: 75 },
+                  { label: "Skills Gap", desc: "Employers struggle to find qualified workers", pct: 60 },
+                  { label: "Opportunity Gap", desc: "Workforce potential goes unrealized", pct: 45 },
+                ].map((gap, i) => (
+                  <div key={i}>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-sm font-bold text-white">{gap.label}</span>
+                      <span className="text-sm font-bold" style={{ color: "#74B4E0" }}>{gap.pct}%</span>
+                    </div>
+                    <div className="h-2 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: `${gap.pct}%`, background: "linear-gradient(90deg, #74B4E0, #74B4E060)" }}
+                      />
+                    </div>
+                    <p className="text-xs mt-1.5" style={{ color: "rgba(255,255,255,0.4)" }}>{gap.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-[#1CA6A3]/20 to-[#74B4E0]/20 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <span className="material-symbols-outlined text-6xl sm:text-8xl text-[#1CA6A3]">diversity_2</span>
-                  <p className="text-2xl sm:text-3xl font-headline font-bold text-[#333333] mt-6 mb-2">Building Bridges</p>
-                  <p className="text-[#555]">Between talent and opportunity</p>
-                </div>
+          </div>
+
+          {/* Right — The Solution */}
+          <div
+            className="relative px-8 sm:px-12 lg:px-16 py-10"
+            style={{ background: "linear-gradient(135deg, #1CA6A3 0%, #158a88 60%, #0f7a77 100%)" }}
+          >
+            <div
+              className="absolute bottom-0 right-0 w-80 h-80 rounded-full blur-3xl opacity-20 pointer-events-none"
+              style={{ backgroundColor: "#5FB673", transform: "translate(30%, 30%)" }}
+            />
+            <div className="relative max-w-lg">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] mb-6" style={{ color: "rgba(255,255,255,0.65)" }}>
+                EITI's Solution
+              </p>
+              <h2 className="text-4xl sm:text-5xl font-headline font-bold text-white mb-6 leading-[1.1]">
+                So Is the{" "}
+                <span style={{ color: "#0D1F22" }}>Solution.</span>
+              </h2>
+              <p className="text-lg mb-10 leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
+                EITI bridges the gap — hands-on education, employer-aligned training, and direct connections to opportunity for every Detroit resident ready to work.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { icon: "handshake", label: "Employer Partnerships", desc: "Direct connections to hiring employers" },
+                  { icon: "construction", label: "Hands-On Training", desc: "Real skills learned in real environments" },
+                  { icon: "trending_up", label: "Proven Outcomes", desc: "93% job placement, 95% retention rate" },
+                  { icon: "groups", label: "Community Focus", desc: "Built for Detroit, by Detroit" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-4 rounded-2xl p-4 transition-all duration-300 hover:bg-white/10"
+                    style={{ border: "1px solid rgba(255,255,255,0.2)" }}
+                  >
+                    <div
+                      className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: "rgba(255,255,255,0.2)" }}
+                    >
+                      <span className="material-symbols-outlined text-white">{item.icon}</span>
+                    </div>
+                    <div>
+                      <p className="font-bold text-white text-sm">{item.label}</p>
+                      <p className="text-xs" style={{ color: "rgba(255,255,255,0.7)" }}>{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -199,12 +311,12 @@ const ImpactPage = () => (
       </div>
     </section>
 
-        <CTA
-          heading="Partner With Us"
-          description="Help us expand access to training, create jobs, and strengthen Detroit's workforce."
-          buttonLabel="Apply Now"
-          buttonLink="/apply"
-        />
+    <CTA
+      heading="Partner With Us"
+      description="Help us expand access to training, create jobs, and strengthen Detroit's workforce."
+      buttonLabel="Apply Now"
+      buttonLink="/apply"
+    />
   </div>
 );
 

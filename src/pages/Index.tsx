@@ -4,8 +4,8 @@ import { Zap, Sun, Hammer, ChefHat, ArrowRight, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 import projectPark from "@/assets/project-park.jpg";
 import projectBuffalo from "@/assets/project-buffalo.jpg";
-import FluidReveal from "@/components/FluidReveal";
 import Slider from "@/components/Slider";
+import PageHero from "@/components/PageHero";
 import CTA from "@/components/ui/CTA";
 import WorkPreview from "@/components/home/WorkPreview";
 import ImpactSection from "@/components/home/Impact";
@@ -91,7 +91,11 @@ const stats = [
 ];
 
 const workImages = [
-  { src: projectPark, alt: "Students working on park beautification", span: "row-span-2" },
+  {
+    src: projectPark,
+    alt: "Students working on park beautification",
+    span: "row-span-2",
+  },
   { src: projectBuffalo, alt: "Students restoring Buffalo Soldiers monument" },
   { src: heroImage, alt: "Hands-on electrical training" },
 ];
@@ -105,8 +109,16 @@ interface TiltCardProps {
   accent: string;
 }
 
-const TiltCard = ({ number, title, subtitle, description, accent }: TiltCardProps) => {
-  const [transform, setTransform] = useState("perspective(1000px) rotateX(0deg) rotateY(0deg)");
+const TiltCard = ({
+  number,
+  title,
+  subtitle,
+  description,
+  accent,
+}: TiltCardProps) => {
+  const [transform, setTransform] = useState(
+    "perspective(1000px) rotateX(0deg) rotateY(0deg)",
+  );
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -118,11 +130,15 @@ const TiltCard = ({ number, title, subtitle, description, accent }: TiltCardProp
     const centerY = rect.height / 2;
     const rotateX = ((y - centerY) / centerY) * -10;
     const rotateY = ((x - centerX) / centerX) * 10;
-    setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`);
+    setTransform(
+      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`,
+    );
   };
 
   const handleMouseLeave = () => {
-    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
+    setTransform(
+      "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
+    );
     setIsHovered(false);
   };
 
@@ -139,7 +155,7 @@ const TiltCard = ({ number, title, subtitle, description, accent }: TiltCardProp
       onMouseEnter={handleMouseEnter}
     >
       <div
-        className="relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 sm:p-10 transition-all duration-200 ease-out"
+        className="relative overflow-hidden bg-white/90 backdrop-blur-xl rounded-3xl p-8 sm:p-10 transition-all duration-200 ease-out"
         style={{
           transform: transform,
           transformStyle: "preserve-3d",
@@ -148,18 +164,6 @@ const TiltCard = ({ number, title, subtitle, description, accent }: TiltCardProp
             : "0 10px 40px -10px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.5)",
         }}
       >
-        {/* Number Badge */}
-        <div
-          className="absolute -top-4 -left-4 w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-white text-lg"
-          style={{
-            background: `linear-gradient(135deg, ${accent}, ${accent}dd)`,
-            boxShadow: `0 10px 30px -10px ${accent}`,
-            transform: "translateZ(30px)",
-          }}
-        >
-          {number}
-        </div>
-
         {/* Subtitle */}
         <p
           className="text-xs font-bold uppercase tracking-[0.2em] mb-3"
@@ -241,7 +245,7 @@ const WhatWeDoSection = () => {
       title: "Skills That Open Doors",
       subtitle: "Hands-on learning",
       description:
-        "Emerging Industries Training Institute (EITI) equips Detroit residents with hands-on training, industry-recognized skills, and direct pathways into high-demand careers.",
+        "EITI provides hands on training, certified skills, and career pathways for Detroit’s high-demand industries.",
       accent: "#74B4E0",
     },
     {
@@ -249,43 +253,51 @@ const WhatWeDoSection = () => {
       title: "Built With Employers in Mind",
       subtitle: "Job-ready skills",
       description:
-        "Our programs are built with employers in mind. That means what you learn here translates directly to the job site, the kitchen, or the field.",
+        "Employer driven programs that teach practical, job ready skills directly applicable in real workplace.",
       accent: "#5FB673",
     },
   ];
 
   return (
-    <section className="relative mt-10 py-24 sm:py-32 overflow-hidden" style={{ backgroundColor: "#F8FAFC" }}>
-      {/* Background Effects */}
+    <section
+      className="relative mt-10 py-20 overflow-hidden"
+      style={{ backgroundColor: "#EEF8F8" }}
+    >
+      {/* Grid bg pattern */}
       <div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `radial-gradient(circle at 20% 80%, #1CA6A3 0%, transparent 50%),
-                           radial-gradient(circle at 80% 20%, #74B4E0 0%, transparent 50%),
-                           radial-gradient(circle at 50% 50%, #5FB673 0%, transparent 40%)`,
+          backgroundImage: `linear-gradient(rgba(28,166,163,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(28,166,163,0.07) 1px, transparent 1px)`,
+          backgroundSize: "48px 48px",
         }}
       />
       <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
+        className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none"
+        style={{ backgroundColor: "#1CA6A3", opacity: 0.08 }}
+      />
+      <div
+        className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none"
+        style={{ backgroundColor: "#74B4E0", opacity: 0.08 }}
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-16 sm:mb-20">
-          <p
-            className="text-xs font-bold uppercase tracking-[0.3em] mb-4"
-            style={{ color: "#1CA6A3" }}
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
+            style={{
+              backgroundColor: "rgba(28,166,163,0.1)",
+              border: "1px solid rgba(28,166,163,0.2)",
+            }}
           >
-            Our Approach
-          </p>
-          <h2
-            className="text-4xl text-[#333333] sm:text-5xl md:text-6xl font-headline font-bold mb-6"
-          
-          >
+            <p
+              className="text-xs font-bold uppercase tracking-[0.3em]"
+              style={{ color: "#1CA6A3" }}
+            >
+              Our Approach
+            </p>
+          </div>
+          <h2 className="text-4xl text-[#333333] sm:text-5xl md:text-6xl font-headline font-bold mb-6">
             What We Do
           </h2>
           <div className="flex justify-center">
@@ -311,30 +323,13 @@ const WhatWeDoSection = () => {
 
 const HomePage = () => (
   <div>
-    {/* ─── Hero Section ─── */}
-  <section
-  className="relative -mt-2.5 pt-0 flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat h-[calc(100vh-75px)]"
-  style={{
-    backgroundImage: "url(/images/home-hero-final.jpg)",
-  }}
->
-      {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/75 to-teal-500/30" />
-
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 text-center py-20 sm:py-40">
-        <h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-headline font-bold leading-[1.1] tracking-tight mb-6"
-          style={{
-            color: "#1CA6A3",
-            textShadow:
-              "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(28,166,163,0.2)",
-          }}
-        >
+    <PageHero
+      heading={
+        <>
           Build Skills.{" "}
           <span
             style={{
-              color: "#74B4E0",
+              color: "#1CA6A3",
               textShadow:
                 "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
             }}
@@ -342,33 +337,12 @@ const HomePage = () => (
             Get Trained.{" "}
           </span>
           Get Hired.
-        </h1>
-
-        <p
-          className="text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed"
-          style={{
-            color: "rgba(255,255,255,0.95)",
-            textShadow: "0 1px 10px rgba(0,0,0,0.4)",
-          }}
-        >
-          EITI prepares Detroit residents for real careers through hands-on
-          training and direct pathways to employment.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            to="/programs"
-            className="inline-flex items-center justify-center gap-2 bg-[#1CA6A3] hover:bg-[#179490] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-lg"
-          >
-            Explore Programs
-            <span className="material-symbols-outlined">arrow_forward</span>
-          </Link>
-        </div>
-      </div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#0d1f22] to-transparent pointer-events-none" />
-    </section>
+        </>
+      }
+      description="EITI prepares Detroit residents for real careers through hands-on training and direct pathways to employment."
+      buttonLabel="Explore Programs"
+      buttonLink="/programs"
+    />
 
     {/* ─── What We Do ─── Premium 3D Cards */}
     <WhatWeDoSection />
@@ -376,7 +350,7 @@ const HomePage = () => (
     <ProjectsSection />
 
     {/* ─── Programs Snapshot ─── Premium Cards with Lucide Icons */}
-    <section className="py-20 sm:py-28 bg-gradient-to-b from-[#F8FAFA] to-white overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-[#F8FAFA] to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-16 sm:mb-20">
@@ -403,12 +377,6 @@ const HomePage = () => (
                 key={index}
                 className="group relative rounded-3xl overflow-hidden bg-white border border-[#E0F0F0] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(28,166,163,0.15)] flex flex-col h-full"
               >
-                {/* Top Accent Bar */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-1.5 z-10"
-                  style={{ background: `linear-gradient(90deg, ${track.accent}, ${track.accent}80)` }}
-                />
-
                 {/* Content Area - flex-1 pushes button to bottom */}
                 <div className="flex-1 p-8 pb-4">
                   {/* Icon Container */}
@@ -454,7 +422,10 @@ const HomePage = () => (
                     style={{ color: track.accent }}
                   >
                     Learn More
-                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
                   </Link>
 
                   {/* Animated underline */}
@@ -480,10 +451,13 @@ const HomePage = () => (
         <div className="text-center mt-16">
           <Link
             to="/programs"
-            className="inline-flex items-center gap-3 bg-[#0D1F22] hover:bg-[#1a3a3f] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
+            className="inline-flex items-center gap-3 bg-[#1CA6A3] hover:bg-[#179490] hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-xl  group"
           >
             View All Programs
-            <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight
+              size={18}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </Link>
         </div>
       </div>
@@ -492,7 +466,7 @@ const HomePage = () => (
     <WorkPreview />
 
     {/* ─── Partners ─── */}
-    <section className="py-16 sm:py-24 bg-surface">
+    <section className="py-10 sm:py-20 bg-surface">
       <div className="container-narrow px-4 sm:px-6 mx-auto">
         <div className="text-center mb-12">
           <p className="sm:text-3xl text-lg font-medium text-[#333333] mb-8">

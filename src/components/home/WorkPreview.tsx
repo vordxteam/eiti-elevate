@@ -60,7 +60,7 @@ const WorkPreview: React.FC = () => {
     <section className="relative bg-white py-20 px-4 overflow-hidden">
       {/* Subtle background accent */}
       <div
-        className="absolute top-0 left-0 w-full h-1"
+        className="absolute top-0 left-0 w-full h-[2px]"
         style={{ background: "linear-gradient(90deg, #1CA6A3, #74B4E0)" }}
       />
       <div
@@ -182,7 +182,7 @@ const WorkPreview: React.FC = () => {
         <div className="flex justify-center">
           <Link
             to="/work"
-            className="group inline-flex items-center gap-3 px-4 sm:px-8 py-4 rounded-full text-white font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl bg-[#1CA6A3] hover:bg-gradient-to-br from-[#1CA6A3] to-[#74B4E0]"
+            className="group inline-flex items-center gap-3 px-4 sm:px-8 py-4 rounded-full text-white font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-sm bg-[#1CA6A3] hover:bg-[#179490] hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5"
           >
             View Our Featured Projects
            <span className="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">

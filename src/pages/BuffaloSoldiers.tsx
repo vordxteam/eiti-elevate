@@ -1,53 +1,25 @@
-import { Link } from "react-router-dom";
-import projectBuffalo from "@/assets/project-buffalo.jpg";
+import PageHero from "@/components/PageHero";
 
 const BuffaloSoldiersPage = () => (
   <div>
-    {/* Hero Section */}
-    <section className="section-padding pt-32 bg-surface">
-      <div className="container-narrow">
-        <Link to="/work" className="inline-flex items-center text-primary hover:text-primary/80 font-bold mb-8 transition-colors">
-          <span className="material-symbols-outlined mr-2">arrow_back</span>
-          Back to Our Work
-        </Link>
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="flex items-center gap-4 mb-6">
-              <span className="px-3 py-1 rounded-lg bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wide uppercase">2023</span>
-              <span className="px-3 py-1 rounded-lg bg-surface-container-high text-on-surface-variant text-xs font-medium flex items-center">
-                <span className="material-symbols-outlined text-sm mr-1">location_on</span>
-                Detroit, Michigan
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-headline font-extrabold text-primary leading-tight mb-6 tracking-tight">
-              Buffalo Soldiers Project
-            </h1>
-            <p className="text-lg text-on-surface-variant leading-relaxed mb-8">
-              Restoration of heritage sites honoring the Buffalo Soldiers, integrating technical craftsmanship with deep historical reverence. Our students worked alongside preservation experts to carefully restore and maintain important community monuments.
-            </p>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="headline-lg font-headline font-black text-tertiary mb-2">3</div>
-                <div className="text-sm text-on-surface-variant font-medium">Monuments Restored</div>
-              </div>
-              <div className="text-center">
-                <div className="headline-lg font-headline font-black text-tertiary mb-2">12</div>
-                <div className="text-sm text-on-surface-variant font-medium">Students Trained</div>
-              </div>
-              <div className="text-center">
-                <div className="headline-lg font-headline font-black text-tertiary mb-2">4</div>
-                <div className="text-sm text-on-surface-variant font-medium">Months Duration</div>
-              </div>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden editorial-shadow">
-              <img src={projectBuffalo} alt="Buffalo Soldiers Monument Restoration" className="w-full h-full object-cover aspect-[4/3]" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      heading={
+        <>
+          Buffalo Soldiers{" "}
+          <span
+            style={{
+              color: "#74B4E0",
+              textShadow: "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
+            }}
+          >
+            Project
+          </span>
+        </>
+      }
+      description="Restoration of heritage sites honoring the Buffalo Soldiers, integrating technical craftsmanship with deep historical reverence."
+      buttonLabel="View All Projects"
+      buttonLink="/work"
+    />
 
     {/* Skills Applied */}
     <section className="section-padding bg-surface-container-low">

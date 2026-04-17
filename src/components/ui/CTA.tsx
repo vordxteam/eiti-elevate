@@ -17,7 +17,7 @@ export default function CTA({
 }: CTAProps) {
   return (
     <section
-      className="py-[120px] px-8 max-w-[1280px] mx-auto rounded-md my-10 sm:my-[80px] text-white
+      className="py-[120px] px-8 max-w-[1280px] mx-3 xl:mx-auto rounded-md my-10 sm:my-20 text-white
       bg-[url('/images/cta-bg.png')] bg-cover bg-center bg-no-repeat"
     >
       <div className="px-6">
@@ -39,10 +39,10 @@ export default function CTA({
           {/* Button */}
           <div>
             <Link to={buttonLink}>
-              <button className="bg-[#1CA6A3] hover:bg-[#158a87] 
+              <button className="bg-[#1CA6A3] 
                 text-white font-semibold px-4 sm:px-8 py-3 rounded-xl 
                 transition-all duration-300 
-                hover:scale-105 hover:shadow-lg hover:shadow-[#1CA6A3]/40
+                hover:scale-105 hover:shadow-xl hover:bg-[#179490] hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5
                 active:scale-95"
               >
                 {buttonLabel}

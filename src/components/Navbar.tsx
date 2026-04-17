@@ -8,7 +8,6 @@ const navLinks = [
   { label: "Impact", to: "/impact" },
   { label: "Work", to: "/work" },
   { label: "About", to: "/about" },
-  { label: "Apply Now", to: "/apply" },
 ];
 
 const Navbar = () => {
@@ -52,7 +51,7 @@ const Navbar = () => {
 
           <Link
             to="/apply"
-            className="hidden md:inline-flex bg-[#1CA6A3] text-white px-6 py-2.5 rounded-xl font-bold text-sm inner-glow hover:opacity-80 transition-all duration-300 active:scale-95"
+            className="hidden md:inline-flex bg-[#1CA6A3] text-white px-6 py-2.5 rounded-xl font-bold text-sm inner-glow hover:bg-[#179490] hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 transition-all duration-300 active:scale-95"
           >
             Apply Today
           </Link>
@@ -119,7 +118,7 @@ const Navbar = () => {
           <Link
             to="/apply"
             onClick={() => setOpen(false)}
-            className="block w-full bg-[#1CA6A3] text-white px-6 py-3 rounded-xl font-bold text-sm text-center hover:opacity-80 transition-all"
+            className="block w-full bg-[#1CA6A3] text-white px-6 py-3 rounded-xl font-bold text-sm text-center hover:bg-[#179490] hover:shadow-[#1CA6A3]/30 transition-all"
           >
             Apply Now
           </Link>

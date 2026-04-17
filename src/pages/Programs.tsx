@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-image.jpg";
-import projectPark from "@/assets/project-park.jpg";
-import projectBuffalo from "@/assets/project-buffalo.jpg";
 import CTA from "@/components/ui/CTA";
+import PageHero from "@/components/PageHero";
 
 const programs = [
   {
@@ -10,6 +8,7 @@ const programs = [
     slug: "electrical",
     title: "Residential Electrical Training",
     shortTitle: "Electrical",
+    icon: "bolt",
     desc: "EITI's Residential Electrical Training prepares participants for entry-level careers in the electrical trades through hands-on instruction and real-world application.",
     learn: [
       "Wiring and circuitry fundamentals",
@@ -22,7 +21,6 @@ const programs = [
       "Entry-level electrical technician roles",
       "Construction industry positions"
     ],
-    image: projectPark,
     iconColor: "#1CA6A3"
   },
   {
@@ -30,6 +28,7 @@ const programs = [
     slug: "solar",
     title: "Renewable Energy – Solar Technician Training",
     shortTitle: "Solar",
+    icon: "solar_power",
     desc: "This program introduces participants to the growing renewable energy sector, focusing on solar photovoltaic systems and installation practices.",
     learn: [
       "Solar PV system installation",
@@ -42,7 +41,6 @@ const programs = [
       "Renewable energy roles",
       "Green construction careers"
     ],
-    image: projectBuffalo,
     iconColor: "#74B4E0"
   },
   {
@@ -50,6 +48,7 @@ const programs = [
     slug: "carpentry",
     title: "Framing & Structural Carpentry",
     shortTitle: "Carpentry",
+    icon: "foundation",
     desc: "Participants gain hands-on experience in residential and light commercial construction, building the foundation for careers in carpentry and skilled trades.",
     learn: [
       "Blueprint reading",
@@ -62,7 +61,6 @@ const programs = [
       "Construction roles",
       "Skilled trades positions"
     ],
-    image: heroImage,
     iconColor: "#5FB673"
   },
   {
@@ -70,6 +68,7 @@ const programs = [
     slug: "culinary",
     title: "Culinary Training Program",
     shortTitle: "Culinary",
+    icon: "restaurant",
     desc: "This program prepares participants for careers in food service and hospitality through hands-on kitchen experience and professional training.",
     learn: [
       "Food preparation techniques",
@@ -82,150 +81,130 @@ const programs = [
       "Catering and hospitality positions",
       "Food entrepreneurship pathways"
     ],
-    image: projectPark,
     iconColor: "#1CA6A3"
   }
 ];
 
 const ProgramsPage = () => (
   <div>
-    {/* Hero Section */}
-    <section className="relative h-full flex items-center overflow-hidden bg-surface pt-32">
-      <div className="container-narrow grid w-full items-center gap-12 relative z-10 md:grid-cols-12 px-4 sm:px-6">
-        <div className="md:col-span-7">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#1CA6A3] leading-[1.1] tracking-tight mb-8">
-            Programs Built for <span className="text-[#74B4E0]">Real Careers</span>
-          </h1>
-          <p className="text-lg md:text-xl text-[#333333] max-w-xl mb-10 leading-relaxed">
-            EITI offers hands-on training programs designed to prepare participants for immediate entry into high-demand industries. Each program combines practical instruction, job readiness, and real-world application.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#programs"
-              className="inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-bold transition-all bg-[#1CA6A3] text-white hover:bg-[#179490]"
-            >
-              Explore Programs
-              <span className="material-symbols-outlined">arrow_downward</span>
-            </a>
-          </div>
-        </div>
-        <div className="md:col-span-5 relative">
-          <div className="rounded-2xl overflow-hidden editorial-shadow bg-white p-2">
-              <img
-                alt="EITI Training Facility"
-                className="w-full aspect-[4/5] object-cover rounded-xl"
-                src={heroImage}
-              />
-          </div>
-          <div className="absolute bottom-3 -left-5 md:-left-7 max-w-[240px] rounded-xl bg-[#1CA6A3]  p-6 editorial-shadow">
-            <p className="text-3xl font-headline font-black text-white">94%</p>
-            <p className="text-sm  font-semibold text-[#333333]">Employment rate within 6 months of graduation</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      heading={
+        <>
+          Programs Built for{" "}
+          <span
+            style={{
+              color: "#74B4E0",
+              textShadow: "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
+            }}
+          >
+            Real Careers
+          </span>
+        </>
+      }
+      description="EITI offers hands-on training programs designed to prepare participants for immediate entry into high-demand industries. Each program combines practical instruction, job readiness, and real-world application."
+      buttonLabel="Explore Programs"
+      buttonLink="#programs"
+      backgroundImage="/images/programs-hero.png" 
+    />
 
     {/* Programs Grid */}
-    <section id="programs" className="py-16 sm:py-24 bg-[#F2F9F9]">
-      <div className="container-narrow px-4 sm:px-6 mx-auto">
+    <section id="programs" className="relative mt-10 py-20 overflow-hidden" style={{ backgroundColor: "#EEF8F8" }}>
+      {/* Grid bg pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(28,166,163,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(28,166,163,0.07) 1px, transparent 1px)`,
+          backgroundSize: "48px 48px",
+        }}
+      />
+      <div className="absolute top-10 -left-20 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: "#1CA6A3", opacity: 0.07 }} />
+      <div className="absolute bottom-10 -right-20 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: "#74B4E0", opacity: 0.07 }} />
+
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <p className="text-xs font-bold text-[#5FB673] uppercase tracking-[0.25em] mb-4">
-            Career-Focused Training
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#333333] leading-tight">
-            Our <span className="text-[#1CA6A3]">Programs</span>
+        <div className="text-center mb-12 sm:mb-14">
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
+            style={{ backgroundColor: "rgba(28,166,163,0.1)", border: "1px solid rgba(28,166,163,0.2)" }}
+          >
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#1CA6A3]">Career-Focused Training</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#0D1F22] mb-8">
+            Our Programs
           </h2>
+          <div className="h-1 w-20 rounded-full mx-auto bg-gradient-to-r from-[#1CA6A3] via-[#74B4E0] to-[#5FB673]" />
         </div>
 
-        {/* Program Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {programs.map((program) => (
+        {/* Program Cards — compact 2×2 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
+          {programs.map((program, index) => (
             <div
               key={program.id}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 flex flex-col"
+              className="group relative bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-lg flex flex-col"
+              style={{
+                border: `1px solid ${program.iconColor}20`,
+                boxShadow: "0 1px 8px rgba(0,0,0,0.04)",
+              }}
             >
-              {/* Image Header */}
-              <div className="relative h-48 sm:h-56 overflow-hidden">
-                <img
-                  src={program.image}
-                  alt={program.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-xl sm:text-2xl font-headline font-bold text-white leading-tight">
-                    {program.title}
-                  </h3>
-                </div>
-                {/* Color accent bar */}
-                <div
-                  className="absolute top-0 left-0 w-full h-1"
-                  style={{ backgroundColor: program.iconColor }}
-                />
+              {/* Top color bar */}
+              <div className="h-[3px]" style={{ background: `linear-gradient(90deg, ${program.iconColor}, ${program.iconColor}50)` }} />
+
+              {/* Ghost number */}
+              <div
+                className="absolute -bottom-3 right-2 font-headline font-black leading-none select-none pointer-events-none"
+                style={{ fontSize: "clamp(72px, 12vw, 110px)", color: program.iconColor, opacity: 0.05, lineHeight: 1 }}
+              >
+                {String(index + 1).padStart(2, "0")}
               </div>
 
-              {/* Content */}
-              <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                <p className="text-[#555] text-sm sm:text-base leading-relaxed mb-6">
-                  {program.desc}
-                </p>
+              <div className="relative p-4 sm:p-5 flex flex-col flex-grow">
+                {/* Content wrapper - grows to push button down */}
+                <div className="flex-grow">
+                  {/* Top row */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <div
+                        className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
+                        style={{ background: `linear-gradient(135deg, ${program.iconColor}25, ${program.iconColor}10)`, border: `1px solid ${program.iconColor}20` }}
+                      >
+                        <span className="material-symbols-outlined" style={{ color: program.iconColor, fontSize: "15px" }}>{program.icon}</span>
+                      </div>
+                      <span className="text-[9px] font-black uppercase tracking-[0.3em]" style={{ color: program.iconColor }}>
+                        {String(index + 1).padStart(2, "0")} — {program.shortTitle}
+                      </span>
+                    </div>
+                  </div>
 
-                {/* What You'll Learn */}
-                <div className="mb-6">
-                  <h4
-                    className="text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-2"
-                    style={{ color: program.iconColor }}
-                  >
-                    <span className="material-symbols-outlined text-sm">school</span>
-                    What You'll Learn
-                  </h4>
-                  <ul className="space-y-2">
+                  {/* Title */}
+                  <h3 className="text-sm sm:text-[25px] font-headline font-bold text-[#0D1F22] mb-1.5 leading-tight pr-6">
+                    {program.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-[15px] leading-relaxed text-[#777] mb-3 line-clamp-2">{program.desc}</p>
+
+                  {/* Learn pills */}
+                  <div className="flex flex-wrap gap-1 mb-4">
                     {program.learn.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-[#555]">
-                        <span
-                          className="material-symbols-outlined text-sm mt-0.5 flex-shrink-0"
-                          style={{ color: program.iconColor }}
-                        >
-                          check_circle
-                        </span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Career Outcomes */}
-                <div className="mb-6">
-                  <h4
-                    className="text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-2"
-                    style={{ color: program.iconColor }}
-                  >
-                    <span className="material-symbols-outlined text-sm">work</span>
-                    Career Outcomes
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {program.careers.map((career, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1.5 rounded-lg text-xs font-medium bg-[#F2F9F9] text-[#333]"
+                        className="text-[12px] font-semibold px-2 py-0.5 rounded-full"
+                        style={{ backgroundColor: `${program.iconColor}10`, color: program.iconColor, border: `1px solid ${program.iconColor}20` }}
                       >
-                        {career}
+                        {item}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* Apply button - now at bottom */}
                 <Link
                   to="/apply"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-white transition-all duration-300 hover:shadow-lg group/btn mt-auto"
+                  className="inline-flex items-center gap-1 text-[11px] font-bold py-2 px-3.5 rounded-lg text-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 group/cta"
                   style={{ backgroundColor: program.iconColor }}
                 >
                   Apply Now
-                  <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover/btn:translate-x-1">
-                    arrow_forward
-                  </span>
+                  <span className="material-symbols-outlined transition-transform duration-300 group-hover/cta:translate-x-0.5" style={{ fontSize: "13px" }}>arrow_forward</span>
                 </Link>
               </div>
             </div>
