@@ -112,70 +112,141 @@ const WorkPreview: React.FC = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-          {projects.map((project) => (
-            <article
-              key={project.id}
-              className="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer transition-all duration-300"
-              style={{
-                transform:
-                  hoveredId === project.id ? "translateY(-6px)" : "translateY(0)",
-                boxShadow:
-                  hoveredId === project.id
-                    ? "0 20px 40px rgba(28,166,163,0.18)"
-                    : "0 4px 16px rgba(0,0,0,0.08)",
-              }}
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              {/* Image */}
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={project.imageSrc}
-                  alt={project.imageAlt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-                {/* Gradient overlay */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(28,166,163,0.75) 0%, transparent 60%)",
-                  }}
-                />
-                {/* Category badge */}
-                {/* <span
-                  className="absolute top-3 left-3 text-xs font-semibold px-3 py-1 rounded-full text-white"
-                  style={{ backgroundColor: "#74B4E0" }}
-                >
-                  {project.category}
-                </span> */}
-              </div>
+        {/* Bento Grid — 12-col, 2 rows: [8+4] then [4+8] */}
+        <div className="grid grid-cols-1 md:grid-cols-12 grid-rows-[auto] gap-4 mb-14">
 
-              {/* Content */}
-              <div className="bg-white p-5">
-                <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                  {project.description}
-                </p>
+          {/* Row 1 — Card 1: 8 cols */}
+          <article
+            className="md:col-span-8 group relative rounded-2xl overflow-hidden cursor-pointer h-[320px] md:h-[380px]"
+            onMouseEnter={() => setHoveredId(1)}
+            onMouseLeave={() => setHoveredId(null)}
+            style={{
+              boxShadow: hoveredId === 1 ? "0 24px 48px rgba(28,166,163,0.2)" : "0 4px 20px rgba(0,0,0,0.1)",
+              transition: "box-shadow 0.3s ease",
+            }}
+          >
+            <img
+              src={projects[0].imageSrc}
+              alt={projects[0].imageAlt}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-7">
+              <span
+                className="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4"
+                style={{ backgroundColor: "#0D1F2280", color: "#74B4E0", border: "1px solid #74B4E060", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
+              >
+                Electrical
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                {projects[0].title}
+              </h3>
+              <p className="text-white/75 text-sm md:text-base leading-relaxed max-w-xl">
+                {projects[0].description}
+              </p>
+            </div>
+          </article>
 
-                {/* Hover underline accent */}
-                <div
-                  className="mt-4 h-0.5 rounded-full transition-all duration-300 origin-left"
-                  style={{
-                    backgroundColor: "#1CA6A3",
-                    transform:
-                      hoveredId === project.id ? "scaleX(1)" : "scaleX(0)",
-                    transformOrigin: "left",
-                  }}
-                />
-              </div>
-            </article>
-          ))}
+          {/* Row 1 — Card 2: 4 cols */}
+          <article
+            className="md:col-span-4 group relative rounded-2xl overflow-hidden cursor-pointer h-[260px] md:h-[380px]"
+            onMouseEnter={() => setHoveredId(2)}
+            onMouseLeave={() => setHoveredId(null)}
+            style={{
+              boxShadow: hoveredId === 2 ? "0 20px 40px rgba(28,166,163,0.18)" : "0 4px 16px rgba(0,0,0,0.08)",
+              transition: "box-shadow 0.3s ease",
+            }}
+          >
+            <img
+              src={projects[1].imageSrc}
+              alt={projects[1].imageAlt}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <span
+                className="inline-block text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full mb-3"
+                style={{ backgroundColor: "#0D1F2280", color: "#74B4E0", border: "1px solid #74B4E060", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
+              >
+                Solar
+              </span>
+              <h3 className="text-lg font-bold text-white mb-2 leading-snug">
+                {projects[1].title}
+              </h3>
+              <p className="text-white/70 text-xs leading-relaxed line-clamp-3">
+                {projects[1].description}
+              </p>
+            </div>
+          </article>
+
+          {/* Row 2 — Card 3: 4 cols */}
+          <article
+            className="md:col-span-4 group relative rounded-2xl overflow-hidden cursor-pointer h-[260px] md:h-[380px]"
+            onMouseEnter={() => setHoveredId(3)}
+            onMouseLeave={() => setHoveredId(null)}
+            style={{
+              boxShadow: hoveredId === 3 ? "0 20px 40px rgba(28,166,163,0.18)" : "0 4px 16px rgba(0,0,0,0.08)",
+              transition: "box-shadow 0.3s ease",
+            }}
+          >
+            <img
+              src={projects[2].imageSrc}
+              alt={projects[2].imageAlt}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <span
+                className="inline-block text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full mb-3"
+                style={{ backgroundColor: "#0D1F2280", color: "#74B4E0", border: "1px solid #74B4E060", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
+              >
+                Carpentry
+              </span>
+              <h3 className="text-lg font-bold text-white mb-2 leading-snug">
+                {projects[2].title}
+              </h3>
+              <p className="text-white/70 text-xs leading-relaxed line-clamp-3">
+                {projects[2].description}
+              </p>
+            </div>
+          </article>
+
+          {/* Row 2 — Card 4: 8 cols */}
+          <article
+            className="md:col-span-8 group relative rounded-2xl overflow-hidden cursor-pointer h-[320px] md:h-[380px]"
+            onMouseEnter={() => setHoveredId(4)}
+            onMouseLeave={() => setHoveredId(null)}
+            style={{
+              boxShadow: hoveredId === 4 ? "0 24px 48px rgba(28,166,163,0.2)" : "0 4px 20px rgba(0,0,0,0.1)",
+              transition: "box-shadow 0.3s ease",
+            }}
+          >
+            <img
+              src={projects[3].imageSrc}
+              alt={projects[3].imageAlt}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-7">
+              <span
+                className="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4"
+                style={{ backgroundColor: "#0D1F2280", color: "#74B4E0", border: "1px solid #74B4E060", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
+              >
+                Culinary
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                {projects[3].title}
+              </h3>
+              <p className="text-white/75 text-sm md:text-base leading-relaxed max-w-xl">
+                {projects[3].description}
+              </p>
+            </div>
+          </article>
+
         </div>
 
         {/* CTA */}

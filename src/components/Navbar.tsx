@@ -12,7 +12,15 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const hasHero = location.pathname !== "/apply";
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -25,10 +33,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled || !hasHero ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-[#ffffff40]"
+      }`}>
         <div className="flex justify-between items-center px-8 py-1 max-w-7xl mx-auto">
           <Link to="/">
-            <img src="/images/logo.jpg" alt="logo" className="h-[60px] w-[130px]" />
+            <img src="/images/logo.png" alt="logo" className="h-[60px] w-[130px]" />
           </Link>
 
           {/* Desktop links */}
@@ -39,8 +49,12 @@ const Navbar = () => {
                 to={link.to}
                 className={`font-headline tracking-tight font-bold text-sm transition-colors ${
                   location.pathname === link.to
-                    ? "text-[#1CA6A3] border-b-2 border-[#1CA6A3] pb-1"
-                    : "text-[#ED9C6] hover:text-primary"
+                    ? scrolled || !hasHero
+                      ? "text-[#1CA6A3] border-b-2 border-[#1CA6A3] pb-1"
+                      : "text-white border-b-2 border-white pb-1"
+                    : scrolled || !hasHero
+                      ? "text-[#ED9C6] hover:text-primary"
+                      : "text-white/80 hover:text-white"
                 }`}
                 aria-current={location.pathname === link.to ? "page" : undefined}
               >
@@ -58,7 +72,7 @@ const Navbar = () => {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-on-surface z-[60] relative"
+            className={`md:hidden z-[60] relative transition-colors ${scrolled || !hasHero ? "text-on-surface" : "text-white"}`}
             onClick={() => setOpen(!open)}
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
@@ -84,7 +98,7 @@ const Navbar = () => {
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-          <img src="/images/logo.jpg" alt="logo" className="h-10 w-auto" />
+          <img src="/images/logo.png" alt="logo" className="h-10 w-auto" />
           <button
             onClick={() => setOpen(false)}
             className="text-gray-500 hover:text-[#1CA6A3] transition-colors"

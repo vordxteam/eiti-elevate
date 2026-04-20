@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 import PageHero from "@/components/PageHero";
 
 const programs = [
@@ -161,6 +162,92 @@ const Divider = () => (
   <div className="h-px bg-gradient-to-r from-transparent via-[#E0E8E8] to-transparent" />
 );
 
+// ─── Custom Select Dropdown with Rotating Arrow ───
+interface CustomSelectProps {
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  options: string[];
+  placeholder?: string;
+}
+
+const CustomSelect = ({ name, value, onChange, options, placeholder = "Select option" }: CustomSelectProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleSelect = (option: string) => {
+    const syntheticEvent = {
+      target: { name, value: option },
+    } as React.ChangeEvent<HTMLSelectElement>;
+    onChange(syntheticEvent);
+    setIsOpen(false);
+  };
+
+  return (
+    <div ref={containerRef} className="relative">
+      {/* Trigger Button */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        className={`w-full px-4 py-3 rounded-xl border bg-[#F8FAFA] text-left outline-none transition-all duration-300 flex items-center justify-between ${
+          isOpen || isFocused
+            ? "border-[#1CA6A3] bg-white ring-2 ring-[#1CA6A3]/15"
+            : "border-[#E0E8E8] hover:border-[#1CA6A3]/50"
+        }`}
+      >
+        <span className={`text-sm ${value ? "text-[#333]" : "text-[#999]"}`}>
+          {value || placeholder}
+        </span>
+        <ChevronDown
+          size={18}
+          className={`text-[#1CA6A3] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {/* Dropdown Menu */}
+      {isOpen && (
+        <div className="absolute z-50 w-full mt-2 py-2 bg-white rounded-xl border border-[#E0E8E8] shadow-lg shadow-[#1CA6A3]/10 max-h-64 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200">
+          {options.map((option, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => handleSelect(option)}
+              className={`w-full px-4 py-3 text-left text-sm transition-colors duration-200 ${
+                value === option
+                  ? "bg-[#1CA6A3]/10 text-[#1CA6A3] font-medium"
+                  : "text-[#555] hover:bg-[#F2F9F9] hover:text-[#1CA6A3]"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Hidden select for form submission */}
+      <select name={name} value={value} onChange={onChange} className="sr-only">
+        <option value="">{placeholder}</option>
+        {options.map((opt) => (
+          <option key={opt} value={opt}>{opt}</option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
 const ApplyPage = () => {
   const [searchParams] = useSearchParams();
   const preselectedProgram = searchParams.get("program") || "";
@@ -218,7 +305,7 @@ const ApplyPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F2F9F9]">
+    <div className="min-h-screen bg-[#F2F9F9] pt-20">
       {/* <PageHero
         heading={
           <>
@@ -426,7 +513,7 @@ const ApplyPage = () => {
                     <FormField
                       label="Email Address"
                       required
-                      note="Please make sure your email is accurate — you'll receive a confirmation within 48 hours."
+                      note="Please make sure your email is accurate. You'll receive a confirmation within 48 hours."
                     >
                       <input
                         type="email"
@@ -604,7 +691,7 @@ const ApplyPage = () => {
                     title="MI Works Information"
                     subtitle="Michigan Works! partnership details"
                   />
-                  <div className="rounded-2xl border border-[#E0E8E8] overflow-hidden">
+                  <div className="rounded-2xl border border-[#E0E8E8]">
                     <div className="p-6 space-y-3">
                       <p className="text-sm font-bold text-[#333]">
                         Have you attended a MI Works orientation in the last 90 days?{" "}
@@ -679,17 +766,13 @@ const ApplyPage = () => {
                         )}
 
                         <FormField label="MI Works Location">
-                          <select
+                          <CustomSelect
                             name="miWorksLocation"
                             value={formData.miWorksLocation}
                             onChange={handleInputChange}
-                            className={inputClass}
-                          >
-                            <option value="">Select location</option>
-                            {miWorksLocations.map((loc) => (
-                              <option key={loc} value={loc}>{loc}</option>
-                            ))}
-                          </select>
+                            options={miWorksLocations}
+                            placeholder="Select location"
+                          />
                         </FormField>
 
                         {formData.miWorksLocation === "Other" && (
@@ -759,17 +842,8 @@ const ApplyPage = () => {
                   </div>
                 </div>
 
-                {/* ── Submit Footer ── */}
-                <div
-                  className="rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6"
-                  style={{ background: "linear-gradient(135deg, #0D1F22 0%, #1a3a3f 100%)" }}
-                >
-                  <div>
-                    <p className="text-white font-bold text-lg">Ready to start your journey?</p>
-                    <p className="text-sm mt-0.5" style={{ color: "rgba(255,255,255,0.55)" }}>
-                      We'll review your application and follow up within 48 hours.
-                    </p>
-                  </div>
+                {/* ── Submit ── */}
+                <div className="flex justify-end">
                   <button
                     type="submit"
                     className="inline-flex items-center justify-center gap-2 bg-[#1CA6A3] hover:bg-[#179490] text-white font-bold px-10 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-lg whitespace-nowrap"

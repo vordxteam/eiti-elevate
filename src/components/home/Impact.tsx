@@ -62,7 +62,7 @@ function useCountUp(
       return;
     }
     const timeout = setTimeout(() => {
-      const duration = 1800;
+      const duration = 1200;
       let start: number | null = null;
       const step = (ts: number) => {
         if (!start) start = ts;
@@ -190,6 +190,7 @@ export default function ImpactSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#1a1a1a] leading-tight">
             Real Training.{" "}
             <span
+              className="relative inline-block"
               style={{
                 background: "linear-gradient(90deg, #1CA6A3, #74B4E0)",
                 WebkitBackgroundClip: "text",
@@ -198,6 +199,9 @@ export default function ImpactSection() {
               }}
             >
               Real Outcomes.
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 8.5C60 3.5 150 1 298 8.5" stroke="#74B4E0" strokeWidth="3" strokeLinecap="round" />
+              </svg>
             </span>
           </h2>
         </div>

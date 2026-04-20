@@ -12,7 +12,7 @@ const PageHero = ({ heading, description, buttonLabel, buttonLink, backgroundIma
   const bgImage = backgroundImage || "/images/home-hero-final.jpg";
   return ( 
   <section
-    className="relative -mt-2.5 pt-0 flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat h-[calc(100vh-70px)]"
+    className="relative flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat h-screen"
    style={{ backgroundImage: `url(${bgImage})` }}
   >
     <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/75 to-teal-500/30" />

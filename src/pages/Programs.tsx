@@ -9,7 +9,7 @@ const programs = [
     title: "Residential Electrical Training",
     shortTitle: "Electrical",
     icon: "bolt",
-    desc: "EITI's Residential Electrical Training prepares participants for entry-level careers in the electrical trades through hands-on instruction and real-world application.",
+    desc: "EITI's Residential Electrical Training prepares participants for entry level careers in the electrical trades through hands on instruction and real world application.",
     learn: [
       "Wiring and circuitry fundamentals",
       "Electrical safety and code basics",
@@ -18,7 +18,7 @@ const programs = [
     ],
     careers: [
       "Electrical apprenticeships",
-      "Entry-level electrical technician roles",
+      "Entry level electrical technician roles",
       "Construction industry positions"
     ],
     iconColor: "#1CA6A3"
@@ -26,7 +26,7 @@ const programs = [
   {
     id: "solar",
     slug: "solar",
-    title: "Renewable Energy – Solar Technician Training",
+    title: "Renewable Energy Solar Technician Training",
     shortTitle: "Solar",
     icon: "solar_power",
     desc: "This program introduces participants to the growing renewable energy sector, focusing on solar photovoltaic systems and installation practices.",
@@ -49,7 +49,7 @@ const programs = [
     title: "Framing & Structural Carpentry",
     shortTitle: "Carpentry",
     icon: "foundation",
-    desc: "Participants gain hands-on experience in residential and light commercial construction, building the foundation for careers in carpentry and skilled trades.",
+    desc: "Participants gain hands on experience in residential and light commercial construction, building the foundation for careers in carpentry and skilled trades.",
     learn: [
       "Blueprint reading",
       "Framing walls and roofs",
@@ -69,7 +69,7 @@ const programs = [
     title: "Culinary Training Program",
     shortTitle: "Culinary",
     icon: "restaurant",
-    desc: "This program prepares participants for careers in food service and hospitality through hands-on kitchen experience and professional training.",
+    desc: "This program prepares participants for careers in food service and hospitality through hands on kitchen experience and professional training.",
     learn: [
       "Food preparation techniques",
       "Kitchen safety and sanitation",
@@ -93,7 +93,7 @@ const ProgramsPage = () => (
           Programs Built for{" "}
           <span
             style={{
-              color: "#74B4E0",
+              color: "white",
               textShadow: "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
             }}
           >
@@ -101,7 +101,7 @@ const ProgramsPage = () => (
           </span>
         </>
       }
-      description="EITI offers hands-on training programs designed to prepare participants for immediate entry into high-demand industries. Each program combines practical instruction, job readiness, and real-world application."
+      description="EITI offers hands on training programs designed to prepare participants for immediate entry into high demand industries. Each program combines practical instruction, job readiness, and real world application."
       buttonLabel="Explore Programs"
       buttonLink="#programs"
       backgroundImage="/images/programs-hero.png" 
@@ -130,9 +130,14 @@ const ProgramsPage = () => (
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#1CA6A3]">Career-Focused Training</span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#0D1F22] mb-8">
-            Our Programs
+            Our{" "}
+            <span className="relative inline-block" style={{ color: "#1CA6A3" }}>
+              Programs
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 8.5C60 3.5 150 1 298 8.5" stroke="#74B4E0" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </span>
           </h2>
-          <div className="h-1 w-20 rounded-full mx-auto bg-gradient-to-r from-[#1CA6A3] via-[#74B4E0] to-[#5FB673]" />
         </div>
 
         {/* Program Cards — compact 2×2 */}
@@ -151,7 +156,7 @@ const ProgramsPage = () => (
 
               {/* Ghost number */}
               <div
-                className="absolute -bottom-3 right-2 font-headline font-black leading-none select-none pointer-events-none"
+                className="absolute -top-1 right-1 font-headline font-black leading-none select-none pointer-events-none"
                 style={{ fontSize: "clamp(72px, 12vw, 110px)", color: program.iconColor, opacity: 0.05, lineHeight: 1 }}
               >
                 {String(index + 1).padStart(2, "0")}
@@ -188,7 +193,7 @@ const ProgramsPage = () => (
                     {program.learn.map((item, i) => (
                       <span
                         key={i}
-                        className="text-[12px] font-semibold px-2 py-0.5 rounded-full"
+                        className="text-[12px] font-normal px-2 py-0.5 rounded-full"
                         style={{ backgroundColor: `${program.iconColor}10`, color: program.iconColor, border: `1px solid ${program.iconColor}20` }}
                       >
                         {item}
@@ -216,7 +221,7 @@ const ProgramsPage = () => (
     {/* Final CTA */}
     <CTA
       heading="Choose Your Path. Start Today."
-      description=""
+      description="No prior experience required. Our hands on programs are built to take you from day one to job ready, with real skills, real credentials, and real employers waiting."
       buttonLabel="Apply Now"
       buttonLink="/apply"
     />

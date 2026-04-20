@@ -22,10 +22,10 @@ const tracks = [
     accent: "#1CA6A3",
   },
   {
-    title: "Renewable Energy – Solar Technician Training",
+    title: "Renewable Energy  Solar Technician Training",
     category: "Green Energy",
     description:
-      "Train for careers in renewable energy through hands-on experience with solar installation and energy systems.",
+      "Train for careers in renewable energy through hands on experience with solar installation and energy systems.",
     image: projectBuffalo,
     icon: Sun,
     accent: "#74B4E0",
@@ -298,16 +298,14 @@ const WhatWeDoSection = () => {
             </p>
           </div>
           <h2 className="text-4xl text-[#333333] sm:text-5xl md:text-6xl font-headline font-bold mb-6">
-            What We Do
+            What We{" "}
+            <span className="relative inline-block" style={{ color: "#1CA6A3" }}>
+              Do
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 8.5C60 3.5 150 1 298 8.5" stroke="#74B4E0" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </span>
           </h2>
-          <div className="flex justify-center">
-            <div
-              className="h-1 w-24 rounded-full"
-              style={{
-                background: "linear-gradient(90deg, #1CA6A3, #74B4E0, #5FB673)",
-              }}
-            />
-          </div>
         </div>
 
         {/* Cards Grid */}
@@ -329,7 +327,7 @@ const HomePage = () => (
           Build Skills.{" "}
           <span
             style={{
-              color: "#1CA6A3",
+              color: "white",
               textShadow:
                 "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
             }}
@@ -355,17 +353,19 @@ const HomePage = () => (
         {/* Section Header */}
         <div className="text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1CA6A3]/10 mb-6">
-            <Sparkles size={16} className="text-[#1CA6A3]" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CA6A3]">
               Career Pathways
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#0D1F22] mb-4">
-            Programs Snapshot
+            Programs{" "}
+            <span className="relative inline-block" style={{ color: "#1CA6A3" }}>
+              Snapshot
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 8.5C60 3.5 150 1 298 8.5" stroke="#74B4E0" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </span>
           </h2>
-          <div className="flex justify-center">
-            <div className="h-1 w-24 rounded-full bg-gradient-to-r from-[#1CA6A3] via-[#74B4E0] to-[#5FB673]" />
-          </div>
         </div>
 
         {/* Premium Program Cards Grid */}
@@ -466,11 +466,20 @@ const HomePage = () => (
     <WorkPreview />
 
     {/* ─── Partners ─── */}
-    <section className="py-10 sm:py-20 bg-surface">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="container-narrow px-4 sm:px-6 mx-auto">
         <div className="text-center mb-12">
-          <p className="sm:text-3xl text-lg font-medium text-[#333333] mb-8">
-            Built With Industry Leaders
+          <h2 className="text-3xl sm:text-4xl font-headline font-bold text-[#333333] leading-tight mb-4">
+            Our{" "}
+            <span className="relative inline-block text-[#1CA6A3]">
+              Partners
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 8.5C60 3.5 150 1 298 8.5" stroke="#74B4E0" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </span>
+          </h2>
+          <p className="text-lg text-[#555] max-w-2xl mx-auto">
+            Working together to expand access and impact.
           </p>
         </div>
         <Slider images={companyCards} speed={30} />

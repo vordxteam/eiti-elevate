@@ -23,10 +23,10 @@ export default function Slider({ images, speed = 30 }: SliderProps) {
       className="relative w-full overflow-hidden"
     >
       {/* Left fade */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-16 z-10 bg-gradient-to-r from-white to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10 bg-gradient-to-r from-white to-transparent" />
 
       {/* Right fade */}
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-16 z-10 bg-gradient-to-l from-white to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10 bg-gradient-to-l from-white to-transparent" />
 
       <div
         className="flex w-max animate-slide"
@@ -45,8 +45,6 @@ export default function Slider({ images, speed = 30 }: SliderProps) {
               alt={img.alt}
               className="
                 w-full h-full object-contain
-                grayscale brightness-90 contrast-90 opacity-70
-                hover:grayscale-0 hover:brightness-100 hover:contrast-100 hover:opacity-100
                 transition-all duration-300
               "
             />

@@ -47,8 +47,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="relative overflow-hidden bg-[#0D1F22]">
-      {/* Top Gradient */}
-      <div className="h-1 w-full bg-gradient-to-r from-[#1CA6A3] via-[#74B4E0] to-[#1CA6A3]" />
+
 
       {/* Background Effects */}
       <div className="pointer-events-none absolute -top-32 -left-32 w-80 h-80 rounded-full blur-3xl opacity-10 bg-[#1CA6A3]" />
@@ -185,7 +184,7 @@ const Footer: React.FC = () => {
               Office Hours
             </h3>
 
-            <div className="rounded-xl p-5 mb-7 border border-[#1CA6A3]/20 bg-gradient-to-br from-[#1CA6A3]/10 to-[#74B4E0]/10">
+            <div className="rounded-xl p-5 mb-7 border border-[#1CA6A3]/20 bg-gradient-to-br from-[#1CA6A3]/10 to-[#74B4E0]/10 backdrop-blur-lg">
               <div className="flex items-center gap-2 mb-3">
                 <Clock className="w-4 h-4 text-[#1CA6A3]" />
                 <span className="text-sm font-semibold text-white">

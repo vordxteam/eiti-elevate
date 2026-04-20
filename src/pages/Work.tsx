@@ -7,7 +7,7 @@ const projects = [
     title: "Virginia Park Neighborhood Beautification",
     partner: "Ally",
     description:
-      "EITI partnered with Ally Financial to drive residential improvements and community revitalization across Detroit's Virginia Park neighborhood — turning hands-on training into tangible, lasting impact.",
+      "EITI partnered with Ally Financial to drive residential improvements and community revitalization across Detroit's Virginia Park neighborhood, turning hands on training into tangible, lasting impact.",
     image:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&auto=format&fit=crop&q=80",
     category: "Community Revitalization",
@@ -23,7 +23,7 @@ const projects = [
     title: "Pole Barn Construction for Buffalo Soldiers Heritage",
     partner: "Carhartt",
     description:
-      "A landmark collaboration with Carhartt and the Buffalo Soldiers Heritage Association — EITI students built a functional pole barn structure, honoring Detroit's history while earning real construction credentials.",
+      "A landmark collaboration with Carhartt and the Buffalo Soldiers Heritage Association. EITI students built a functional pole barn structure, honoring Detroit's history while earning real construction credentials.",
     image:
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&auto=format&fit=crop&q=80",
     category: "Historic Preservation",
@@ -44,18 +44,19 @@ const WorkPage = () => (
           Real Projects.{" "}
           <span
             style={{
-              color: "#74B4E0",
-              textShadow: "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
+              color: "white",
+              textShadow:
+                "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
             }}
           >
             Real Experience.
           </span>
         </>
       }
-      description="EITI students gain hands-on experience by working on real projects that serve communities and partners across Detroit."
+      description="EITI students gain hands on experience by working on real projects that serve communities and partners across Detroit."
       buttonLabel="Explore Projects"
       buttonLink="#projects"
-      backgroundImage="/images/work-hero.png" 
+      backgroundImage="/images/work-hero.png"
     />
 
     {/* ── Featured Projects ── */}
@@ -96,9 +97,28 @@ const WorkPage = () => (
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#0D1F22] mb-8">
-            Our <span style={{ color: "#1CA6A3" }}>Projects</span>
+            Our{" "}
+            <span
+              className="relative inline-block"
+              style={{ color: "#1CA6A3" }}
+            >
+              Projects
+              <svg
+                className="absolute -bottom-2 left-0 w-full"
+                viewBox="0 0 300 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 8.5C60 3.5 150 1 298 8.5"
+                  stroke="#74B4E0"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
           </h2>
-          <div className="h-1 w-20 rounded-full mx-auto bg-gradient-to-r from-[#1CA6A3] via-[#74B4E0] to-[#5FB673]" />
         </div>
 
         {/* Project Showcase — Premium Editorial Layout */}
@@ -115,7 +135,8 @@ const WorkPage = () => (
               <div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%)",
+                  background:
+                    "linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%)",
                 }}
               />
               {/* Category badge */}
@@ -143,7 +164,10 @@ const WorkPage = () => (
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#1CA6A3]">
                   Partner
                 </span>
-                <div className="h-px w-12" style={{ backgroundColor: "#1CA6A320" }} />
+                <div
+                  className="h-px w-12"
+                  style={{ backgroundColor: "#1CA6A320" }}
+                />
                 <span
                   className="text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full"
                   style={{
@@ -169,18 +193,30 @@ const WorkPage = () => (
               {/* Stats row */}
               <div className="flex items-center gap-6 mb-8">
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined" style={{ color: "#1CA6A3", fontSize: "18px" }}>
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ color: "#1CA6A3", fontSize: "18px" }}
+                  >
                     bolt
                   </span>
-                  <span className="text-sm font-bold" style={{ color: "#1CA6A3" }}>
+                  <span
+                    className="text-sm font-bold"
+                    style={{ color: "#1CA6A3" }}
+                  >
                     {projects[0].stat}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined" style={{ color: "#74B4E0", fontSize: "18px" }}>
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ color: "#74B4E0", fontSize: "18px" }}
+                  >
                     calendar_today
                   </span>
-                  <span className="text-sm font-bold" style={{ color: "#74B4E0" }}>
+                  <span
+                    className="text-sm font-bold"
+                    style={{ color: "#74B4E0" }}
+                  >
                     {projects[0].year}
                   </span>
                 </div>
@@ -214,7 +250,10 @@ const WorkPage = () => (
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#74B4E0]">
                   Partner
                 </span>
-                <div className="h-px w-12" style={{ backgroundColor: "#74B4E020" }} />
+                <div
+                  className="h-px w-12"
+                  style={{ backgroundColor: "#74B4E020" }}
+                />
                 <span
                   className="text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full"
                   style={{
@@ -240,18 +279,30 @@ const WorkPage = () => (
               {/* Stats row */}
               <div className="flex items-center gap-6 mb-8">
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined" style={{ color: "#74B4E0", fontSize: "18px" }}>
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ color: "#74B4E0", fontSize: "18px" }}
+                  >
                     bolt
                   </span>
-                  <span className="text-sm font-bold" style={{ color: "#74B4E0" }}>
+                  <span
+                    className="text-sm font-bold"
+                    style={{ color: "#74B4E0" }}
+                  >
                     {projects[1].stat}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined" style={{ color: "#5FB673", fontSize: "18px" }}>
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ color: "#5FB673", fontSize: "18px" }}
+                  >
                     calendar_today
                   </span>
-                  <span className="text-sm font-bold" style={{ color: "#5FB673" }}>
+                  <span
+                    className="text-sm font-bold"
+                    style={{ color: "#5FB673" }}
+                  >
                     {projects[1].year}
                   </span>
                 </div>
@@ -285,7 +336,8 @@ const WorkPage = () => (
               <div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%)",
+                  background:
+                    "linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%)",
                 }}
               />
               {/* Category badge */}
@@ -342,24 +394,44 @@ const WorkPage = () => (
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="mb-16 sm:mb-20">
-          <p className="text-xs font-bold uppercase tracking-[0.4em] text-[#1CA6A3] mb-5">
-            By The Numbers
-          </p>
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
+            style={{
+              backgroundColor: "rgba(28,166,163,0.1)",
+              border: "1px solid rgba(28,166,163,0.2)",
+            }}
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.4em] text-[#1CA6A3]">
+              By The Numbers
+            </p>
+          </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-white leading-[1.1]">
             Projects That{" "}
-            <span style={{ color: "#1CA6A3" }}>Make a Difference</span>
+            <span
+              className="relative inline-block"
+              style={{ color: "#1CA6A3" }}
+            >
+              Make a Difference
+              <svg
+                className="absolute -bottom-2 left-0 w-full"
+                viewBox="0 0 300 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 8.5C60 3.5 150 1 298 8.5"
+                  stroke="#74B4E0"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
           </h2>
-          <div
-            className="mt-6 h-px w-32"
-            style={{
-              background:
-                "linear-gradient(90deg, #1CA6A3, #74B4E0, transparent)",
-            }}
-          />
         </div>
 
         {/* Stats — luxury editorial */}
-        <div className="grid grid-cols-1 sm:grid-cols-3">
+        <div className="grid  grid-cols-1 sm:grid-cols-3">
           {[
             {
               value: "60+",
