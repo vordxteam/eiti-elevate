@@ -14,6 +14,7 @@ import Apply from "./pages/Apply.tsx";
 import VirginiaPark from "./pages/VirginiaPark.tsx";
 import BuffaloSoldiers from "./pages/BuffaloSoldiers.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ScrollToTop from "@/components/ScrollToTop.tsx"; 
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <ScrollToTop />      
         <Navbar />
         <main>
           <Routes>

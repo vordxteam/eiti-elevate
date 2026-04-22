@@ -76,7 +76,7 @@ const AboutPage = () => {
         description="For over 15 years, EITI has equipped Detroit residents with the skills and pathways needed to enter and succeed in the workforce."
         buttonLabel="Apply Today"
         buttonLink="/apply"
-        backgroundImage="/images/about-hero.jpg"
+        backgroundImage="/images/hero-about2.png"
       />
 
       {/* Mission & Vision */}
@@ -403,7 +403,7 @@ const AboutPage = () => {
                 <div className="aspect-[4/3] sm:aspect-[16/10]">
                   <img
                     className="w-full h-full object-cover"
-                    src={projectBuffalo}
+                    src="/images/about-impact.png"
                     alt="EITI construction training"
                   />
                 </div>

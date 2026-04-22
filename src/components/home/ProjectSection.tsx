@@ -1,59 +1,65 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useEffect } from "react";
+import { preloadImages } from "@/lib/imageCache";
+import { Zap, Sun, HardHat, ChefHat, } from "lucide-react";
+
+const iconMap = { Zap, Sun, HardHat, ChefHat };
 
 const programs = [
   {
-    title: "Pre-Apprentice Carpentry",
+    title: "Residential Electrical Training",
+    description:
+      "Learn the fundamentals of residential wiring, circuitry, and safety while preparing for careers in the electrical trades.",
     image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
-    accent: "#1CA6A3",
+      "/images/program1.png",
+    href: "/programs/residential-electrical",
+    icon: "Zap",
+    cols: "lg:col-span-8",
   },
   {
-    title: "Pre-Apprentice Electrical",
+    title: "Renewable Energy – Solar Technician Training",
+    description:
+      "Train for careers in renewable energy through hands-on experience with solar installation and energy systems.",
     image:
-      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80",
-    accent: "#74B4E0",
+      "/images/program3.png",
+    href: "/programs/renewable-energy",
+    icon: "Sun",
+    cols: "lg:col-span-4",
   },
   {
-    title: "Advanced Call Center",
+    title: "Framing & Structural Carpentry Training",
+    description:
+      "Build real-world construction skills including framing, layout, and blueprint reading for residential and commercial projects.",
     image:
-      "https://images.unsplash.com/photo-1590650213165-c1fef80648c4?w=600&q=80",
-    accent: "#5FB673",
+      "/images/program2.png",
+    href: "/programs/carpentry",
+    icon: "HardHat",
+    cols: "lg:col-span-4",
   },
   {
-    title: "Renewable Energy",
+    title: "Culinary Training",
+    description:
+      "Develop professional kitchen skills and prepare for careers in food service, hospitality, and entrepreneurship.",
     image:
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80",
-    accent: "#1CA6A3",
-  },
-  {
-    title: "CDL-A",
-    image:
-      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80",
-    accent: "#74B4E0",
-  },
-  {
-    title: "Culinary Arts",
-    image:
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80",
-    accent: "#5FB673",
+      "/images/program4.png",
+    href: "/programs/culinary",
+    icon: "ChefHat",
+    cols: "lg:col-span-8",
   },
 ];
 
 export default function ProjectsSection() {
+  useEffect(() => {
+  preloadImages(programs.map((p) => p.image));
+}, []);
   return (
     <section className="py-16 bg-[#F2F9F9] overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        {/* ── Top Row: Label + Title LEFT │ Button + Description RIGHT ── */}
-        {/* <div className="grid justify-between lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-12 sm:mb-16"> */}
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16 lg:items-start mb-12 sm:mb-16">
-          {/* Left */}
-          <div>
-            <p className="text-xs font-bold text-[#5FB673] uppercase tracking-[0.25em] mb-3">
-              Projects & Community Work
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#1a1a1a] leading-tight">
-              Training That Builds{" "}
+   
+         
+           <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#1a1a1a] mb-10 sm:mb-[55px] leading-tight">
+              Our{" "}
               <span
                 style={{
                   background: "linear-gradient(90deg, #1CA6A3, #74B4E0)",
@@ -62,69 +68,63 @@ export default function ProjectsSection() {
                   backgroundClip: "text",
                 }}
               >
-                Real Projects
+                Programs
               </span>
             </h2>
-          </div>
-
-          {/* Right */}
-          <div className="flex flex-col gap-5 lg:items-start">
-            <p className="text-sm sm:text-base text-[#666] leading-relaxed max-w-md">
-              Students learn beyond classrooms. They work on real Detroit
-              projects. They restore historic monuments.
-            </p>
-            <Link
-              to="/work"
-              className="inline-flex items-center gap-2.5 bg-[#1CA6A3] hover:bg-[#179490] text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group w-fit"
-            >
-              View Our Featured Projects
-              <ArrowRight
-                size={17}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
-          </div>
-        </div>
-
+       
         {/* ── 6-Image Grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {programs.map((program, i) => (
-            <div
-              key={i}
-              className="relative rounded-2xl overflow-hidden group cursor-pointer h-52 sm:h-60"
-            >
-              {/* Image */}
-              <img
-                src={program.image}
-                alt={program.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5">
+  {programs.map((program, i) => {
+    const Icon = iconMap[program.icon as keyof typeof iconMap];
+    return (
+      <div
+        key={i}
+        className={`relative rounded-2xl overflow-hidden group cursor-pointer ${program.cols} h-72 sm:h-80`}
+      >
+        {/* Image */}
+        <img
+          src={program.image}
+          alt={program.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
 
-              {/* Dark scrim — always visible at bottom, expands on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent transition-opacity duration-400" />
+        {/* Gradient overlay — lighter, white-toned */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/60 to-transparent" />
 
-              {/* Colored top-left corner tag */}
-              <div
-                className="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest text-black bg-white shadow-sm backdrop-blur-sm"
-                // style={{ backgroundColor: `${program.accent}cc` }}
-              >
-                Program
-              </div>
-
-              {/* Bottom label */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-white font-bold text-base sm:text-lg leading-snug drop-shadow">
-                  {program.title}
-                </p>
-                {/* Accent underline */}
-                <div
-                  className="h-[2px] rounded-full mt-1.5 w-0 group-hover:w-10 transition-all duration-500"
-                  style={{ backgroundColor: program.accent }}
-                />
-              </div>
-            </div>
-          ))}
+        {/* Program badge */}
+        <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/90 shadow-sm backdrop-blur-sm border border-[#1CA6A3]/20">
+          <Icon size={12} color="#1CA6A3" strokeWidth={2.5} />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#1CA6A3]">
+            Program
+          </span>
         </div>
+
+        {/* Content */}
+        <div className="absolute bottom-0 left-0 right-0 p-5">
+          {/* Accent line */}
+          <div className="h-[2px] w-8 rounded-full bg-[#1CA6A3] mb-3 transition-all duration-500 group-hover:w-14" />
+
+          <p className="text-gray-900 font-bold text-base sm:text-lg leading-snug mb-1.5">
+            {program.title}
+          </p>
+          <p className="text-[#2525252] text-sm font-medium leading-relaxed mb-4 line-clamp-2">
+            {program.description}
+          </p>
+
+          {/* CTA Button */}
+           <Link
+            to="/programs"
+            className="inline-flex items-center gap-2 px-4 py-2 mt-2 rounded-lg bg-[#1CA6A3] text-white text-sm font-semibold transition-all duration-300 hover:bg-[#178a87] hover:gap-3 shadow-sm hover:shadow-md"
+          >
+            Learn More
+            <ArrowRight size={14} strokeWidth={2.5} />
+          </Link>
+        </div>
+      </div>
+    );
+  })}
+</div>
+       
       </div>
     </section>
   );

@@ -33,12 +33,14 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled || !hasHero ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-[#ffffff40]"
+      <nav className={`fixed top-0   w-full z-50 transition-all duration-300 ${
+        scrolled || !hasHero ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}>
         <div className="flex justify-between items-center px-8 py-1 max-w-7xl mx-auto">
           <Link to="/">
-            <img src="/images/logo.png" alt="logo" className="h-[60px] w-[130px]" />
+            {/* <img src="/images/Eiti.png" alt="logo" className="h-[60px] w-[130px]" />
+             */}
+             {scrolled || !hasHero ? <img src="/images/eiti-black.png" alt="logo" className="h-[50px] w-[140px]" /> : <img src="/images/eiti-white.png" alt="logo" className="h-[50px] w-[140px]" />}
           </Link>
 
           {/* Desktop links */}

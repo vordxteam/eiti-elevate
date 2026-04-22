@@ -4,13 +4,38 @@ import { ChevronDown } from "lucide-react";
 import PageHero from "@/components/PageHero";
 
 const programs = [
-  { id: "carpentry", name: "Pre-Apprentice Carpentry", icon: "foundation", color: "#5FB673" },
-  { id: "electrical", name: "Pre-Apprentice Electrical", icon: "bolt", color: "#1CA6A3" },
-  { id: "callcenter", name: "Advanced Call Center", icon: "headset_mic", color: "#74B4E0" },
-  { id: "renewable", name: "Renewable Energy", icon: "solar_power", color: "#1CA6A3" },
+  {
+    id: "carpentry",
+    name: "Pre-Apprentice Carpentry",
+    icon: "foundation",
+    color: "#5FB673",
+  },
+  {
+    id: "electrical",
+    name: "Pre-Apprentice Electrical",
+    icon: "bolt",
+    color: "#1CA6A3",
+  },
+  {
+    id: "callcenter",
+    name: "Advanced Call Center",
+    icon: "headset_mic",
+    color: "#74B4E0",
+  },
+  {
+    id: "renewable",
+    name: "Renewable Energy",
+    icon: "solar_power",
+    color: "#1CA6A3",
+  },
   { id: "cdl", name: "CDL-A", icon: "local_shipping", color: "#5FB673" },
   { id: "hospitality", name: "Hospitality", icon: "hotel", color: "#74B4E0" },
-  { id: "culinary", name: "Culinary Arts", icon: "restaurant", color: "#1CA6A3" },
+  {
+    id: "culinary",
+    name: "Culinary Arts",
+    icon: "restaurant",
+    color: "#1CA6A3",
+  },
 ];
 
 const miWorksLocations = [
@@ -50,10 +75,15 @@ const SectionHeader = ({
       <span className="material-symbols-outlined text-white">{icon}</span>
     </div>
     <div className="flex-1">
-      <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color }}>
+      <p
+        className="text-xs font-bold uppercase tracking-[0.2em]"
+        style={{ color }}
+      >
         Step {number}
       </p>
-      <h3 className="text-lg font-headline font-bold text-[#0D1F22]">{title}</h3>
+      <h3 className="text-lg font-headline font-bold text-[#0D1F22]">
+        {title}
+      </h3>
       {subtitle && <p className="text-xs text-[#999] mt-0.5">{subtitle}</p>}
     </div>
     <div
@@ -149,7 +179,10 @@ const ToggleCheckbox = ({
       }`}
     >
       {checked && (
-        <span className="material-symbols-outlined text-white" style={{ fontSize: "14px" }}>
+        <span
+          className="material-symbols-outlined text-white"
+          style={{ fontSize: "14px" }}
+        >
           check
         </span>
       )}
@@ -171,14 +204,23 @@ interface CustomSelectProps {
   placeholder?: string;
 }
 
-const CustomSelect = ({ name, value, onChange, options, placeholder = "Select option" }: CustomSelectProps) => {
+const CustomSelect = ({
+  name,
+  value,
+  onChange,
+  options,
+  placeholder = "Select option",
+}: CustomSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -241,7 +283,9 @@ const CustomSelect = ({ name, value, onChange, options, placeholder = "Select op
       <select name={name} value={value} onChange={onChange} className="sr-only">
         <option value="">{placeholder}</option>
         {options.map((opt) => (
-          <option key={opt} value={opt}>{opt}</option>
+          <option key={opt} value={opt}>
+            {opt}
+          </option>
         ))}
       </select>
     </div>
@@ -283,25 +327,62 @@ const ApplyPage = () => {
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value, type } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+      [name]:
+        type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     }));
   };
 
   const handleCheckboxChange = (name: string) => {
-    setFormData((prev) => ({ ...prev, [name]: !prev[name as keyof typeof formData] }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: !prev[name as keyof typeof formData],
+    }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (formData.firstName && formData.lastName && formData.email && formData.phone && selectedProgram) {
+  //     setSubmitted(true);
+  //     window.scrollTo({ top: 0, behavior: "smooth" });
+  //   }
+  // };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.firstName && formData.lastName && formData.email && formData.phone && selectedProgram) {
+    setIsSubmitting(true);
+
+    const payload = {
+      access_key: "bb96dcb3-3327-40a0-a3f0-c643f91c2e87",
+      subject: "New EITI Application Received",
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      ...formData,
+      program: selectedProgram,
+    };
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      alert("Something went wrong. Please try again.");
     }
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -333,17 +414,26 @@ const ApplyPage = () => {
             <div className="bg-white rounded-3xl overflow-hidden shadow-xl text-center">
               <div
                 className="py-16 px-8"
-                style={{ background: "linear-gradient(135deg, #0D1F22 0%, #1a3a3f 100%)" }}
+                style={{
+                  background:
+                    "linear-gradient(135deg, #0D1F22 0%, #1a3a3f 100%)",
+                }}
               >
                 <div className="w-20 h-20 rounded-full bg-[#5FB673] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#5FB673]/30">
-                  <span className="material-symbols-outlined text-white" style={{ fontSize: "40px" }}>
+                  <span
+                    className="material-symbols-outlined text-white"
+                    style={{ fontSize: "40px" }}
+                  >
                     check_circle
                   </span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-headline font-bold text-white mb-3">
                   Application Submitted!
                 </h2>
-                <p className="text-lg max-w-md mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.8)" }}>
+                <p
+                  className="text-lg max-w-md mx-auto leading-relaxed"
+                  style={{ color: "rgba(255,255,255,0.8)" }}
+                >
                   Thank you,{" "}
                   <strong className="text-[#1CA6A3]">
                     {formData.firstName} {formData.lastName}
@@ -354,7 +444,10 @@ const ApplyPage = () => {
               <div className="py-8 px-8 bg-[#F8FAFA]">
                 <p className="text-[#555]">
                   Questions? Call us at{" "}
-                  <a href="tel:313-499-8999" className="text-[#1CA6A3] font-bold hover:underline">
+                  <a
+                    href="tel:313-499-8999"
+                    className="text-[#1CA6A3] font-bold hover:underline"
+                  >
                     (313) 499-8999
                   </a>
                 </p>
@@ -362,30 +455,40 @@ const ApplyPage = () => {
             </div>
           ) : (
             <div className="bg-white rounded-3xl overflow-hidden shadow-xl">
-
               {/* ── Form Header Bar ── */}
               <div
                 className="px-8 sm:px-12 py-8"
-                style={{ background: "linear-gradient(135deg, #0D1F22 0%, #1a3a3f 100%)" }}
+                style={{
+                  background:
+                    "linear-gradient(135deg, #0D1F22 0%, #1a3a3f 100%)",
+                }}
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-[#1CA6A3]/20 flex items-center justify-center flex-shrink-0">
-                    <span className="material-symbols-outlined text-[#1CA6A3]">assignment</span>
+                    <span className="material-symbols-outlined text-[#1CA6A3]">
+                      assignment
+                    </span>
                   </div>
                   <div>
                     <h2 className="text-2xl sm:text-3xl font-headline font-bold text-white">
                       EITI Application
                     </h2>
-                    <p className="text-sm" style={{ color: "rgba(255,255,255,0.55)" }}>
-                      Fields marked <span className="text-[#1CA6A3]">*</span> are required
+                    <p
+                      className="text-sm"
+                      style={{ color: "rgba(255,255,255,0.55)" }}
+                    >
+                      Fields marked <span className="text-[#1CA6A3]">*</span>{" "}
+                      are required
                     </p>
                   </div>
                 </div>
               </div>
 
               {/* ── Form Body ── */}
-              <form onSubmit={handleSubmit} className="px-6 sm:px-10 lg:px-12 py-10 space-y-12">
-
+              <form
+                onSubmit={handleSubmit}
+                className="px-6 sm:px-10 lg:px-12 py-10 space-y-12"
+              >
                 {/* Section 1 — Program */}
                 <div>
                   <SectionHeader
@@ -418,11 +521,17 @@ const ApplyPage = () => {
                           />
                           <div
                             className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors"
-                            style={{ backgroundColor: isSelected ? `${program.color}20` : "#ECEEF0" }}
+                            style={{
+                              backgroundColor: isSelected
+                                ? `${program.color}20`
+                                : "#ECEEF0",
+                            }}
                           >
                             <span
                               className="material-symbols-outlined text-lg"
-                              style={{ color: isSelected ? program.color : "#aaa" }}
+                              style={{
+                                color: isSelected ? program.color : "#aaa",
+                              }}
                             >
                               {program.icon}
                             </span>
@@ -586,17 +695,25 @@ const ApplyPage = () => {
                   <div className="space-y-6">
                     <div>
                       <p className="text-sm font-bold text-[#333] mb-3">
-                        Documentation Required <span className="text-[#1CA6A3]">*</span>
+                        Documentation Required{" "}
+                        <span className="text-[#1CA6A3]">*</span>
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                         {[
                           { key: "hasID", label: "Valid Michigan State ID" },
-                          { key: "hasLicense", label: "Valid Michigan Driver's License" },
+                          {
+                            key: "hasLicense",
+                            label: "Valid Michigan Driver's License",
+                          },
                           { key: "hasSSN", label: "Social Security Card" },
                         ].map((doc) => (
                           <ToggleCheckbox
                             key={doc.key}
-                            checked={formData[doc.key as keyof typeof formData] as boolean}
+                            checked={
+                              formData[
+                                doc.key as keyof typeof formData
+                              ] as boolean
+                            }
                             onChange={() => handleCheckboxChange(doc.key)}
                             label={doc.label}
                           />
@@ -607,7 +724,9 @@ const ApplyPage = () => {
                     <div>
                       <p className="text-sm font-bold text-[#333] mb-3">
                         Education{" "}
-                        <span className="text-xs font-normal text-[#999]">(not required for approval)</span>
+                        <span className="text-xs font-normal text-[#999]">
+                          (not required for approval)
+                        </span>
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {[
@@ -616,7 +735,11 @@ const ApplyPage = () => {
                         ].map((edu) => (
                           <ToggleCheckbox
                             key={edu.key}
-                            checked={formData[edu.key as keyof typeof formData] as boolean}
+                            checked={
+                              formData[
+                                edu.key as keyof typeof formData
+                              ] as boolean
+                            }
                             onChange={() => handleCheckboxChange(edu.key)}
                             label={edu.label}
                           />
@@ -664,7 +787,12 @@ const ApplyPage = () => {
                         <span className="text-[#1CA6A3]">*</span>
                       </p>
                       <div className="flex flex-wrap gap-3">
-                        {["Yes - Mornings", "Yes - Afternoons", "Yes - Midnights", "No"].map((option) => (
+                        {[
+                          "Yes - Mornings",
+                          "Yes - Afternoons",
+                          "Yes - Midnights",
+                          "No",
+                        ].map((option) => (
                           <PillRadio
                             key={option}
                             name="currentlyWorking"
@@ -694,8 +822,8 @@ const ApplyPage = () => {
                   <div className="rounded-2xl border border-[#E0E8E8]">
                     <div className="p-6 space-y-3">
                       <p className="text-sm font-bold text-[#333]">
-                        Have you attended a MI Works orientation in the last 90 days?{" "}
-                        <span className="text-[#1CA6A3]">*</span>
+                        Have you attended a MI Works orientation in the last 90
+                        days? <span className="text-[#1CA6A3]">*</span>
                       </p>
                       <div className="flex gap-3">
                         {["Yes", "No"].map((option) => (
@@ -811,8 +939,8 @@ const ApplyPage = () => {
 
                     <div className="space-y-3">
                       <p className="text-sm font-bold text-[#333]">
-                        Have you completed Michigan Works training in the last 3 years?{" "}
-                        <span className="text-[#1CA6A3]">*</span>
+                        Have you completed Michigan Works training in the last 3
+                        years? <span className="text-[#1CA6A3]">*</span>
                       </p>
                       <div className="flex gap-3">
                         {["Yes", "No"].map((option) => (
@@ -844,11 +972,19 @@ const ApplyPage = () => {
 
                 {/* ── Submit ── */}
                 <div className="flex justify-end">
-                  <button
+                  {/* <button
                     type="submit"
                     className="inline-flex items-center justify-center gap-2 bg-[#1CA6A3] hover:bg-[#179490] text-white font-bold px-10 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-lg whitespace-nowrap"
                   >
                     Submit Application
+                    <span className="material-symbols-outlined">send</span>
+                  </button> */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center gap-2 bg-[#1CA6A3] hover:bg-[#179490] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold px-10 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-lg whitespace-nowrap"
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit Application"}
                     <span className="material-symbols-outlined">send</span>
                   </button>
                 </div>

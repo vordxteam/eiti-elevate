@@ -9,7 +9,7 @@ const projects = [
     description:
       "EITI partnered with Ally Financial to drive residential improvements and community revitalization across Detroit's Virginia Park neighborhood, turning hands on training into tangible, lasting impact.",
     image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&auto=format&fit=crop&q=80",
+      "/images/virginapark.jpeg",
     category: "Community Revitalization",
     ctaLink:
       "https://drive.google.com/drive/folders/1rWfL25PrmaCXsB9vO2Hd0CMoxLRoUrjQ?usp=drive_link",
@@ -25,7 +25,7 @@ const projects = [
     description:
       "A landmark collaboration with Carhartt and the Buffalo Soldiers Heritage Association. EITI students built a functional pole barn structure, honoring Detroit's history while earning real construction credentials.",
     image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&auto=format&fit=crop&q=80",
+      "/images/poleBarn.jpeg",
     category: "Historic Preservation",
     ctaLink:
       "https://drive.google.com/drive/folders/1ArQ2X7Lks2GmOcKvoahGRoLTUlGFJVwL?usp=drive_link",
@@ -56,7 +56,7 @@ const WorkPage = () => (
       description="EITI students gain hands on experience by working on real projects that serve communities and partners across Detroit."
       buttonLabel="Explore Projects"
       buttonLink="#projects"
-      backgroundImage="/images/work-hero.png"
+      backgroundImage="/images/hero-work.png"
     />
 
     {/* ── Featured Projects ── */}

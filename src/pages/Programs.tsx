@@ -14,14 +14,14 @@ const programs = [
       "Wiring and circuitry fundamentals",
       "Electrical safety and code basics",
       "Residential system installation",
-      "Jobsite practices and tools"
+      "Jobsite practices and tools",
     ],
     careers: [
       "Electrical apprenticeships",
       "Entry level electrical technician roles",
-      "Construction industry positions"
+      "Construction industry positions",
     ],
-    iconColor: "#1CA6A3"
+    iconColor: "#1CA6A3",
   },
   {
     id: "solar",
@@ -34,14 +34,14 @@ const programs = [
       "Solar PV system installation",
       "Energy efficiency principles",
       "System maintenance and safety",
-      "Renewable energy fundamentals"
+      "Renewable energy fundamentals",
     ],
     careers: [
       "Solar installation technician",
       "Renewable energy roles",
-      "Green construction careers"
+      "Green construction careers",
     ],
-    iconColor: "#74B4E0"
+    iconColor: "#74B4E0",
   },
   {
     id: "carpentry",
@@ -54,14 +54,14 @@ const programs = [
       "Blueprint reading",
       "Framing walls and roofs",
       "Structural layout",
-      "Tool safety and usage"
+      "Tool safety and usage",
     ],
     careers: [
       "Carpentry apprenticeships",
       "Construction roles",
-      "Skilled trades positions"
+      "Skilled trades positions",
     ],
-    iconColor: "#5FB673"
+    iconColor: "#5FB673",
   },
   {
     id: "culinary",
@@ -74,15 +74,15 @@ const programs = [
       "Food preparation techniques",
       "Kitchen safety and sanitation",
       "Professional kitchen operations",
-      "Culinary fundamentals"
+      "Culinary fundamentals",
     ],
     careers: [
       "Restaurant and kitchen roles",
       "Catering and hospitality positions",
-      "Food entrepreneurship pathways"
+      "Food entrepreneurship pathways",
     ],
-    iconColor: "#1CA6A3"
-  }
+    iconColor: "#1CA6A3",
+  },
 ];
 
 const ProgramsPage = () => (
@@ -94,7 +94,8 @@ const ProgramsPage = () => (
           <span
             style={{
               color: "white",
-              textShadow: "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
+              textShadow:
+                "0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(116,180,224,0.2)",
             }}
           >
             Real Careers
@@ -104,11 +105,15 @@ const ProgramsPage = () => (
       description="EITI offers hands on training programs designed to prepare participants for immediate entry into high demand industries. Each program combines practical instruction, job readiness, and real world application."
       buttonLabel="Explore Programs"
       buttonLink="#programs"
-      backgroundImage="/images/programs-hero.png" 
+      backgroundImage="/images/hero-program.jpg"
     />
 
     {/* Programs Grid */}
-    <section id="programs" className="relative mt-10 py-20 overflow-hidden" style={{ backgroundColor: "#EEF8F8" }}>
+    <section
+      id="programs"
+      className="relative mt-10 py-20 overflow-hidden"
+      style={{ backgroundColor: "#EEF8F8" }}
+    >
       {/* Grid bg pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -117,30 +122,52 @@ const ProgramsPage = () => (
           backgroundSize: "48px 48px",
         }}
       />
-      <div className="absolute top-10 -left-20 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: "#1CA6A3", opacity: 0.07 }} />
-      <div className="absolute bottom-10 -right-20 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: "#74B4E0", opacity: 0.07 }} />
+      <div
+        className="absolute top-10 -left-20 w-80 h-80 rounded-full blur-3xl pointer-events-none"
+        style={{ backgroundColor: "#1CA6A3", opacity: 0.07 }}
+      />
+      <div
+        className="absolute bottom-10 -right-20 w-80 h-80 rounded-full blur-3xl pointer-events-none"
+        style={{ backgroundColor: "#74B4E0", opacity: 0.07 }}
+      />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-14">
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
-            style={{ backgroundColor: "rgba(28,166,163,0.1)", border: "1px solid rgba(28,166,163,0.2)" }}
+            style={{
+              backgroundColor: "rgba(28,166,163,0.1)",
+              border: "1px solid rgba(28,166,163,0.2)",
+            }}
           >
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#1CA6A3]">Career-Focused Training</span>
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#1CA6A3]">
+              Career-Focused Training
+            </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-[#0D1F22] mb-8">
             Our{" "}
             <span className="relative inline-block" style={{ color: "#1CA6A3" }}>
               Programs
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M2 8.5C60 3.5 150 1 298 8.5" stroke="#74B4E0" strokeWidth="3" strokeLinecap="round" />
+              <svg
+                className="absolute -bottom-2 left-0 w-full"
+                viewBox="0 0 300 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 8.5C60 3.5 150 1 298 8.5"
+                  stroke="#74B4E0"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
               </svg>
             </span>
           </h2>
         </div>
 
-        {/* Program Cards — compact 2×2 */}
+        {/* Program Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
           {programs.map((program, index) => (
             <div
@@ -152,64 +179,172 @@ const ProgramsPage = () => (
               }}
             >
               {/* Top color bar */}
-              <div className="h-[3px]" style={{ background: `linear-gradient(90deg, ${program.iconColor}, ${program.iconColor}50)` }} />
+              <div
+                className="h-[3px]"
+                style={{
+                  background: `linear-gradient(90deg, ${program.iconColor}, ${program.iconColor}50)`,
+                }}
+              />
 
               {/* Ghost number */}
               <div
                 className="absolute -top-1 right-1 font-headline font-black leading-none select-none pointer-events-none"
-                style={{ fontSize: "clamp(72px, 12vw, 110px)", color: program.iconColor, opacity: 0.05, lineHeight: 1 }}
+                style={{
+                  fontSize: "clamp(72px, 12vw, 110px)",
+                  color: program.iconColor,
+                  opacity: 0.05,
+                  lineHeight: 1,
+                }}
               >
                 {String(index + 1).padStart(2, "0")}
               </div>
 
               <div className="relative p-4 sm:p-5 flex flex-col flex-grow">
-                {/* Content wrapper - grows to push button down */}
+                {/* Content wrapper */}
                 <div className="flex-grow">
-                  {/* Top row */}
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
-                        style={{ background: `linear-gradient(135deg, ${program.iconColor}25, ${program.iconColor}10)`, border: `1px solid ${program.iconColor}20` }}
+
+                  {/* Top row — icon + label */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <div
+                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
+                      style={{
+                        background: `linear-gradient(135deg, ${program.iconColor}25, ${program.iconColor}10)`,
+                        border: `1px solid ${program.iconColor}20`,
+                      }}
+                    >
+                      <span
+                        className="material-symbols-outlined"
+                        style={{ color: program.iconColor, fontSize: "15px" }}
                       >
-                        <span className="material-symbols-outlined" style={{ color: program.iconColor, fontSize: "15px" }}>{program.icon}</span>
-                      </div>
-                      <span className="text-[9px] font-black uppercase tracking-[0.3em]" style={{ color: program.iconColor }}>
-                        {String(index + 1).padStart(2, "0")} — {program.shortTitle}
+                        {program.icon}
                       </span>
                     </div>
+                    <span
+                      className="text-[9px] font-black uppercase tracking-[0.3em]"
+                      style={{ color: program.iconColor }}
+                    >
+                      {String(index + 1).padStart(2, "0")} — {program.shortTitle}
+                    </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-sm sm:text-[25px] font-headline font-bold text-[#0D1F22] mb-1.5 leading-tight pr-6">
+                  <h3 className="text-sm sm:text-[22px] font-headline font-bold text-[#0D1F22] mb-1.5 leading-tight pr-6">
                     {program.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[15px] leading-relaxed text-[#777] mb-3 line-clamp-2">{program.desc}</p>
+                  <p className="text-[14px] leading-relaxed text-[#777] mb-4">
+                    {program.desc}
+                  </p>
 
-                  {/* Learn pills */}
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {program.learn.map((item, i) => (
-                      <span
-                        key={i}
-                        className="text-[12px] font-normal px-2 py-0.5 rounded-full"
-                        style={{ backgroundColor: `${program.iconColor}10`, color: program.iconColor, border: `1px solid ${program.iconColor}20` }}
-                      >
-                        {item}
-                      </span>
-                    ))}
+                  {/* Divider */}
+                  <div
+                    className="h-px mb-4"
+                    style={{
+                      background: `linear-gradient(90deg, ${program.iconColor}30, transparent)`,
+                    }}
+                  />
+
+                  {/* Two-column learn + careers */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+
+                    {/* What You'll Learn */}
+                    <div>
+                      <div className="flex items-center gap-1.5 mb-2.5">
+                        <div
+                          className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
+                          style={{ backgroundColor: `${program.iconColor}15` }}
+                        >
+                          <span
+                            className="material-symbols-outlined"
+                            style={{ color: program.iconColor, fontSize: "11px" }}
+                          >
+                            school
+                          </span>
+                        </div>
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0D1F22]">
+                          What You'll Learn
+                        </p>
+                      </div>
+                      <ul className="space-y-2">
+                        {program.learn.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span
+                              className="mt-[5px] w-1.5 h-1.5 rounded-full flex-shrink-0"
+                              style={{ backgroundColor: program.iconColor }}
+                            />
+                            <span className="text-[12.5px] leading-snug text-[#444]">
+                              {item}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Career Outcomes */}
+                    <div>
+                      <div className="flex items-center gap-1.5 mb-2.5">
+                        <div
+                          className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
+                          style={{ backgroundColor: `${program.iconColor}15` }}
+                        >
+                          <span
+                            className="material-symbols-outlined"
+                            style={{ color: program.iconColor, fontSize: "11px" }}
+                          >
+                            work
+                          </span>
+                        </div>
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0D1F22]">
+                          Career Outcomes
+                        </p>
+                      </div>
+                      <ul className="space-y-2">
+                        {program.careers.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span
+                              className="mt-[4px] flex-shrink-0"
+                              style={{ color: program.iconColor }}
+                            >
+                              <svg
+                                width="11"
+                                height="9"
+                                viewBox="0 0 11 9"
+                                fill="none"
+                              >
+                                <path
+                                  d="M1 4.5L3.8 7.5L10 1"
+                                  stroke="currentColor"
+                                  strokeWidth="1.8"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </span>
+                            <span className="text-[12.5px] leading-snug text-[#444]">
+                              {item}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
                   </div>
                 </div>
 
-                {/* Apply button - now at bottom */}
+                {/* Apply button */}
                 <Link
                   to="/apply"
-                  className="inline-flex items-center gap-1 text-[11px] font-bold py-2 px-3.5 rounded-lg text-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 group/cta"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold py-2 px-3.5 rounded-lg text-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 group/cta w-fit"
                   style={{ backgroundColor: program.iconColor }}
                 >
                   Apply Now
-                  <span className="material-symbols-outlined transition-transform duration-300 group-hover/cta:translate-x-0.5" style={{ fontSize: "13px" }}>arrow_forward</span>
+                  <span
+                    className="material-symbols-outlined transition-transform duration-300 group-hover/cta:translate-x-0.5"
+                    style={{ fontSize: "13px" }}
+                  >
+                    arrow_forward
+                  </span>
                 </Link>
               </div>
             </div>

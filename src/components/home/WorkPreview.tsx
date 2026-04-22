@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useEffect } from "react";
+import { preloadImages } from "@/lib/imageCache";
 interface Project {
   id: number;
   title: string;
@@ -18,7 +19,7 @@ const projects: Project[] = [
     description:
       "Students built and tested residential wiring systems, gaining hands-on experience with circuits, panels, and safe electrical installations.",
     imageSrc:
-      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80",
+      "/images/students1.png",
     imageAlt: "Student electrician working on wiring installation",
   },
   {
@@ -28,7 +29,7 @@ const projects: Project[] = [
     description:
       "Students installed and configured solar energy systems, learning panel setup, energy flow, and basic maintenance technique",
     imageSrc:
-      "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=800&q=80",
+      "/images/students2.png",
     imageAlt: "Students installing solar panels outdoors",
   },
   {
@@ -38,7 +39,7 @@ const projects: Project[] = [
     description:
       "Students constructed structural frameworks, working with measurements, materials, and tools to build safe and durable structures.",
     
-      imageSrc: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80",
+      imageSrc: "/images/students3.png",
     imageAlt: "Student carpenter working on wooden structure",
   },
   {
@@ -48,14 +49,16 @@ const projects: Project[] = [
     description:
       "Students prepared and presented a variety of dishes, learning kitchen techniques, food safety, and professional cooking skills.",
     imageSrc:
-      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80",
+      "/images/program3.png",
     imageAlt: "Culinary student cooking in a professional kitchen",
   },
 ];
 
 const WorkPreview: React.FC = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
-
+   useEffect(() => {
+  preloadImages(projects.map((p) => p.imageSrc));
+}, []);
   return (
     <section className="relative bg-white py-20 px-4 overflow-hidden">
       {/* Subtle background accent */}
@@ -79,7 +82,7 @@ const WorkPreview: React.FC = () => {
             className="inline-block text-sm font-semibold tracking-widest uppercase mb-4 px-4 py-1.5 rounded-full"
             style={{ color: "#1CA6A3", backgroundColor: "#1CA6A310" }}
           >
-            Student Work
+            Some of Work
           </span>
 
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
@@ -132,7 +135,7 @@ const WorkPreview: React.FC = () => {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-7">
+            {/* <div className="absolute bottom-0 left-0 right-0 p-7">
               <span
                 className="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4"
                 style={{ backgroundColor: "#0D1F2280", color: "#74B4E0", border: "1px solid #74B4E060", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
@@ -145,7 +148,7 @@ const WorkPreview: React.FC = () => {
               <p className="text-white/75 text-sm md:text-base leading-relaxed max-w-xl">
                 {projects[0].description}
               </p>
-            </div>
+            </div> */}
           </article>
 
           {/* Row 1 — Card 2: 4 cols */}
@@ -165,7 +168,7 @@ const WorkPreview: React.FC = () => {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
+            {/* <div className="absolute bottom-0 left-0 right-0 p-6">
               <span
                 className="inline-block text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full mb-3"
                 style={{ backgroundColor: "#0D1F2280", color: "#74B4E0", border: "1px solid #74B4E060", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
@@ -178,7 +181,7 @@ const WorkPreview: React.FC = () => {
               <p className="text-white/70 text-xs leading-relaxed line-clamp-3">
                 {projects[1].description}
               </p>
-            </div>
+            </div> */}
           </article>
 
           {/* Row 2 — Card 3: 4 cols */}
@@ -198,7 +201,7 @@ const WorkPreview: React.FC = () => {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
+            {/* <div className="absolute bottom-0 left-0 right-0 p-6">
               <span
                 className="inline-block text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full mb-3"
                 style={{ backgroundColor: "#0D1F2280", color: "#74B4E0", border: "1px solid #74B4E060", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
@@ -211,7 +214,7 @@ const WorkPreview: React.FC = () => {
               <p className="text-white/70 text-xs leading-relaxed line-clamp-3">
                 {projects[2].description}
               </p>
-            </div>
+            </div> */}
           </article>
 
           {/* Row 2 — Card 4: 8 cols */}
@@ -231,7 +234,7 @@ const WorkPreview: React.FC = () => {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-7">
+            {/* <div className="absolute bottom-0 left-0 right-0 p-7">
               <span
                 className="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4"
                 style={{ backgroundColor: "#0D1F2280", color: "#74B4E0", border: "1px solid #74B4E060", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
@@ -244,7 +247,7 @@ const WorkPreview: React.FC = () => {
               <p className="text-white/75 text-sm md:text-base leading-relaxed max-w-xl">
                 {projects[3].description}
               </p>
-            </div>
+            </div> */}
           </article>
 
         </div>
