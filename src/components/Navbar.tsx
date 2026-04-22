@@ -14,7 +14,15 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const hasHero = location.pathname !== "/apply";
+  // const hasHero = location.pathname !== "/apply";
+  // const hasHero =
+  // location.pathname !== "/apply" &&
+  // location.pathname !== "/virginia-park";
+  const hasHero = 
+  location.pathname !== "/apply" &&
+  location.pathname !== "/virginia-park" &&
+  location.pathname !== "/pole-barn";
+  
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -52,8 +60,8 @@ const Navbar = () => {
                 className={`font-headline tracking-tight font-bold text-sm transition-colors ${
                   location.pathname === link.to
                     ? scrolled || !hasHero
-                      ? "text-[#1CA6A3] border-b-2 border-[#1CA6A3] pb-1"
-                      : "text-white border-b-2 border-white pb-1"
+                      ? "text-[#1CA6A3] border-b-2 border-[#1CA6A3]"
+                      : "text-white border-b-2 border-white"
                     : scrolled || !hasHero
                       ? "text-[#ED9C6] hover:text-primary"
                       : "text-white/80 hover:text-white"

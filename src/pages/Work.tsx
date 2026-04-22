@@ -1,6 +1,6 @@
 import CTA from "@/components/ui/CTA";
 import PageHero from "@/components/PageHero";
-
+import { Link } from "react-router-dom";
 const projects = [
   {
     id: "virginia-park",
@@ -9,10 +9,10 @@ const projects = [
     description:
       "EITI partnered with Ally Financial to drive residential improvements and community revitalization across Detroit's Virginia Park neighborhood, turning hands on training into tangible, lasting impact.",
     image:
-      "/images/virginapark.jpeg",
+      "/images/viriginaparknew.jpeg",
     category: "Community Revitalization",
     ctaLink:
-      "https://drive.google.com/drive/folders/1rWfL25PrmaCXsB9vO2Hd0CMoxLRoUrjQ?usp=drive_link",
+      "/virginia-park",
     color: "#1CA6A3",
     year: "2023",
     stat: "40+ Homes Improved",
@@ -28,7 +28,7 @@ const projects = [
       "/images/poleBarn.jpeg",
     category: "Historic Preservation",
     ctaLink:
-      "https://drive.google.com/drive/folders/1ArQ2X7Lks2GmOcKvoahGRoLTUlGFJVwL?usp=drive_link",
+      "/pole-barn",
     color: "#74B4E0",
     year: "2023",
     stat: "25+ Students Trained",
@@ -223,9 +223,8 @@ const WorkPage = () => (
               </div>
 
               {/* CTA */}
-              <a
-                href={projects[0].ctaLink}
-                target="_blank"
+              <Link
+                to={projects[0].ctaLink}
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-bold text-white text-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group/btn w-fit"
                 style={{ backgroundColor: "#1CA6A3" }}
@@ -237,7 +236,7 @@ const WorkPage = () => (
                 >
                   arrow_forward
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -311,7 +310,7 @@ const WorkPage = () => (
               {/* CTA */}
               <a
                 href={projects[1].ctaLink}
-                target="_blank"
+                
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-bold text-white text-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group/btn w-fit"
                 style={{ backgroundColor: "#74B4E0" }}
