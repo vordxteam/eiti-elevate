@@ -114,7 +114,7 @@ export default function ProjectsSection() {
 
          
 
-           <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#1a1a1a] mb-10 sm:mb-[55px] leading-tight">
+           <h2 className="text-4xl md:text-5xl font-headline font-bold text-[#1a1a1a] mb-6 sm:mb-[55px] leading-tight">
 
               Our{" "}
 

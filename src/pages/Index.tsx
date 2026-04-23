@@ -297,10 +297,19 @@ const WhatWeDoSection = () => {
               Our Approach
             </p>
           </div>
-          <h2 className="text-4xl text-[#333333] sm:text-5xl md:text-6xl font-headline font-bold mb-6">
+          {/* <h2 className="text-4xl text-[#333333] sm:text-5xl md:text-6xl font-headline font-bold sm:mb-6">
             What We{" "}
             <span className="relative inline-block" style={{ color: "#1CA6A3" }}>
               Do
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 8.5C60 3.5 150 1 298 8.5" stroke="#74B4E0" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </span>
+          </h2> */}
+          <h2 className="text-4xl text-[#333333] sm:text-5xl md:text-6xl font-headline font-bold sm:mb-6">
+            <span className="relative inline-block">
+              What We{" "}
+              <span style={{ color: "#1CA6A3" }}>Do</span>
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M2 8.5C60 3.5 150 1 298 8.5" stroke="#74B4E0" strokeWidth="3" strokeLinecap="round" />
               </svg>
@@ -351,7 +360,7 @@ const HomePage = () => (
     <section className="py-20 bg-gradient-to-b from-[#F8FAFA] to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-16 sm:mb-20">
+        <div className="text-center mb-12 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1CA6A3]/10 mb-6">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CA6A3]">
               Career Pathways
@@ -466,8 +475,8 @@ const HomePage = () => (
     <WorkPreview />
 
     {/* ─── Partners ─── */}
-    <section className="py-16 sm:py-24 bg-white">
-      <div className="container-narrow px-4 sm:px-6 mx-auto">
+    <section className="py-10 sm:py-24 bg-white">
+      <div className="max-w-7xl px-4 sm:px-6 mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-headline font-bold text-[#333333] leading-tight mb-4">
             Our{" "}

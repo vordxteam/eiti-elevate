@@ -15,10 +15,10 @@ export default function CTA({
 }: CTAProps) {
   return (
     <section
-      className="py-[100px] px-8 max-w-[1280px] mx-3 xl:mx-auto rounded-md my-10 sm:my-20 text-white
+      className="py-[100px] sm:px-6 px-4 max-w-[1280px] mx-3 xl:mx-auto rounded-md my-10 sm:my-20 text-white
       bg-[url('/images/cta-bg.png')] bg-cover bg-center bg-no-repeat"
     >
-      <div className="px-6">
+      <div className="sm:px-6 px-4">
 
         {/* Layout */}
         <div className="flex flex-col items-center text-center gap-10">

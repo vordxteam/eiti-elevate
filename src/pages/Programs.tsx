@@ -131,11 +131,11 @@ const ProgramsPage = () => (
         style={{ backgroundColor: "#74B4E0", opacity: 0.07 }}
       />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-14">
           <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-2 sm:mb-4"
             style={{
               backgroundColor: "rgba(28,166,163,0.1)",
               border: "1px solid rgba(28,166,163,0.2)",

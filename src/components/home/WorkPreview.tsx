@@ -118,13 +118,13 @@ const WorkPreview: React.FC = () => {
 
   return (
 
-    <section className="relative bg-white py-20 px-4 overflow-hidden">
+    <section className="relative bg-white py-20 px-4 sm:px-6 overflow-hidden">
 
       {/* Subtle background accent */}
 
       <div
 
-        className="absolute top-0 left-0 w-full h-[2px]"
+        className="absolute top-0 left-0 w-full h-[1px]"
 
         style={{ background: "linear-gradient(90deg, #1CA6A3, #74B4E0)" }}
 
@@ -148,7 +148,7 @@ const WorkPreview: React.FC = () => {
 
 
 
-      <div className="relative max-w-7xl mx-auto mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
 

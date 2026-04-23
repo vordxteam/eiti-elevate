@@ -23,7 +23,7 @@ const stats = [
     gradDir: "90deg, #74B4E0, #1CA6A3",
   },
   {
-    value: 200,
+    value: 15,
     displaySuffix: "+",
     isThousand: false,
     label: "Industry Partners",
@@ -173,7 +173,7 @@ export default function ImpactSection() {
 
   return (
     <section className="py-20 bg-white overflow-hidden" ref={sectionRef}>
-      <div className="container-narrow px-4 sm:px-6 mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <div
@@ -187,7 +187,7 @@ export default function ImpactSection() {
               Our Impact
             </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#1a1a1a] leading-tight">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-[#1a1a1a] leading-tight">
             Real Training.{" "}
             <span
               className="relative inline-block"

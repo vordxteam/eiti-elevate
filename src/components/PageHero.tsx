@@ -42,11 +42,11 @@ const PageHero = ({
 
     <section
 
-      className="relative flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat h-screen"
+      className="relative flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat h-auto py-10 sm:h-screen sm:aspect-auto"
 
       style={{ backgroundImage: `url(${bgImage})` }}
 
-    >
+    > 
 
       <div className="absolute inset-0 bg-black/70" />
 
@@ -98,7 +98,7 @@ const PageHero = ({
 
         {buttonLabel && buttonLink && (
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
 
             {buttonLink.startsWith("#") ? (
 
@@ -122,7 +122,7 @@ const PageHero = ({
 
                 to={buttonLink}
 
-                className="inline-flex items-center justify-center gap-2 bg-[#1CA6A3] hover:bg-[#179490] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-lg"
+                className="inline-flex items-center  justify-center gap-2 bg-[#1CA6A3] hover:bg-[#179490]  text-white sm:font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-lg"
 
               >
 

@@ -80,8 +80,8 @@ const AboutPage = () => {
       />
 
       {/* Mission & Vision */}
-      <section className="bg-[#F2F9F9] sm:mt-20 mt-10 px-6 py-20">
-        <div className="mx-auto max-w-5xl">
+      <section className="bg-[#F2F9F9] sm:mt-20 mt-10  py-20">
+        <div className="mx-auto max-w-7xl sm:px-6 px-4">
           {/* Header */}
           <div className="mb-16 flex flex-col items-center gap-4 text-center">
             <div className="inline-flex items-center gap-3 rounded-full border border-[#1CA6A3]/20 bg-[#1CA6A3]/10 px-5 py-2">
@@ -190,7 +190,7 @@ const AboutPage = () => {
       </section>
 
       {/* Our Team */}
-      <section className="relative overflow-hidden bg-white px-6 py-20">
+      <section className="relative overflow-hidden bg-white  py-20">
         {/* Subtle noise texture */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[.025]"
@@ -199,13 +199,13 @@ const AboutPage = () => {
           }}
         />
 
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl sm:px-6 px-4">
           {/* Header */}
           <div className="mb-10 text-center">
             <span className="mb-5 block text-[16px] font-medium  tracking-[.22em] text-[#1CA6A3]">
               The people behind the mission
             </span>
-            <h2 className=" text-5xl font-semibold leading-[1.05] tracking-tight text-[#111] sm:text-6xl">
+            <h2 className=" text-4xl font-semibold leading-[1.05] tracking-tight text-[#111] sm:text-6xl">
               Meet the{" "}
               <span className="relative inline-block">
                 <p className="text-[#1CA6A3]">hearts</p>

@@ -435,7 +435,7 @@ const ImpactPage = () => {
                 }}
               />
               <div className="relative max-w-lg">
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#74B4E0] mb-6">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#74B4E0] mb-4">
                   The Challenge
                 </p>
                 <h2 className="text-4xl sm:text-5xl font-headline font-bold text-white mb-6 leading-[1.1]">
@@ -522,7 +522,7 @@ const ImpactPage = () => {
               />
               <div className="relative max-w-lg">
                 <p
-                  className="text-xs font-bold uppercase tracking-[0.3em] mb-6"
+                  className="text-xs font-bold uppercase tracking-[0.3em] mb-4"
                   style={{ color: "rgba(255,255,255,0.65)" }}
                 >
                   EITI's Solution
@@ -596,7 +596,7 @@ const ImpactPage = () => {
 
       {/* Partners Section */}
       <section className="py-16 sm:py-24 bg-white">
-        <div className="container-narrow px-4 sm:px-6 mx-auto">
+        <div className="max-w-7xl px-4 sm:px-6 mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-headline font-bold text-[#333333] leading-tight mb-4">
               Our{" "}

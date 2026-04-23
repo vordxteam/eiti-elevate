@@ -82,7 +82,7 @@ const WorkPage = () => (
         style={{ backgroundColor: "#74B4E0", opacity: 0.07 }}
       />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <div
@@ -390,7 +390,7 @@ const WorkPage = () => (
         }}
       />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="mb-16 sm:mb-20">
           <div

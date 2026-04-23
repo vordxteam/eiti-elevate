@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import { toast } from "sonner";
 
 const programs = [
   {
@@ -378,8 +379,9 @@ const ApplyPage = () => {
     if (data.success) {
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
+      toast("Application submitted successfully!");
     } else {
-      alert("Something went wrong. Please try again.");
+      toast("Something went wrong. Please try again.");
     }
 
     setIsSubmitting(false);
