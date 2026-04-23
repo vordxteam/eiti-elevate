@@ -16,20 +16,20 @@ const programs = [
     icon: "bolt",
     color: "#1CA6A3",
   },
-  {
-    id: "callcenter",
-    name: "Advanced Call Center",
-    icon: "headset_mic",
-    color: "#74B4E0",
-  },
+  // {
+  //   id: "callcenter",
+  //   name: "Advanced Call Center",
+  //   icon: "headset_mic", 
+  //   color: "#74B4E0",
+  // },
   {
     id: "renewable",
     name: "Renewable Energy",
     icon: "solar_power",
     color: "#1CA6A3",
   },
-  { id: "cdl", name: "CDL-A", icon: "local_shipping", color: "#5FB673" },
-  { id: "hospitality", name: "Hospitality", icon: "hotel", color: "#74B4E0" },
+  // { id: "cdl", name: "CDL-A", icon: "local_shipping", color: "#5FB673" },
+  // { id: "hospitality", name: "Hospitality", icon: "hotel", color: "#74B4E0" },
   {
     id: "culinary",
     name: "Culinary Arts",

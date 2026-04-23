@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
             </h3>
 
             <ul className="space-y-5">
-              <li className="flex gap-3">
+              {/* <li className="flex gap-3">
                 <MapPin className="w-4 h-4 text-[#1CA6A3]" />
                 <div>
                   <p className="text-white text-sm font-medium">
@@ -152,12 +152,32 @@ const Footer: React.FC = () => {
                   </p>
                   <p className="text-sm text-slate-400">Detroit, MI 48213</p>
                 </div>
-              </li>
+              </li> */}
+              <a
+                href="https://www.google.com/maps?q=5555+Conner+Street+Suite+1646+Detroit+MI+48213"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <li className="flex gap-3 cursor-pointer">
+                  <MapPin className="w-4 h-4 text-[#1CA6A3]" />
+                  <div>
+                    <p className="text-white text-sm font-medium">
+                      5555 Conner Street, Suite 1646
+                    </p>
+                    <p className="text-sm text-slate-400">Detroit, MI 48213</p>
+                  </div>
+                </li>
+              </a>
 
-              {[ 
+              {[
                 { icon: Mail, text: "info@eitinstitute.org", href: "mailto:info@eitinstitute.org" },
                 { icon: Globe, text: "trainandemploy.org", href: "https://trainandemploy.org" },
-                { icon: MapPin, text: "313.469.0581", href: "tel:3134690581" },
+                // { icon: MapPin, text: "313.469.0581", href: "tel:3134690581" },
+                {
+                  icon: MapPin,
+                  text: "313.469.0581",
+                  href: "https://www.google.com/maps?q=313.469.0581"
+                }
               ].map(({ icon: Icon, text, href }) => (
                 <li key={text} className="flex items-center gap-3">
                   <Icon className="w-4 h-4 text-[#1CA6A3]" />
