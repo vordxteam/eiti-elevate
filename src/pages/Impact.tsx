@@ -187,7 +187,7 @@ const ImpactPage = () => {
         description="For over 15 years, EITI has been transforming lives through hands on workforce training, connecting Detroit residents to meaningful careers in high demand industries."
         buttonLabel="Partner With Us"
         buttonLink="/apply"
-        backgroundImage="/images/hero-impact.png"
+        backgroundImage="/images/hero-impact.jpeg"
       />
 
       {/* ── Impact Stats ── */}

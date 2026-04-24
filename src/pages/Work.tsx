@@ -56,7 +56,7 @@ const WorkPage = () => (
       description="EITI students gain hands on experience by working on real projects that serve communities and partners across Detroit."
       buttonLabel="Explore Projects"
       buttonLink="#projects"
-      backgroundImage="/images/hero-work.png"
+      backgroundImage="/images/hero-work.jpeg"
     />
 
     {/* ── Featured Projects ── */}

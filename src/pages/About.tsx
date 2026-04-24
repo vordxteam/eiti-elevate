@@ -76,7 +76,7 @@ const AboutPage = () => {
         description="For over 15 years, EITI has equipped Detroit residents with the skills and pathways needed to enter and succeed in the workforce."
         buttonLabel="Apply Today"
         buttonLink="/apply"
-        backgroundImage="/images/hero-about2.png"
+        backgroundImage="/images/hero-about2.jpeg"
       />
 
       {/* Mission & Vision */}

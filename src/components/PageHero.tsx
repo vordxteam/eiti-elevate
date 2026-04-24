@@ -34,7 +34,7 @@ const PageHero = ({
 
 }: PageHeroProps) => {
 
-  const bgImage = backgroundImage || "/images/hero-home.png";
+  const bgImage = backgroundImage || "/images/hero-home.jpeg";
 
  
 
