@@ -103,8 +103,8 @@ const ProgramsPage = () => (
         </>
       }
       description="EITI offers hands on training programs designed to prepare participants for immediate entry into high demand industries. Each program combines practical instruction, job readiness, and real world application."
-      buttonLabel="Explore Programs"
-      buttonLink="#programs"
+      buttonLabel="Get in touch"
+      buttonLink="/apply"
       backgroundImage="/images/hero-program.jpg"
     />
 

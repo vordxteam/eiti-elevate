@@ -69,7 +69,7 @@ const stats = [
   },
   {
     value: "1500+",
-    label: "Job Placements",
+    label: "Job   cements",
     icon: "work",
     accent: "#74B4E0",
     bar: "w-11/12",

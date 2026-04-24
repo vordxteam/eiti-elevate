@@ -13,7 +13,7 @@ const stats = [
     gradDir: "90deg, #1CA6A3, #74B4E0",
   },
   {
-    value: 94,
+    value: 93,
     displaySuffix: "%",
     isThousand: false,
     label: "Job Placements",

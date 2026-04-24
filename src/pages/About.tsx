@@ -412,11 +412,11 @@ const AboutPage = () => {
 
                 {/* Stats badge overlay */}
                 <div className="absolute bottom-6 left-6 right-6 sm:left-auto sm:right-[100px] sm:w-auto">
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                  <div className="bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/20">
                     <div className="flex items-center gap-4 sm:gap-8">
                       <div className="text-center">
                         <div className="text-2xl sm:text-3xl font-headline font-bold text-[#1CA6A3]">
-                          94%
+                          93%
                         </div>
                         <div className="text-[10px] sm:text-xs text-white/60 uppercase tracking-wider">
                           Placement
