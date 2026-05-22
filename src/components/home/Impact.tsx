@@ -1,46 +1,50 @@
 import { useEffect, useRef, useState } from "react";
-import { Users, TrendingUp, Award, ShieldCheck } from "lucide-react";
+import { Users, TrendingUp, Award, ShieldCheck, Calendar1 } from "lucide-react";
 
 const stats = [
   {
-    value: 12000,
+    value: 15,
     displaySuffix: "+",
-    isThousand: true,
-    label: " Graduates Trained",
+    isThousand: false,
+    label: "Years",
+    description: "Training Metro Detroit's workforce and connecting talent to opportunity.",
     accent: "#1CA6A3",
     iconBg: "#E6F9F8",
-    icon: Users,
+    icon: Calendar1,
     gradDir: "90deg, #1CA6A3, #74B4E0",
   },
   {
     value: 93,
     displaySuffix: "%",
     isThousand: false,
-    label: "Job Placements",
+    label: "Job Placement Rate",
+    description: "Graduates move from training into real jobs. Fast.",
     accent: "#74B4E0",
     iconBg: "#EAF4FC",
     icon: TrendingUp,
     gradDir: "90deg, #74B4E0, #1CA6A3",
   },
   {
-    value: 15,
-    displaySuffix: "+",
-    isThousand: false,
-    label: "Industry Partners",
-    accent: "#1CA6A3",
-    iconBg: "#E6F9F8",
-    icon: Award,
-    gradDir: "90deg, #1CA6A3, #74B4E0",
-  },
-  {
-    value: 98,
+    value: 95,
     displaySuffix: "%",
     isThousand: false,
-    label: "Projects Completed",
+    label: "Retention Rate",
+    description: "We don't just place people. We prepare them to last.",
     accent: "#74B4E0",
     iconBg: "#EAF4FC",
     icon: ShieldCheck,
     gradDir: "90deg, #74B4E0, #1CA6A3",
+  },
+  {
+    value: 2200,
+    displaySuffix: "+",
+    isThousand: false,
+    label: "Careers Launched",
+    description: "Thousands of Metro Detroit residents now earning and building real futures.",
+    accent: "#1CA6A3",
+    iconBg: "#E6F9F8",
+    icon: Award,
+    gradDir: "90deg, #1CA6A3, #74B4E0",
   },
 ];
 
@@ -144,9 +148,13 @@ function StatCard({
       </div>
 
       {/* Label */}
-      <div className="text-[11px] sm:text-[12px] font-bold text-[#888] uppercase tracking-widest leading-snug">
+      <div className="text-[11px] sm:text-[16px] font-bold text-[#252525]  tracking-widest leading-snug">
         {stat.label}
       </div>
+      {/* Description */}
+      <p className="mt-3 text-[13px] sm:text-sm text-[#666] leading-relaxed max-w-[220px]">
+        {stat.description}
+      </p>
     </div>
   );
 }

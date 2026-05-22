@@ -306,7 +306,7 @@ In `src/pages/Impact.tsx`, find the final `<CTASection>` (~line 121) and replace
 ```tsx
 <CTASection
   title="Partner With Us"
-  description="Join our mission to create pathways to prosperity for Detroit's workforce."
+  description="Join our mission to create pathways to prosperity for Metro Detroit's workforce."
   buttonText="Get In Touch"
   buttonLink="/apply"
 />
@@ -315,7 +315,7 @@ With:
 ```tsx
 <CTASection
   title="Partner With Us"
-  description="Join our mission to create pathways to prosperity for Detroit's workforce."
+  description="Join our mission to create pathways to prosperity for Metro Detroit's workforce."
   buttonText="Apply as Student"
   buttonLink="/apply"
   secondaryButtonText="Contact Our Team"
@@ -350,11 +350,11 @@ Replace lines 50–85 (`{/* Who We Serve */}` block) with:
 {/* Who We Serve */}
 <section className="section-padding bg-secondary">
   <div className="container-narrow">
-    <SectionHeading label="Who We Serve" title="Detroit's Untapped Talent" />
+    <SectionHeading label="Who We Serve" title="Metro Detroit's Untapped Talent" />
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div className="space-y-6">
         <p className="text-lg text-muted-foreground leading-relaxed">
-          Our students come from Detroit's most underserved neighborhoods — people with the drive to build a better life but without access to the training that makes it possible.
+          Our students come from Metro Detroit's most underserved neighborhoods — people with the drive to build a better life but without access to the training that makes it possible.
         </p>
         <p className="text-lg text-muted-foreground leading-relaxed">
           EITI removes every barrier: training is free, mentorship is built in, and employer connections are direct. We meet people where they are and help them get where they want to go.
@@ -365,7 +365,7 @@ Replace lines 50–85 (`{/* Who We Serve */}` block) with:
           { label: "Ages 18–35", pct: "78%" },
           { label: "Previously Unemployed", pct: "65%" },
           { label: "First-Generation Workers", pct: "52%" },
-          { label: "Detroit Residents", pct: "89%" },
+          { label: "Metro Detroit Residents", pct: "89%" },
         ].map((item) => (
           <div key={item.label} className="bg-card rounded-xl p-5">
             <div className="flex justify-between mb-2">
@@ -390,7 +390,7 @@ Replace lines 50–85 (`{/* Who We Serve */}` block) with:
       {[
         { value: "500K+", label: "Skilled trade jobs unfilled in the U.S. by 2028", icon: Target },
         { value: "$63K", label: "Median wage for skilled tradespeople nationally", icon: TrendingUp },
-        { value: "40%", label: "Of Detroit residents live below the poverty line", icon: Heart },
+        { value: "40%", label: "Of Metro Detroit residents live below the poverty line", icon: Heart },
       ].map((stat) => (
         <div key={stat.label} className="text-center p-8 bg-secondary rounded-2xl">
           <stat.icon className="h-8 w-8 text-accent mx-auto mb-4" />

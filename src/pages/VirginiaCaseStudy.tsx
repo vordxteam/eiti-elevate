@@ -120,7 +120,7 @@ const stats = [
 const certs = ["OSHA-30", "Contractor Supervisor Asbestos Abatement", "Lead Worker"];
 
 const projectMeta = [
-  { icon: <MapPinIcon />, label: "Location", value: "Detroit, MI" },
+  { icon: <MapPinIcon />, label: "Location", value: "Metro Detroit, MI" },
   { icon: <BuildingIcon />, label: "Client / Partner", value: "Herman Keifer Development" },
   { icon: <CalendarIcon />, label: "Timeline", value: "June 2024 – Present" },
 ];
@@ -133,9 +133,9 @@ const focusTags = [
 ];
 
 const results = [
-  { num: "50 / 50", label: "Participants trained and successfully completed", color: teal },
+  { num: "150", label: "Participants trained and successfully completed", color: teal },
   { num: "100%", label: "Completion rate achieved across all participants", color: blue },
-  { num: "3", label: "Industry certifications earned by participants", color: teal },
+  { num: "150", label: "Industry certifications earned by participants", color: teal },
   { num: "On Time", label: "Delivered on schedule and within budget", color: blue },
 ];
 
@@ -211,15 +211,15 @@ export default function VirginiaCaseStudy() {
               className="text-lg leading-relaxed max-w-2xl mx-auto mb-10"
               style={{ color: muted }}
             >
-              A place-based workforce development program connecting Detroit residents to real construction training, industry credentials, and meaningful careers — while revitalizing their own neighborhood.
+              A place based workforce development program connecting Metro Detroit residents to real construction training, industry credentials, and meaningful careers  while revitalizing their own neighborhood.
             </p>
 
             {/* meta row */}
             <div className="flex flex-wrap justify-center gap-x-7 gap-y-3 pt-2">
               {[
-                { icon: <MapPinIcon />, text: "Detroit, MI" },
+                { icon: <MapPinIcon />, text: "Metro Detroit, MI" },
                 { icon: <BuildingIcon />, text: "Herman Keifer Development" },
-                { icon: <CalendarIcon />, text: "06/2024 – Present" },
+                // { icon: <CalendarIcon />, text: "06/2024 – Present" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2" style={{ color: muted }}>
                   <span style={{ color: blue }}>{item.icon}</span>
@@ -367,10 +367,10 @@ export default function VirginiaCaseStudy() {
           <FadeIn delay={0.05}>
             <div className="space-y-5 text-[15.5px] leading-[1.8] text-center max-w-3xl mx-auto" style={{ color: "#4b5563" }}>
               <p>
-                The proposed redevelopment of the Herman Kiefer Complex presented both a major opportunity and a significant challenge for the surrounding Virginia Park neighborhood. While the project has the potential to stimulate long-term economic growth, increase property values, and bring new investment into the area, many local residents face barriers that prevent them from directly benefiting from that development. At the same time, nearby housing stock requires substantial rehabilitation, and employers in the construction and building trades continue to report a shortage of trained entry-level workers.
+                The proposed redevelopment of the Herman Kiefer Complex presents both a significant opportunity and a notable challenge for the surrounding Virginia Park neighborhood. While the project has the potential to stimulate long-term economic growth, increase property values, and attract new investments to the area, many local residents face barriers that prevent them from directly benefiting from this development. Additionally, the nearby housing stock requires substantial rehabilitation, and employers in the construction and building trades continue to report a shortage of trained entry-level workers.
               </p>
               <p>
-                The objective of the project, from a community workforce perspective, was to ensure that neighborhood residents were not only witnessing redevelopment but actively participating in it. This meant creating a pathway that connected local talent to real training opportunities, hands-on experience, and industry-recognized credentials while also contributing to neighborhood stabilization through residential rehabilitation and community engagement.
+                From a community workforce perspective, the project's objective was to ensure that neighborhood residents not only witness redevelopment but actively participate in it. This involved creating pathways that connect local talent to real training opportunities, hands-on experience, and industry-recognized credentials, while also contributing to neighborhood stabilization through residential rehabilitation and community engagement.
               </p>
             </div>
           </FadeIn>
@@ -398,10 +398,10 @@ export default function VirginiaCaseStudy() {
           <FadeIn delay={0.05}>
             <div className="space-y-5 text-[15.5px] leading-[1.8] text-center max-w-3xl mx-auto" style={{ color: "#4b5563" }}>
               <p>
-                Emerging Industries Training Institute (EITI) implemented a place-based workforce development model centered in the Virginia Park neighborhood and directly connected to the broader redevelopment activity surrounding the Herman Kiefer Complex. Rather than separating training from real-world application, the program used active residential rehabilitation projects in the neighborhood as training sites, allowing participants to build practical construction skills while improving housing conditions in the same community in which many of them live.
+                The Emerging Industries Training Institute (EITI) implemented a place-based workforce development model centered in the Virginia Park neighborhood and directly connected to the broader redevelopment activities surrounding the Herman Kiefer Complex. Rather than separating training from real-world application, the program utilized active residential rehabilitation projects in the neighborhood as training sites, allowing participants to build practical construction skills while improving housing conditions in the very community in which many of them live.
               </p>
               <p>
-                The approach combined hands-on construction training, industry-recognized credentials, leadership development, and community engagement. Participants received structured instruction in safety, framing, drywall, and other core construction skills while also taking part in neighborhood beautification efforts and free community workshops for residents. This model addressed multiple challenges simultaneously: it created a pipeline of trained workers, strengthened community trust, improved local housing conditions, and ensured that redevelopment translated into meaningful opportunity for neighborhood residents rather than displacement.
+                The approach combined hands-on construction training, industry-recognized credentials, leadership development, and community engagement. Participants received structured instruction in safety, framing, drywall, and other core construction skills while also taking part in neighborhood beautification efforts and free community workshops for residents. This model addressed multiple challenges simultaneously: it created a pipeline of trained workers, strengthened community trust, improved local housing conditions, and ensured that redevelopment translated into meaningful opportunities for neighborhood residents rather than displacement.
               </p>
             </div>
           </FadeIn>
@@ -578,7 +578,7 @@ export default function VirginiaCaseStudy() {
                 }}
               >
                 {[
-                  { v: "50", l: "Trained" },
+                  { v: "150", l: "Trained" },
                   { v: "100%", l: "Completed" },
                   { v: "3", l: "Certifications" },
                 ].map((s, i, arr) => (

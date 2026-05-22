@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
             <p className="text-white text-sm font-semibold mb-1">
               Emerging Industries Training Institute
             </p>
-            <p className="text-sm text-[#74B4E0] mb-5">Detroit, Michigan</p>
+            <p className="text-sm text-[#74B4E0] mb-5">Metro Detroit, Michigan</p>
 
             <p className="text-sm text-slate-400 pl-4 border-l-2 border-[#1CA6A3]">
               Workforce training and employment pathways for emerging industries.
@@ -150,11 +150,11 @@ const Footer: React.FC = () => {
                   <p className="text-white text-sm font-medium">
                     5555 Conner Street, Suite 1646
                   </p>
-                  <p className="text-sm text-slate-400">Detroit, MI 48213</p>
+                  <p className="text-sm text-slate-400">Metro Detroit, MI 48213</p>
                 </div>
               </li> */}
               <a
-                href="https://www.google.com/maps?q=5555+Conner+Street+Suite+1646+Detroit+MI+48213"
+                href="https://www.google.com/maps?q=5555+Conner+Street+Suite+1646+Metro Detroit+MI+48213"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -164,7 +164,7 @@ const Footer: React.FC = () => {
                     <p className="text-white text-sm font-medium">
                       5555 Conner Street, Suite 1646
                     </p>
-                    <p className="text-sm text-slate-400">Detroit, MI 48213</p>
+                    <p className="text-sm text-slate-400">Metro Detroit, MI 48213</p>
                   </div>
                 </li>
               </a>

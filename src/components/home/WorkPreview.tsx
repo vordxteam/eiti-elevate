@@ -60,7 +60,7 @@ const projects: Project[] = [
 
     imageSrc:
 
-      "/images/students2.png",
+      "/images/students2.jpeg",
 
     imageAlt: "Students installing solar panels outdoors",
 
@@ -100,7 +100,7 @@ const projects: Project[] = [
 
     imageSrc:
 
-      "/images/program3.png",
+      "/images/Program Image.jpg",
 
     imageAlt: "Culinary student cooking in a professional kitchen",
 
@@ -170,7 +170,7 @@ const WorkPreview: React.FC = () => {
 
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
 
-            Training That Builds{" "}
+            Training That Creates {" "}
 
             <span
 
@@ -180,7 +180,7 @@ const WorkPreview: React.FC = () => {
 
             >
 
-              Real Projects
+              Real  Impact
 
               <svg
 
@@ -220,7 +220,7 @@ const WorkPreview: React.FC = () => {
 
             Our students don't just learn in classrooms. They work on real
 
-            projects that impact communities across Detroit.
+            projects that impact communities across Metro Detroit.
 
           </p>
 

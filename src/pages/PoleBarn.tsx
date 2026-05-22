@@ -131,7 +131,7 @@ const certs = [
 ];
 
 const projectMeta = [
-  { icon: <MapPinIcon />, label: "Location", value: "Detroit, MI" },
+  { icon: <MapPinIcon />, label: "Location", value: "Metro Detroit, MI" },
   { icon: <BuildingIcon />, label: "Client / Partner", value: "Carhartt / Buffalo Soldiers Heritage Association" },
   { icon: <CalendarIcon />, label: "Timeline", value: "Nov 2024 – Aug 2025" },
 ];
@@ -222,13 +222,13 @@ export default function PoleBarn() {
               className="text-lg leading-relaxed max-w-2xl mx-auto mb-10"
               style={{ color: muted }}
             >
-              A hands-on construction training initiative that built permanent community infrastructure while opening skilled-trades career pathways for Detroit residents.
+              A hands-on construction training initiative that built permanent community infrastructure while opening skilled-trades career pathways for Metro Detroit residents.
             </p>
 
             {/* meta row */}
             <div className="flex flex-wrap justify-center gap-x-7 gap-y-3 pt-2">
               {[
-                { icon: <MapPinIcon />, text: "Detroit, MI" },
+                { icon: <MapPinIcon />, text: "Metro Detroit, MI" },
                 { icon: <BuildingIcon />, text: "Carhartt / Buffalo Soldiers Heritage Association" },
                 { icon: <CalendarIcon />, text: "11/2024 – 08/2025" },
               ].map((item, i) => (
@@ -608,7 +608,7 @@ export default function PoleBarn() {
                 className="text-base sm:text-[17px] leading-[1.8] mb-10"
                 style={{ color: "#4b5563" }}
               >
-                This wasn't just a barn raised from the ground up — it was a community legacy preserved, a nonprofit's capacity expanded, and twenty Detroiters stepping onto jobsites with real tools in their hands and real credentials in their pockets. Every post set, every truss lifted, and every certification earned is a foundation poured for someone's future in the skilled trades.
+                This wasn't just a barn raised from the ground up — it was a community legacy preserved, a nonprofit's capacity expanded, and twenty Metro Detroiters stepping onto jobsites with real tools in their hands and real credentials in their pockets. Every post set, every truss lifted, and every certification earned is a foundation poured for someone's future in the skilled trades.
               </p>
 
               {/* signature-style stats */}

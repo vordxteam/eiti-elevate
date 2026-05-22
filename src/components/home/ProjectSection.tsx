@@ -26,7 +26,7 @@ const programs = [
 
     image:
 
-      "/images/program1.png",
+      "/images/program1.jpg",
 
     href: "/programs/residential-electrical",
 
@@ -38,7 +38,7 @@ const programs = [
 
   {
 
-    title: "Renewable Energy – Solar Technician Training",
+    title: " Renewable Energy Solar Technician",
 
     description:
 
@@ -46,7 +46,7 @@ const programs = [
 
     image:
 
-      "/images/program3.png",
+      "/images/solar-work.jpg",
 
     href: "/programs/renewable-energy",
 
@@ -78,7 +78,7 @@ const programs = [
 
   {
 
-    title: "Culinary Training",
+    title: "Culinary Arts Training Program",
 
     description:
 
@@ -86,7 +86,7 @@ const programs = [
 
     image:
 
-      "/images/program4.png",
+      "/images/program4.jpg",
 
     href: "/programs/culinary",
 
@@ -110,146 +110,158 @@ export default function ProjectsSection() {
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
 
-   
 
-         
 
-           <h2 className="text-4xl md:text-5xl font-headline font-bold text-[#1a1a1a] mb-6 sm:mb-[55px] leading-tight">
 
-              Our{" "}
 
-              <span
+        <h2 className="text-4xl md:text-5xl font-headline font-bold text-[#1a1a1a] mb-6 sm:mb-[55px] leading-tight">
 
-                style={{
+          Our{" "}
 
-                  background: "linear-gradient(90deg, #1CA6A3, #74B4E0)",
+          <span
 
-                  WebkitBackgroundClip: "text",
+            style={{
 
-                  WebkitTextFillColor: "transparent",
+              background: "linear-gradient(90deg, #1CA6A3, #74B4E0)",
 
-                  backgroundClip: "text",
+              WebkitBackgroundClip: "text",
 
-                }}
+              WebkitTextFillColor: "transparent",
 
-              >
+              backgroundClip: "text",
 
-                Programs
+            }}
 
-              </span>
+          >
 
-            </h2>
+            Programs
 
-       
+          </span>
+
+        </h2>
+
+
 
         {/* ── 6-Image Grid ── */}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5">
 
-  {programs.map((program, i) => {
+          {programs.map((program, i) => {
 
-    const Icon = iconMap[program.icon as keyof typeof iconMap];
+            const Icon = iconMap[program.icon as keyof typeof iconMap];
 
-    return (
+            return (
 
-      <div
+              <div
 
-        key={i}
+                key={i}
 
-        className={`relative rounded-2xl overflow-hidden group cursor-pointer ${program.cols} h-72 sm:h-80`}
+                className={`relative rounded-2xl overflow-hidden group cursor-pointer ${program.cols} h-72 sm:h-80`}
 
-      >
+              >
 
-        {/* Image */}
+                {/* Image */}
 
-        <img
+                <img
 
-          src={program.image}
+                  src={program.image}
 
-          alt={program.title}
+                  alt={program.title}
 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
 
-        />
-
-
-
-        {/* Gradient overlay — lighter, white-toned */}
-
-        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/60 to-transparent" />
+                />
 
 
 
-        {/* Program badge */}
+                {/* Gradient overlay — lighter, white-toned */}
 
-        <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/90 shadow-sm backdrop-blur-sm border border-[#1CA6A3]/20">
+                <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/60 to-transparent" />
 
-          <Icon size={12} color="#1CA6A3" strokeWidth={2.5} />
 
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#1CA6A3]">
 
-            Program
+                {/* Program badge */}
 
-          </span>
+                <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/90 shadow-sm backdrop-blur-sm border border-[#1CA6A3]/20">
+
+                  <Icon size={12} color="#1CA6A3" strokeWidth={2.5} />
+
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#1CA6A3]">
+
+                    Program
+
+                  </span>
+
+                </div>
+
+
+
+                {/* Content */}
+
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+
+                  {/* Accent line */}
+
+                  <div className="h-[2px] w-8 rounded-full bg-[#1CA6A3] mb-3 transition-all duration-500 group-hover:w-14" />
+
+
+
+                  <p className="text-gray-900 font-bold text-base sm:text-lg leading-snug mb-1.5">
+
+                    {program.title}
+
+                  </p>
+
+                  <p className="text-[#2525252] text-sm font-medium leading-relaxed mb-4 max-w-[380px]">
+
+                    {program.description}
+
+                  </p>
+
+
+
+                  {/* CTA Button */}
+
+                  <Link
+
+                    to="/programs"
+
+                    className="inline-flex items-center gap-2 px-4 py-2 mt-2 rounded-lg bg-[#1CA6A3] text-white text-sm font-semibold transition-all duration-300 hover:bg-[#178a87] hover:gap-3 shadow-sm hover:shadow-md"
+
+                  >
+
+                    Learn More
+
+                    <ArrowRight size={14} strokeWidth={2.5} />
+
+                  </Link>
+
+                </div>
+
+
+
+
+
+                <ArrowRight
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-x-1" />
+              </div>
+
+            );
+
+          })}
 
         </div>
 
 
 
-        {/* Content */}
-
-        <div className="absolute bottom-0 left-0 right-0 p-5">
-
-          {/* Accent line */}
-
-          <div className="h-[2px] w-8 rounded-full bg-[#1CA6A3] mb-3 transition-all duration-500 group-hover:w-14" />
-
-
-
-          <p className="text-gray-900 font-bold text-base sm:text-lg leading-snug mb-1.5">
-
-            {program.title}
-
-          </p>
-
-          <p className="text-[#2525252] text-sm font-medium leading-relaxed mb-4 line-clamp-2">
-
-            {program.description}
-
-          </p>
-
-
-
-          {/* CTA Button */}
-
-           <Link
-
-            to="/programs"
-
-            className="inline-flex items-center gap-2 px-4 py-2 mt-2 rounded-lg bg-[#1CA6A3] text-white text-sm font-semibold transition-all duration-300 hover:bg-[#178a87] hover:gap-3 shadow-sm hover:shadow-md"
-
-          >
-
-            Learn More
-
-            <ArrowRight size={14} strokeWidth={2.5} />
-
-          </Link>
-
-        </div>
-
       </div>
+                  <div className="text-center sm:mt-20 mt-7">
 
-    );
-
-  })}
-
-</div>
-
-       
-
-      </div>
-
+      <Link to="/programs" className="inline-flex justify-center  gap-3 bg-[#1CA6A3] hover:bg-[#179490] hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-xl  group">
+        View All Programs
+      </Link>
+                  </div>
     </section>
 
   );

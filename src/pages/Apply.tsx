@@ -40,9 +40,9 @@ const programs = [
 ];
 
 const miWorksLocations = [
-  "Detroit – Samaritan Center – 5555 Conner Detroit, MI 48213",
-  "Detroit – Northwest Activity Center 18100 Meyers Detroit, MI 48235",
-  "Detroit – SerMetro 9301 Michigan Ave. Detroit, MI 48210",
+  "Metro Detroit – Samaritan Center – 5555 Conner Metro Detroit, MI 48213",
+  "Metro Detroit – Northwest Activity Center 18100 Meyers Metro Detroit, MI 48235",
+  "Metro Detroit – SerMetro 9301 Michigan Ave. Metro Detroit, MI 48210",
   "Highland Park",
   "Wayne/Westland",
   "Ypsilanti/Washtenaw County",
@@ -403,7 +403,7 @@ const ApplyPage = () => {
             </span>
           </>
         }
-        description="Get trained. Get certified. Get connected to real jobs in Detroit."
+        description="Get trained. Get certified. Get connected to real jobs in Metro Detroit."
         buttonLabel="Begin Application"
         buttonLink="#apply-form"
         backgroundImage="/images/apply-hero.png" 
@@ -473,7 +473,7 @@ const ApplyPage = () => {
                   </div>
                   <div>
                     <h2 className="text-2xl sm:text-3xl font-headline font-bold text-white">
-                      EITI Application
+                      Get Started
                     </h2>
                     <p
                       className="text-sm"

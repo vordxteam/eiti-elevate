@@ -27,7 +27,7 @@ const BuffaloSoldiersPage = () => (
         <div className="text-center mb-16">
           <h2 className="text-3xl font-headline font-bold text-primary mb-4">Skills Applied</h2>
           <p className="text-on-surface-variant max-w-xl mx-auto">
-            Students learned specialized preservation techniques while honoring Detroit's historical legacy.
+            Students learned specialized preservation techniques while honoring Metro Detroit's historical legacy.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -72,7 +72,7 @@ const BuffaloSoldiersPage = () => (
               The project included significant community education components, with students leading tours and presentations about the Buffalo Soldiers' history. This experience taught them not just technical skills, but also the importance of cultural preservation and community storytelling in their professional work.
             </p>
             <p>
-              Working on these monuments connected our students to Detroit's rich history while developing specialized skills in heritage restoration. The project reinforced the idea that skilled trades work can honor the past while building the future.
+              Working on these monuments connected our students to Metro Detroit's rich history while developing specialized skills in heritage restoration. The project reinforced the idea that skilled trades work can honor the past while building the future.
             </p>
           </div>
         </div>

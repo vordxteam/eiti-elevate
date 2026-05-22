@@ -14,6 +14,8 @@ const companyCards = [
   { src: "/images/company4.jpg", alt: "Company 4", width: 188, height: 100 },
   { src: "/images/company5.png", alt: "Company 5", width: 188, height: 100 },
   { src: "/images/company6.jpg", alt: "Company 6", width: 188, height: 100 },
+  { src: "/images/company7.jpg", alt: "Company 7", width: 188, height: 100 },
+  { src: "/images/company8.jpg", alt: "Company 8", width: 188, height: 100 },
 ];
 
 const AboutPage = () => {
@@ -73,10 +75,10 @@ const AboutPage = () => {
             </span>
           </>
         }
-        description="For over 15 years, EITI has equipped Detroit residents with the skills and pathways needed to enter and succeed in the workforce."
-        buttonLabel="Apply Today"
+        description="For over 15 years, EITI has equipped Metro Detroit residents with the skills and pathways needed to enter and succeed in the workforce."
+        buttonLabel="Sign Up Now"
         buttonLink="/apply"
-        backgroundImage="/images/hero-about2.jpeg"
+        backgroundImage="/images/about-hero-new.jpeg"
       />
 
       {/* Mission & Vision */}
@@ -86,7 +88,7 @@ const AboutPage = () => {
           <div className="mb-16 flex flex-col items-center gap-4 text-center">
             <div className="inline-flex items-center gap-3 rounded-full border border-[#1CA6A3]/20 bg-[#1CA6A3]/10 px-5 py-2">
               <span className="text-[11px] font-medium uppercase tracking-[.15em] text-[#0d7a77]">
-                EITI Detroit
+                EITI Metro Detroit
               </span>
             </div>
             <h1 className="text-4xl font-bold  sm:max-w-150 leading-relaxed tracking-tight text-[#111] sm:text-5xl">
@@ -127,10 +129,10 @@ const AboutPage = () => {
                   Our Mission
                 </span>
                 <h2 className="mt-3.5  text-[1.75rem] font-bold leading-[1.15] text-[#111]">
-                  Advancing economic mobility for Detroit
+                  Advancing economic mobility for Metro Detroit
                 </h2>
                 <p className="mt-3.5 text-[14.5px] font-light leading-[1.78] text-[#555]">
-                  EITI trains Detroit residents for real careers through
+                  EITI trains Metro Detroit residents for real careers through
                   hands on, employer aligned programs, equipping individuals
                   with the skills and credentials needed for sustainable
                   employment and long term stability.
@@ -172,7 +174,7 @@ const AboutPage = () => {
                   thrive.
                 </p>
               </div>
-              <div className="flex items-center gap-2.5 border-t border-black/[0.06] px-9 py-5">
+              <div className="flex items-center gap-2.5 border-t border-black/[0.06] px-9 py-5 sm:mt-8">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#74B4E0]" />
                 <span className="text-[11px] font-medium uppercase tracking-[.08em] text-[#5898c8]">
                   Inclusive Growth
@@ -341,7 +343,7 @@ const AboutPage = () => {
             <div className="order-2 lg:order-1">
               <p className="text-lg sm:text-xl text-white/70 leading-relaxed mb-10 max-w-lg">
                 EITI is more than a training institute. We are a bridge between
-                potential and opportunity, connecting Detroit residents to
+                potential and opportunity, connecting Metro Detroit residents to
                 meaningful careers.
               </p>
 
@@ -485,7 +487,7 @@ const AboutPage = () => {
       </section>
       <CTA
         heading="Bridging Opportunity"
-        description="EITI connects Detroit residents with meaningful careers through real pathways to success."
+        description="EITI connects Metro Detroit residents with meaningful careers through real pathways to success."
         buttonLabel="Get In Touch"
         buttonLink="/apply"
       />

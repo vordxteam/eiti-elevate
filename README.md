@@ -1,6 +1,6 @@
 # EITI Elevate
 
-Free hands-on career training in electrical, solar, carpentry, and culinary arts in Detroit.
+Free hands-on career training in electrical, solar, carpentry, and culinary arts in Metro Detroit.
 
 ## Tech Stack
 

@@ -17,6 +17,11 @@ const navLinks = [
   { label: "Work", to: "/work" },
 
   { label: "About", to: "/about" },
+  {
+    label: "Donate",
+    to: "https://www.zeffy.com/en-US/donation-form/b1bac365-f15a-43b3-aaf9-2cd279209705",
+    external: true,
+  },
 
 ];
 
@@ -90,6 +95,13 @@ const Navbar = () => {
 
         <div className="flex justify-between items-center px-8 py-1 max-w-7xl mx-auto">
 
+          {/* <Link to="/">
+
+         
+            {scrolled || !hasHero ? <img src="/images/eiti-black.png" alt="logo" className="h-[50px] w-[140px]" /> : <img src="/images/eiti-white.png" alt="logo" className="h-[50px] w-[140px]" />}
+
+          </Link> */}
+
           <Link to="/">
 
             {/* <img src="/images/Eiti.png" alt="logo" className="h-[60px] w-[130px]" />
@@ -100,13 +112,11 @@ const Navbar = () => {
 
           </Link>
 
-
-
           {/* Desktop links */}
 
           <div className="hidden md:flex items-center space-x-8">
 
-            {navLinks.map((link) => (
+            {/* {navLinks.map((link) => (
 
               <Link
 
@@ -116,17 +126,17 @@ const Navbar = () => {
 
                 className={`font-headline tracking-tight font-bold text-sm transition-colors ${location.pathname === link.to
 
-                    ? scrolled || !hasHero
+                  ? scrolled || !hasHero
 
-                      ? "text-[#1CA6A3] border-b-2 border-[#1CA6A3]"
+                    ? "text-[#1CA6A3] border-b-2 border-[#1CA6A3]"
 
-                      : "text-white border-b-2 border-white"
+                    : "text-white border-b-2 border-white"
 
-                    : scrolled || !hasHero
+                  : scrolled || !hasHero
 
-                      ? "text-[#ED9C6] hover:text-primary"
+                    ? "text-[#ED9C6] hover:text-primary"
 
-                      : "text-white/80 hover:text-white"
+                    : "text-white/80 hover:text-white"
 
                   }`}
 
@@ -138,8 +148,40 @@ const Navbar = () => {
 
               </Link>
 
-            ))}
+            ))} */}
+            {navLinks.map((link) => {
+              const isActive = !link.external && location.pathname === link.to;
 
+              const className = `font-headline tracking-tight font-bold text-sm transition-colors ${isActive
+                ? scrolled || !hasHero
+                  ? "text-[#1CA6A3] border-b-2 border-[#1CA6A3]"
+                  : "text-white border-b-2 border-white"
+                : scrolled || !hasHero
+                  ? "text-[#ED9C6] hover:text-primary"
+                  : "text-white/80 hover:text-white"
+                }`;
+
+              return link.external ? (
+                <a
+                  key={link.to}
+                  href={link.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={className}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
 
@@ -152,7 +194,7 @@ const Navbar = () => {
 
           >
 
-            Apply Today
+            Sign Up Today
 
           </Link>
 
@@ -246,9 +288,9 @@ const Navbar = () => {
 
               className={`block text-sm font-bold font-headline py-3 px-3 rounded-lg transition-colors ${location.pathname === link.to
 
-                  ? "text-[#1CA6A3] bg-[#F2F9F9]"
+                ? "text-[#1CA6A3] bg-[#F2F9F9]"
 
-                  : "text-[#333] hover:text-[#1CA6A3] hover:bg-[#F2F9F9]"
+                : "text-[#333] hover:text-[#1CA6A3] hover:bg-[#F2F9F9]"
 
                 }`}
 

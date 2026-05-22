@@ -7,9 +7,9 @@ const projects = [
     title: "Virginia Park Neighborhood Beautification",
     partner: "Ally",
     description:
-      "EITI partnered with Ally Financial to drive residential improvements and community revitalization across Detroit's Virginia Park neighborhood, turning hands on training into tangible, lasting impact.",
+      "EITI partnered with Ally to drive residential improvements and community revitalization across Metro Detroit's Virginia Park neighborhood, turning hands on training into tangible, lasting impact.",
     image:
-      "/images/viriginaparknew.jpeg",
+      "/images/viriginaparknew.jpg",
     category: "Community Revitalization",
     ctaLink:
       "/virginia-park",
@@ -23,7 +23,7 @@ const projects = [
     title: "Pole Barn Construction for Buffalo Soldiers Heritage",
     partner: "Carhartt",
     description:
-      "A landmark collaboration with Carhartt and the Buffalo Soldiers Heritage Association. EITI students built a functional pole barn structure, honoring Detroit's history while earning real construction credentials.",
+      "A landmark collaboration with Carhartt and the Buffalo Soldiers Heritage Association. EITI students built a functional pole barn structure, honoring Metro Detroit's history while earning real construction credentials.",
     image:
       "/images/poleBarn.jpeg",
     category: "Historic Preservation",
@@ -53,7 +53,7 @@ const WorkPage = () => (
           </span>
         </>
       }
-      description="EITI students gain hands on experience by working on real projects that serve communities and partners across Detroit."
+      description="EITI students gain hands on experience by working on real projects that serve communities and partners across Metro Detroit."
       buttonLabel="Explore Projects"
       buttonLink="#projects"
       backgroundImage="/images/hero-work.jpeg"
@@ -206,7 +206,7 @@ const WorkPage = () => (
                     {projects[0].stat}
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
+                {/* <div className="flex items-center gap-2">
                   <span
                     className="material-symbols-outlined"
                     style={{ color: "#74B4E0", fontSize: "18px" }}
@@ -219,7 +219,7 @@ const WorkPage = () => (
                   >
                     {projects[0].year}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* CTA */}
@@ -291,7 +291,7 @@ const WorkPage = () => (
                     {projects[1].stat}
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
+                {/* <div className="flex items-center gap-2">
                   <span
                     className="material-symbols-outlined"
                     style={{ color: "#5FB673", fontSize: "18px" }}
@@ -304,7 +304,7 @@ const WorkPage = () => (
                   >
                     {projects[1].year}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* CTA */}
@@ -435,12 +435,12 @@ const WorkPage = () => (
             {
               value: "60+",
               label: "Projects Completed",
-              desc: "Real builds across Detroit communities, driven by student talent.",
+              desc: "Real builds across Metro Detroit communities, driven by student talent.",
               icon: "construction",
               color: "#1CA6A3",
             },
             {
-              value: "200+",
+              value: "2200+",
               label: "Students Trained",
               desc: "Participants who earned hands-on skills on live project sites.",
               icon: "school",
@@ -449,7 +449,7 @@ const WorkPage = () => (
             {
               value: "15+",
               label: "Community Partners",
-              desc: "Organizations united behind Detroit's workforce future.",
+              desc: "Organizations united behind Metro Detroit's workforce future.",
               icon: "handshake",
               color: "#5FB673",
             },
@@ -518,8 +518,8 @@ const WorkPage = () => (
 
     <CTA
       heading="Partner With Us"
-      description="Help us expand access to training, create jobs, and strengthen Detroit's workforce."
-      buttonLabel="Get In Touch"
+      description="Help us expand access to training, create jobs, and strengthen Metro Detroit's workforce."
+      buttonLabel="Sign Up Now"
       buttonLink="/apply"
     />
   </div>

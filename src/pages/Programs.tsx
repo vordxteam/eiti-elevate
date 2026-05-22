@@ -10,23 +10,34 @@ const programs = [
     shortTitle: "Electrical",
     icon: "bolt",
     desc: "EITI's Residential Electrical Training prepares participants for entry level careers in the electrical trades through hands on instruction and real world application.",
+    certifications: [
+      "MARC I Certification",
+      "MARC II Certification",
+    ],
     learn: [
       "Wiring and circuitry fundamentals",
       "Electrical safety and code basics",
       "Residential system installation",
       "Jobsite practices and tools",
+      "OSHA 30",
+      "State of Michigan Contractor Supervisor Asbestos Abatement",
+      "State of Michigan Lead Worker Initial",
     ],
     careers: [
-      "Electrical apprenticeships",
-      "Entry level electrical technician roles",
-      "Construction industry positions",
+      "Residential Electrician",
+      "Electrical Technician",
+      "Electrical Supervisor",
+      "Electrical Inspector",
+      "Energy Auditor",
+      "Apprentice Electrician",
+      "Home Automation Specialist",
     ],
     iconColor: "#1CA6A3",
   },
   {
     id: "solar",
     slug: "solar",
-    title: "Renewable Energy Solar Technician Training",
+    title: "Renewable Energy Solar Technician",
     shortTitle: "Solar",
     icon: "solar_power",
     desc: "This program introduces participants to the growing renewable energy sector, focusing on solar photovoltaic systems and installation practices.",
@@ -35,11 +46,21 @@ const programs = [
       "Energy efficiency principles",
       "System maintenance and safety",
       "Renewable energy fundamentals",
+      "OSHA 30",
+      "State of Michigan Contractor Supervisor Asbestos Abatement",
+      "State of Michigan Lead Worker Initial",
     ],
     careers: [
-      "Solar installation technician",
-      "Renewable energy roles",
-      "Green construction careers",
+      "Solar Installer",
+      "Solar Technician",
+      "Solar System Designer",
+      "Project Manager",
+      "Sales Representative",
+      "Solar Energy Consultant",
+      "Field Service Technician",
+      "Quality Assurance Inspector",
+      "Solar Energy Educator",
+      "Renewable Energy Analyst",
     ],
     iconColor: "#74B4E0",
   },
@@ -50,23 +71,36 @@ const programs = [
     shortTitle: "Carpentry",
     icon: "foundation",
     desc: "Participants gain hands on experience in residential and light commercial construction, building the foundation for careers in carpentry and skilled trades.",
+    certifications: [
+      "MARC I Certification",
+      "MARC II Certification",
+    ],
     learn: [
       "Blueprint reading",
       "Framing walls and roofs",
       "Structural layout",
       "Tool safety and usage",
+       "OSHA 30",
+      "State of Michigan Contractor Supervisor Asbestos Abatement",
+      "State of Michigan Lead Worker Initial",
     ],
     careers: [
-      "Carpentry apprenticeships",
-      "Construction roles",
-      "Skilled trades positions",
+      "Framer",
+      "Structural Carpenter",
+      "Finish Carpenter",
+      "Carpentry Supervisor",
+      "Construction Manager",
+      "Site Foreman",
+      "Cabinetmaker",
+      "Remodeling Carpenter",
+      "Home Inspector",
     ],
     iconColor: "#5FB673",
   },
   {
     id: "culinary",
     slug: "culinary",
-    title: "Culinary Training Program",
+    title: "Culinary Arts Training Program",
     shortTitle: "Culinary",
     icon: "restaurant",
     desc: "This program prepares participants for careers in food service and hospitality through hands on kitchen experience and professional training.",
@@ -77,9 +111,16 @@ const programs = [
       "Culinary fundamentals",
     ],
     careers: [
-      "Restaurant and kitchen roles",
-      "Catering and hospitality positions",
-      "Food entrepreneurship pathways",
+      "Chef",
+      "Pastry Chef",
+      "Restaurant Manager",
+      "Catering Manager",
+      "Sous Chef",
+      "Food Stylist",
+      "Nutritionist",
+      "Culinary Instructor",
+      "Food Writer or Critic",
+      "Food and Beverage Director",
     ],
     iconColor: "#1CA6A3",
   },
@@ -236,7 +277,18 @@ const ProgramsPage = () => (
                   <p className="text-[14px] leading-relaxed text-[#777] mb-4">
                     {program.desc}
                   </p>
-
+                  {program.certifications && (
+                    <div className="my-2 space-y-1">
+                      {program.certifications.map((certification) => (
+                        <p
+                          key={certification}
+                          className="text-sm font-semibold text-[#1CA6A3]"
+                        >
+                          {certification}
+                        </p>
+                      ))}
+                    </div>
+                  )}
                   {/* Divider */}
                   <div
                     className="h-px mb-4"
@@ -338,7 +390,7 @@ const ProgramsPage = () => (
                   className="inline-flex items-center gap-1.5 text-[11px] font-bold py-2 px-3.5 rounded-lg text-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 group/cta w-fit"
                   style={{ backgroundColor: program.iconColor }}
                 >
-                  Apply Now
+                  Sign up
                   <span
                     className="material-symbols-outlined transition-transform duration-300 group-hover/cta:translate-x-0.5"
                     style={{ fontSize: "13px" }}
@@ -357,7 +409,7 @@ const ProgramsPage = () => (
     <CTA
       heading="Choose Your Path. Start Today."
       description="No prior experience required. Our hands on programs are built to take you from day one to job ready, with real skills, real credentials, and real employers waiting."
-      buttonLabel="Apply Now"
+      buttonLabel="Sign Up Now"
       buttonLink="/apply"
     />
   </div>

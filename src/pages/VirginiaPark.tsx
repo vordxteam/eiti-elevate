@@ -66,13 +66,13 @@ const VirginiaParkPage = () => (
               The Virginia Park Beautification Project was a collaborative effort between EITI students, local residents, and community stakeholders to revitalize a neglected neighborhood park. The project began with extensive community consultation to understand resident needs and preferences, ensuring that the final design would serve the people who use the space daily.
             </p>
             <p>
-              Our carpentry students took the lead in constructing custom benches and picnic tables using sustainable, locally-sourced materials. Working alongside professional contractors, they learned advanced woodworking techniques while producing functional pieces that would withstand Detroit's variable weather conditions.
+              Our carpentry students took the lead in constructing custom benches and picnic tables using sustainable, locally-sourced materials. Working alongside professional contractors, they learned advanced woodworking techniques while producing functional pieces that would withstand Metro Detroit's variable weather conditions.
             </p>
             <p>
-              The landscaping team collaborated with local nurseries to select native plants that would thrive in Detroit's climate and require minimal maintenance. They designed garden beds that not only beautified the park but also created educational opportunities for visitors to learn about sustainable gardening practices.
+              The landscaping team collaborated with local nurseries to select native plants that would thrive in Metro Detroit's climate and require minimal maintenance. They designed garden beds that not only beautified the park but also created educational opportunities for visitors to learn about sustainable gardening practices.
             </p>
             <p>
-              The highlight of the project was a large-scale mural painted by our students, depicting Detroit's industrial heritage alongside its natural beauty. This artistic element transformed a blank wall into a community landmark, sparking conversations about local history and cultural identity.
+              The highlight of the project was a large-scale mural painted by our students, depicting Metro Detroit's industrial heritage alongside its natural beauty. This artistic element transformed a blank wall into a community landmark, sparking conversations about local history and cultural identity.
             </p>
           </div>
         </div>

@@ -10,6 +10,8 @@ const companyCards = [
   { src: "/images/company4.jpg", alt: "Company 4", width: 188, height: 100 },
   { src: "/images/company5.png", alt: "Company 5", width: 188, height: 100 },
   { src: "/images/company6.jpg", alt: "Company 6", width: 188, height: 100 },
+  { src: "/images/company7.jpg", alt: "Company 7", width: 188, height: 100 },
+  { src: "/images/company8.jpg", alt: "Company 8", width: 188, height: 100 },
 ];
 
 const stats = [
@@ -19,7 +21,7 @@ const stats = [
     comma: false,
     label: "Years",
     description:
-      "Training Detroit's workforce and connecting talent to opportunity.",
+      "Training Metro Detroit's workforce and connecting talent to opportunity.",
     icon: "calendar_month",
     color: "#1CA6A3",
   },
@@ -47,7 +49,7 @@ const stats = [
     comma: true,
     label: "Careers Launched",
     description:
-      "Thousands of Detroit residents now earning and building real futures.",
+      "Thousands of Metro Detroit residents now earning and building real futures.",
     icon: "rocket_launch",
     color: "#1CA6A3",
   },
@@ -184,7 +186,7 @@ const ImpactPage = () => {
             </span>
           </>
         }
-        description="For over 15 years, EITI has been transforming lives through hands on workforce training, connecting Detroit residents to meaningful careers in high demand industries."
+        description="For over 15 years, EITI has been transforming lives through hands on workforce training, connecting Metro Detroit residents to meaningful careers in high demand industries."
         buttonLabel="Partner With Us"
         buttonLink="/apply"
         backgroundImage="/images/hero-impact.jpeg"
@@ -300,7 +302,7 @@ const ImpactPage = () => {
               </span>
             </h2>
             <p className="text-lg text-[#666] leading-relaxed">
-              EITI serves Detroit residents who are ready to build a better
+              EITI serves Metro Detroit residents who are ready to build a better
               future. We focus on individuals seeking opportunity, stability,
               and a clear path into the workforce.
             </p>
@@ -324,14 +326,14 @@ const ImpactPage = () => {
               },
               {
                 icon: "location_city",
-                title: "Urban Residents",
-                desc: "Detroit community members ready to upskill and unlock new opportunity.",
+                title: "Returning Citizens",
+                desc: "Returning citizens seeking a fresh start, career pathways, and long-term economic opportunity.",
                 color: "#5FB673",
                 span: "lg:col-span-4",
               },
               {
                 icon: "diversity_3",
-                title: "Young Adults",
+                title: " Opportunity Youth",
                 desc: "Youth ready to begin their professional journey and build lasting careers.",
                 color: "#1CA6A3",
                 span: "lg:col-span-8",
@@ -445,7 +447,7 @@ const ImpactPage = () => {
                   className="text-lg mb-10 leading-relaxed"
                   style={{ color: "rgba(255,255,255,0.6)" }}
                 >
-                  Too many capable individuals in Detroit lack access to
+                  Too many capable individuals in Metro Detroit lack access to
                   training, resources, and pathways into sustainable careers.
                   Economic barriers and limited industry aligned education keep
                   talent on the sidelines.
@@ -536,7 +538,7 @@ const ImpactPage = () => {
                 >
                   EITI bridges the gap through hands-on education,
                   employer aligned training, and direct connections to
-                  opportunity for every Detroit resident ready to work.
+                  opportunity for every Metro Detroit resident ready to work.
                 </p>
                 <div className="space-y-3">
                   {[
@@ -558,7 +560,7 @@ const ImpactPage = () => {
                     {
                       icon: "groups",
                       label: "Community Focus",
-                      desc: "Built for Detroit, by Detroit",
+                      desc: "Built for Metro Detroit, by Metro Detroit",
                     },
                   ].map((item, i) => (
                     <div
@@ -628,8 +630,8 @@ const ImpactPage = () => {
 
       <CTA
         heading="Partner With Us"
-        description="Help us expand access to training, create jobs, and strengthen Detroit's workforce."
-        buttonLabel="Apply Now"
+        description="Help us expand access to training, create jobs, and strengthen Metro Detroit's workforce."
+        buttonLabel="Sign Up Now"
         buttonLink="/apply"
       />
     </div>
