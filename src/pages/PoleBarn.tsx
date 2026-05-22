@@ -263,7 +263,7 @@ export default function PoleBarn() {
                 boxShadow: "0 25px 60px -25px rgba(13, 61, 60, 0.25)",
               }}
             >
-              <img src="/images/pole1.jpeg" alt="Pole Barn Project" className="w-full h-full object-cover" />
+              <img src="/images/pole1.jpg" alt="Pole Barn Project" className="w-full h-full object-cover" />
             </div>
           </div>
         </FadeIn>
@@ -399,7 +399,7 @@ export default function PoleBarn() {
                 boxShadow: "0 12px 35px -15px rgba(13, 61, 60, 0.18)",
               }}
             >
-              <img src="/images/pole2.jpeg" alt="Pole Barn Challenge" className="w-full h-full object-cover" />
+              <img src="/images/pole2.jpg" alt="Pole Barn Challenge" className="w-full h-full object-cover" />
             </div>
           </FadeIn>
         </section>

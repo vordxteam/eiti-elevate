@@ -385,7 +385,7 @@ export default function VirginiaCaseStudy() {
                 boxShadow: "0 12px 35px -15px rgba(13, 61, 60, 0.18)",
               }}
             >
-              <img src="/images/virgina2.jpeg" alt="Virginia Park Challenge" className="w-full h-full object-cover" />
+              <img src="/images/virgina2.jpg" alt="Virginia Park Challenge" className="w-full h-full object-cover" />
             </div>
           </FadeIn>
         </section>
@@ -416,7 +416,7 @@ export default function VirginiaCaseStudy() {
                 boxShadow: "0 12px 35px -15px rgba(13, 61, 60, 0.18)",
               }}
             >
-              <img src="/images/virgina3.jpeg" alt="EITI Approach" className="w-full h-full object-cover" />
+              <img src="/images/virgina3.jpg" alt="EITI Approach" className="w-full h-full object-cover" />
             </div>
           </FadeIn>
         </section>

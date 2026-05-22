@@ -216,10 +216,10 @@ const Footer: React.FC = () => {
                 9:00 am – 4:00 pm
               </p>
 
-              <div className="mt-3 flex items-center gap-2 text-xs text-slate-400">
+              {/* <div className="mt-3 flex items-center gap-2 text-xs text-slate-400">
                 <span className="w-2 h-2 rounded-full bg-[#1CA6A3] animate-pulse" />
                 Currently open
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
