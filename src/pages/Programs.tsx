@@ -10,10 +10,10 @@ const programs = [
     shortTitle: "Electrical",
     icon: "bolt",
     desc: "EITI's Residential Electrical Training prepares participants for entry level careers in the electrical trades through hands on instruction and real world application.",
-    certifications: [
-      "MARC I Certification",
-      "MARC II Certification",
-    ],
+    // certifications: [
+    //   "MARC I Certification",
+    //   "MARC II Certification",
+    // ],
     learn: [
       "Wiring and circuitry fundamentals",
       "Electrical safety and code basics",
@@ -73,7 +73,7 @@ const programs = [
     desc: "Participants gain hands on experience in residential and light commercial construction, building the foundation for careers in carpentry and skilled trades.",
     certifications: [
       "MARC I Certification",
-      "MARC II Certification",
+      // "MARC II Certification",
     ],
     learn: [
       "Blueprint reading",

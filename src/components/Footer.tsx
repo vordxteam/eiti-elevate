@@ -25,7 +25,13 @@ const navLinks = [
   ],
   [
     { label: "Our impact", href: "/impact" },
-    { label: "Apply", href: "/apply" },
+    { label: "Sign Up", href: "/apply" },
+    {
+      label: "Donate",
+      href: "https://www.zeffy.com/en-US/donation-form/b1bac365-f15a-43b3-aaf9-2cd279209705",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
   ],
 ];
 
@@ -47,8 +53,6 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="relative overflow-hidden bg-[#0D1F22]">
-
-
       {/* Background Effects */}
       <div className="pointer-events-none absolute -top-32 -left-32 w-80 h-80 rounded-full blur-3xl opacity-10 bg-[#1CA6A3]" />
       <div className="pointer-events-none absolute top-10 right-0 w-72 h-72 rounded-full blur-3xl opacity-10 bg-[#74B4E0]" />
@@ -58,21 +62,23 @@ const Footer: React.FC = () => {
 
       <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-
           {/* ── Brand ── */}
           <div>
             <div className="mb-5">
-              <span className="text-4xl font-extrabold text-[#1CA6A3]">EITI</span>
+              <span className="text-4xl font-extrabold text-[#1CA6A3]">
+                EITI
+              </span>
               <div className="mt-1 h-0.5 w-12 bg-gradient-to-r from-[#1CA6A3] to-[#74B4E0]" />
             </div>
 
             <p className="text-white text-sm font-semibold mb-1">
               Emerging Industries Training Institute
             </p>
-            <p className="text-sm text-[#74B4E0] mb-5">Metro Detroit, Michigan</p>
+            <p className="text-sm text-[#74B4E0] mb-5">Detroit, Michigan</p>
 
             <p className="text-sm text-slate-400 pl-4 border-l-2 border-[#1CA6A3]">
-              Workforce training and employment pathways for emerging industries.
+              Workforce training and employment pathways for emerging
+              industries.
             </p>
 
             {/* Socials */}
@@ -90,8 +96,7 @@ const Footer: React.FC = () => {
                       hoveredSocial === label
                         ? "#1CA6A3"
                         : "rgba(255,255,255,0.06)",
-                    color:
-                      hoveredSocial === label ? "#fff" : "#74B4E0",
+                    color: hoveredSocial === label ? "#fff" : "#74B4E0",
                     transform:
                       hoveredSocial === label ? "translateY(-2px)" : "none",
                     boxShadow:
@@ -119,6 +124,8 @@ const Footer: React.FC = () => {
                     <li key={link.label}>
                       <Link
                         to={link.href}
+                        target={link.target}
+                        rel={link.rel}
                         className="group flex items-center gap-2 text-sm text-slate-400 transition-colors duration-200"
                         onMouseEnter={(e) =>
                           (e.currentTarget.style.color = "#ffffff")
@@ -164,20 +171,28 @@ const Footer: React.FC = () => {
                     <p className="text-white text-sm font-medium">
                       5555 Conner Street, Suite 1646
                     </p>
-                    <p className="text-sm text-slate-400">Metro Detroit, MI 48213</p>
+                    <p className="text-sm text-slate-400">Detroit, MI 48213</p>
                   </div>
                 </li>
               </a>
 
               {[
-                { icon: Mail, text: "info@eitinstitute.org", href: "mailto:info@eitinstitute.org" },
-                { icon: Globe, text: "trainandemploy.org", href: "https://trainandemploy.org" },
+                {
+                  icon: Mail,
+                  text: "info@eitinstitute.org",
+                  href: "mailto:info@eitinstitute.org",
+                },
+                {
+                  icon: Globe,
+                  text: "trainandemploy.org",
+                  href: "https://trainandemploy.org",
+                },
                 // { icon: MapPin, text: "313.469.0581", href: "tel:3134690581" },
                 {
                   icon: MapPin,
                   text: "313.469.0581",
-                  href: "https://www.google.com/maps?q=313.469.0581"
-                }
+                  href: "https://www.google.com/maps?q=313.469.0581",
+                },
               ].map(({ icon: Icon, text, href }) => (
                 <li key={text} className="flex items-center gap-3">
                   <Icon className="w-4 h-4 text-[#1CA6A3]" />
@@ -229,19 +244,14 @@ const Footer: React.FC = () => {
 
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
-
           <p>© 2026 Emerging Industries Training Institute</p>
 
           {/* Back to top (hover restored) */}
           <button
             onClick={scrollToTop}
             className="group flex items-center gap-2 transition-all duration-200"
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "#1CA6A3")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "#475569")
-            }
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#1CA6A3")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#475569")}
           >
             Back to top
             <span className="flex items-center justify-center w-7 h-7 rounded-full border border-white/10 transition-all duration-300 group-hover:border-[#1CA6A3] group-hover:-translate-y-0.5">

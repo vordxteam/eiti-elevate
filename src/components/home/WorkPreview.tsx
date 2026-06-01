@@ -40,7 +40,7 @@ const projects: Project[] = [
 
     imageSrc:
 
-      "/images/students1.png",
+      "/images/impact-new.JPG",
 
     imageAlt: "Student electrician working on wiring installation",
 
@@ -80,7 +80,7 @@ const projects: Project[] = [
 
     
 
-      imageSrc: "/images/students3.png",
+      imageSrc: "/images/student3-new.jpeg",
 
     imageAlt: "Student carpenter working on wooden structure",
 
