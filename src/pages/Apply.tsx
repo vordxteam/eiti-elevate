@@ -133,11 +133,10 @@ const PillRadio = ({
   required?: boolean;
 }) => (
   <label
-    className={`px-5 py-2.5 rounded-full border-2 cursor-pointer font-semibold text-sm transition-all select-none ${
-      checked
+    className={`px-5 py-2.5 rounded-full border-2 cursor-pointer font-semibold text-sm transition-all select-none ${checked
         ? "border-[#1CA6A3] bg-[#1CA6A3] text-white shadow-md shadow-[#1CA6A3]/25"
         : "border-[#E0E8E8] bg-white text-[#555] hover:border-[#1CA6A3]/50"
-    }`}
+      }`}
   >
     <input
       type="radio"
@@ -162,11 +161,10 @@ const ToggleCheckbox = ({
   label: string;
 }) => (
   <label
-    className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all select-none ${
-      checked
+    className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all select-none ${checked
         ? "border-[#1CA6A3] bg-[#1CA6A3]/5"
         : "border-[#E0E8E8] bg-white hover:border-[#1CA6A3]/30"
-    }`}
+      }`}
   >
     <input
       type="checkbox"
@@ -175,9 +173,8 @@ const ToggleCheckbox = ({
       className="sr-only"
     />
     <div
-      className={`w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 transition-all ${
-        checked ? "bg-[#1CA6A3]" : "border-2 border-[#CDCDCD]"
-      }`}
+      className={`w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 transition-all ${checked ? "bg-[#1CA6A3]" : "border-2 border-[#CDCDCD]"
+        }`}
     >
       {checked && (
         <span
@@ -245,11 +242,10 @@ const CustomSelect = ({
         onClick={() => setIsOpen(!isOpen)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className={`w-full px-4 py-3 rounded-xl border bg-[#F8FAFA] text-left outline-none transition-all duration-300 flex items-center justify-between ${
-          isOpen || isFocused
+        className={`w-full px-4 py-3 rounded-xl border bg-[#F8FAFA] text-left outline-none transition-all duration-300 flex items-center justify-between ${isOpen || isFocused
             ? "border-[#1CA6A3] bg-white ring-2 ring-[#1CA6A3]/15"
             : "border-[#E0E8E8] hover:border-[#1CA6A3]/50"
-        }`}
+          }`}
       >
         <span className={`text-sm ${value ? "text-[#333]" : "text-[#999]"}`}>
           {value || placeholder}
@@ -268,11 +264,10 @@ const CustomSelect = ({
               key={index}
               type="button"
               onClick={() => handleSelect(option)}
-              className={`w-full px-4 py-3 text-left text-sm transition-colors duration-200 ${
-                value === option
+              className={`w-full px-4 py-3 text-left text-sm transition-colors duration-200 ${value === option
                   ? "bg-[#1CA6A3]/10 text-[#1CA6A3] font-medium"
                   : "text-[#555] hover:bg-[#F2F9F9] hover:text-[#1CA6A3]"
-              }`}
+                }`}
             >
               {option}
             </button>
@@ -506,11 +501,10 @@ const ApplyPage = () => {
                       return (
                         <label
                           key={program.id}
-                          className={`relative flex items-center gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
-                            isSelected
+                          className={`relative flex items-center gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all ${isSelected
                               ? "border-[#1CA6A3] bg-[#1CA6A3]/5 shadow-sm"
                               : "border-[#E0E8E8] hover:border-[#1CA6A3]/40 bg-[#F8FAFA]"
-                          }`}
+                            }`}
                         >
                           <input
                             type="radio"
@@ -539,9 +533,8 @@ const ApplyPage = () => {
                             </span>
                           </div>
                           <span
-                            className={`text-sm font-semibold leading-tight ${
-                              isSelected ? "text-[#0D1F22]" : "text-[#666]"
-                            }`}
+                            className={`text-sm font-semibold leading-tight ${isSelected ? "text-[#0D1F22]" : "text-[#666]"
+                              }`}
                           >
                             {program.name}
                           </span>
@@ -713,7 +706,7 @@ const ApplyPage = () => {
                             key={doc.key}
                             checked={
                               formData[
-                                doc.key as keyof typeof formData
+                              doc.key as keyof typeof formData
                               ] as boolean
                             }
                             onChange={() => handleCheckboxChange(doc.key)}
@@ -739,7 +732,7 @@ const ApplyPage = () => {
                             key={edu.key}
                             checked={
                               formData[
-                                edu.key as keyof typeof formData
+                              edu.key as keyof typeof formData
                               ] as boolean
                             }
                             onChange={() => handleCheckboxChange(edu.key)}
@@ -981,13 +974,33 @@ const ApplyPage = () => {
                     Submit Application
                     <span className="material-symbols-outlined">send</span>
                   </button> */}
-                  <button
+                  {/* <button
                     type="submit"
                     disabled={isSubmitting}
                     className="inline-flex items-center justify-center gap-2 bg-[#1CA6A3] hover:bg-[#179490] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold px-10 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-lg whitespace-nowrap"
                   >
                     {isSubmitting ? "Submitting..." : "Submit Application"}
                     <span className="material-symbols-outlined">send</span>
+                  </button> */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center gap-2 bg-[#1CA6A3] hover:bg-[#179490] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold px-10 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#1CA6A3]/30 hover:-translate-y-0.5 text-lg whitespace-nowrap"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                        </svg>
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        Submit Application
+                        <span className="material-symbols-outlined">send</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

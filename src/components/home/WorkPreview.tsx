@@ -40,7 +40,7 @@ const projects: Project[] = [
 
     imageSrc:
 
-      "/images/impact-new.JPG",
+      "/images/new-impact.jpg",
 
     imageAlt: "Student electrician working on wiring installation",
 

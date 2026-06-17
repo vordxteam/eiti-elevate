@@ -32,7 +32,7 @@ import BuffaloSoldiers from "./pages/BuffaloSoldiers.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 import ScrollToTop from "@/components/ScrollToTop.tsx";
-import { prioritizeHeroImage } from './utils/imageOptimizer'; 
+import { prioritizeHeroImage } from './utils/imageOptimizer';
 
 import { useEffect } from "react";
 import { cacheImages } from './utils/imageCache';
@@ -41,7 +41,7 @@ import { cacheImages } from './utils/imageCache';
 import VirginiaCaseStudy from "./pages/VirginiaCaseStudy.tsx";
 
 import PoleBarn from "./pages/PoleBarn.tsx";
-
+import HireTalentSection from "./components/HireTalentSection.tsx";
 
 
 const queryClient = new QueryClient();
@@ -116,7 +116,8 @@ const queryClient = new QueryClient();
 // };
 const AppContent = () => {
   const location = useLocation();
-
+  const hideHireSection = ["/apply"].includes(location.pathname) ||
+    !["/", "/programs", "/impact", "/work", "/work/virginia-park", "/work/buffalo-soldiers", "/about", "/virginia-park", "/pole-barn"].includes(location.pathname);
   useEffect(() => {
     prioritizeHeroImage();
   }, []);
@@ -144,6 +145,7 @@ const AppContent = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+      {!hideHireSection && <HireTalentSection />}
       <Footer />
     </>
   );
